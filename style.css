@@ -1,0 +1,529 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin-ext');
+
+* { margin: 0; }
+
+body {
+	margin: 0;
+	background: white;
+	font: 100%/1.5 "Open Sans", Helvetica Neue, sans-serif;
+	text-decoration-skip: ink;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.25;
+	margin: 1em 0 .5em;
+}
+
+h1 {
+	font-size: 120%;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px dotted #ccc;
+}
+
+	nav a, a[href^="#"], article > a {
+		border-bottom: none;
+	}
+
+	a:hover, a:focus {
+		color: hsl(20, 100%, 45%) !important;
+	}
+
+p {
+	hyphens: auto;
+}
+
+.seminaryear {
+	padding-top:10px;
+	color: hsl(20, 100%, 45%);
+}
+
+
+
+body > header {
+	padding: 1em 1.5em 1.8em;
+	background: linear-gradient(transparent, rgba(0,0,0,.5)),
+	            url("images/social/group-meeting.jpg") 50% 20% / cover hsl(20, 100%, 45%);
+	color: white;
+	text-align: center;
+	font-size: 120%;
+	text-shadow: 0 0 .5em rgba(0,0,0,.5);
+}
+
+	body > header nav {
+		display: flex;
+		padding: .5em;
+	}
+
+		body > header nav h1 {
+			margin: 0;
+			margin-top: -.5em;
+			height: 1.8em;
+		}
+
+			body > header nav h1 img {
+				height: 100%;
+				margin: 0 .5em .3em 0;
+			}
+
+			body > header nav h1 svg {
+				height: calc(100% + .2em);
+				margin-bottom: -.2em;
+			}
+
+			body > header nav h1 svg {
+				color: white;
+			}
+
+				body > header nav h1 svg use {
+					color: white;
+					fill: hsl(20, 100%, 70%);
+				}
+
+		body > header nav ul {
+			display: flex;
+			flex: 1;
+			justify-content: flex-end;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			font-weight: bold;
+		}
+
+		@media (max-width: 400px) {
+			body > header nav ul {
+				flex-flow: column;
+			}
+		}
+
+			body > header nav ul a {
+				padding: 0 .3em;
+			}
+
+	body > header h2 {
+		margin-top: 2em;
+		margin-bottom: .4em;
+		font-weight: 300;
+		font-size: 300%;
+	}
+
+	body > header .join {
+		display: inline-block;
+		padding: .4em 1em .5em;
+		border: .15em solid white;
+		border-radius: .3em;
+		font-weight: bold;
+	}
+
+		body > header .join:hover {
+			text-decoration: none;
+			background: white;
+			color: black;
+			mix-blend-mode: screen;
+			text-shadow: none;
+		}
+
+	@media (max-width: 550px) {
+		body > header h2 {
+			font-size: 150%;
+		}
+
+		body > header .join {
+			font-size: 75%;
+		}
+	}
+
+/* Scrolled header */
+@media (min-width: 600px) {
+	.scrolled body {
+		padding-top: 24em; /* height of hidden part of header, to prevent jump */
+	}
+
+		.scrolled body > header {
+			position: fixed;
+			top: 0; left: 0; right: 0;
+			z-index: 2;
+			padding: .5em 1.5em .5em;
+			box-shadow: 0 .2em 1em rgba(0,0,0,.3);
+		}
+
+		.scrolled body > header nav h1 {
+			height: 1.5em;
+		}
+
+			.scrolled body > header h2,
+			.scrolled body > header .join {
+				display: none;
+			}
+}
+
+body > section,
+body > footer {
+	max-width: 60rem;
+	margin: auto;
+	padding: 0 1em;
+}
+
+	body > section > h1 {
+		position: relative;
+		z-index: 1;
+		color: hsl(20, 100%, 45%);
+		font-weight: 300;
+		font-size: 250%;
+		padding-top: 1.5em;
+		margin-top: 0;
+	}
+
+		body > section > h1 > a::before {
+			content: "#";
+			position: absolute;
+			right: 100%;
+			bottom: -.55em;
+			z-index: -1;
+			margin-right: -.6em;
+			width: 1.2em;
+			padding: .5em;
+			border-radius: 50%;
+			text-align: center;
+			font-weight: bold;
+			font-size: 120%;
+			color: white;
+			background: hsla(20, 100%, 85%, .75);
+			transition: .4s;
+		}
+
+		body > section:not(:target) > h1 > a:not(:hover)::before {
+			opacity: 0;
+			transform: scale(0);
+		}
+
+		body > section:target > h1 > a:not(:hover)::before {
+
+		}
+
+		body > section > h1 > a:hover::before {
+			color: inherit;
+		}
+
+section.people {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+	section.people > h1 {
+		width: 100%;
+	}
+
+	section.people article {
+		margin: .5em 0;
+	}
+
+	@media (min-width: 770px) {
+		section.people article {
+			margin: 1em 2em 1em 0;
+		}
+	}
+
+		section.people article h1 {
+			margin: 0;
+		}
+
+		section.people article img {
+			width: 13em;
+			height: 13em;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+
+		section.people article .group {
+			display: block;
+			font-weight: bold;
+			color: rgba(0,0,0,.5);
+		}
+
+	@media (min-width: 770px) {
+		section.people[id=phds] article {
+			max-width: 11em;
+			text-align: center;
+		}
+	}
+
+		section.people[id=phds] article img {
+			width: 11em;
+			height: 11em;
+		}
+
+		section.people[id=phds] article .group {
+			font-size: 80%;
+			font-weight: 300;
+			color: inherit;
+		}
+
+	@media (max-width: 770px) {
+		section.people {
+			flex-flow: column;
+		}
+
+			section.people[id] article {
+				max-width: auto;
+			}
+
+			section.people[id] article img {
+				width: 4.6em;
+				height: 4.6em;
+				float: left;
+				margin-right: .5em;
+			}
+
+			section.people[id=phds] article img {
+				width: 2.7em;
+				height: 2.7em;
+			}
+	}
+
+section[id="research"] article {
+	margin-bottom: 2em;
+}
+
+	section[id="research"] article > p {
+		font-weight: 300;
+		font-size: 80%;
+	}
+
+	section[id="research"] article footer,
+	section[id="seminar"] > .info {
+		padding: .8em 1em;
+		margin: 1em -1em;
+		border-radius: .3em;
+		background: hsla(220, 15%, 50%, .15);
+	}
+
+	section[id="research"] article footer {
+		color: rgba(0,0,0,.5);
+		font-size: 80%;
+		background: hsl(20, 100%, 95%);
+		max-width: fit-content;
+		padding: .6em 1em;
+	}
+
+		section[id="research"] article footer a, section[id="research"] article footer span[class="project"] {
+			font-weight: bold;
+			color: black;
+		}
+
+		section[id="research"] article a[href^="https://www.youtube.com"],
+		section[id="research"] article a.video {
+			font-size: 0;
+		}
+
+			section[id="research"] article a[href^="https://www.youtube.com"]::before {
+				content: url("images/icons/icon_youtube.png");
+			}
+
+			section[id="research"] article a.video::before {
+				content: "📽";
+				font-size: 1rem;
+			}
+
+section[id="classes"] article {
+	display: flex;
+	margin: 1em 0;
+}
+
+	section[id="classes"] article .semester,
+	section[id="classes"] article.coming-soon h1::after,
+	section[id="seminar"] > section > h1 a {
+		display: inline-block;
+		vertical-align: .2em;
+		padding: .2em .5em;
+		border-radius: .3em;
+		background: hsl(220, 10%, 70%);
+		text-transform: uppercase;
+		color: white;
+		font-size: 60%;
+	}
+
+	section[id="classes"] article.coming-soon h1::after {
+		content: "Coming Soon";
+		padding: .25em .5em;
+		margin-left: .5em;
+	}
+
+	section[id="classes"] article > img {
+		flex: 0 0 content;
+		max-width: 10em;
+		max-height: 8em;
+		object-fit: cover;
+		margin-right: 1em;
+		border-radius: .3em;
+	}
+
+	@media (max-width: 650px) {
+		section[id="classes"] article > img {
+			display: none;
+		}
+	}
+
+	section[id="classes"] article > div {
+		flex: 1;
+	}
+
+	section[id="classes"] article h1 {
+		margin: 0;
+	}
+
+	section[id="classes"] article .description {
+		font-size: 80%;
+	}
+
+	section[id="classes"] article .semester {
+		display: inline-block;
+		margin-right: .3em;
+		background: hsl(220, 30%, 94%);
+		color: inherit;
+		vertical-align: baseline;
+		font-size: 70%;
+	}
+
+	section[id="classes"] article .semester.fall {
+		background: hsl(40, 40%, 90%);
+	}
+
+	section[id="classes"] article .semester.spring {
+		background: hsl(80, 40%, 90%);
+	}
+
+		section[id="classes"] article .semester::before {
+			margin-right: .5em;
+		}
+
+		section[id="classes"] article .semester.iap::before {
+			content: "❄️";
+		}
+
+		section[id="classes"] article .semester.fall::before {
+			content: "🍂";
+		}
+
+		section[id="classes"] article .semester.spring::before {
+			content: "🌼"
+		}
+		section[id="classes"] article .semester.video {
+			background: hsl(40, 40%, 90%);
+			content: "";
+		}
+
+section[id="seminar"] > section {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+	section[id="seminar"] > .info {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		font-size: 95%;
+	}
+
+	@media (max-width: 800px) {
+		section[id="seminar"] > .info {
+			flex-flow: column;
+			line-height: 2;
+		}
+	}
+
+		section[id="seminar"] > .info a[title^="Where"] {
+			font-weight: bold;
+		}
+
+	section[id="seminar"] > section > h1 {
+		width: 100%;
+		margin-bottom: .5em;
+	}
+
+		section[id="seminar"] > section > h1 a:hover {
+			background: hsl(20, 100%, 45%);
+			text-decoration: none;
+		}
+
+	@media (min-width: 750px) {
+		section[id="seminar"] article {
+			width: 49%;
+		}
+	}
+
+		section[id="seminar"] video {
+			width: 100%;
+		}
+
+		section[id="seminar"] article h1 {
+			margin: .3em 0;
+			font-weight: 300;
+			font-size: 100%;
+		}
+
+			section[id="seminar"] article h1 strong {
+				display: block;
+			}
+
+section[id="join"] {
+	background: hsl(220, 10%, 30%);
+	box-shadow: -50vw 0 hsl(220, 10%, 30%), 50vw 0 hsl(220, 10%, 30%);
+	padding: 1em 1em 2em;
+	margin-top: 3em;
+	color: white;
+}
+
+	section[id="join"] > h1 {
+		padding-top: 0;
+	}
+
+	section[id="join"] > p {
+		position: relative;
+		z-index: 1;
+	}
+
+		section[id="join"] > h1 > a:not(:hover)::before {
+			background: hsla(20, 100%, 80%, .75);
+			z-index: -1;
+		}
+
+		section[id="join"]:target > h1 > a:not(:hover)::before {
+			color: hsl(220, 10%, 30%);
+		}
+
+body > footer {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 1em;
+	background: hsl(220, 10%, 90%);
+	box-shadow: -50vw 0 hsl(220, 10%, 90%), 50vw 0 hsl(220, 10%, 90%);
+}
+
+	@media (min-width: 470px) {
+		body > footer > p {
+			flex: 1;
+		}
+	}
+
+	body > footer a {
+		font-weight: bold;
+	}
+
+	body > footer a.logo {
+		height: 3em;
+		margin: 0 .5em;
+	}
+
+		body > footer a.logo > img {
+			height: 100%;
+		}
+
+section[id="previous"] > article {
+	padding-bottom: 10px;
+}
+
