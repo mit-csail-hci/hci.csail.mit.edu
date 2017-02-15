@@ -345,6 +345,12 @@ section[id="classes"] article {
 		color: white;
 		font-size: 60%;
 	}
+	
+	section[id="classes"] article .semester,
+	section[id="classes"] article.coming-soon h1::after,
+	section[id="seminar"] > section > h1 a:hover {
+		color: white !important;
+	}
 
 	section[id="classes"] article.coming-soon h1::after {
 		content: "Coming Soon";
