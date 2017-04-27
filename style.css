@@ -510,6 +510,10 @@ body > footer {
 	box-shadow: -50vw 0 hsl(220, 10%, 90%), 50vw 0 hsl(220, 10%, 90%);
 }
 
+	body > footer > p[id="web-site-issues"] {
+		font-size: 80%;
+	}
+
 	@media (min-width: 470px) {
 		body > footer > p {
 			flex: 1;
