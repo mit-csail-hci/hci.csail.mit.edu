@@ -1,0 +1,38 @@
+#!/bin/bash
+
+#
+# Post-Receive Hook
+#
+
+webfolder=/afs/csail.mit.edu/proj/hci/www/data
+
+set -e
+set -u
+
+# meta-hook supplies original script name
+self="$1"
+
+subdir="${self%scripts/repo-post-receive-hook}"
+src="${subdir%/}"
+
+# be helpful to someone debugging this script
+if [ -z "$GIT_DIR" -o -z "$self" ]; then
+  echo "Usage: echo <oldrev> <newrev> <branch> | GIT_DIR=<dir> $0 <path/to/self>"
+  exit 1
+fi
+
+master="refs/heads/master"
+
+while read -r oldrev newrev branch; do
+  if [ "$branch" == "$master" ]; then
+    break
+  fi
+done
+
+if [ "$branch" != "$master" -o -z "$newrev" ]; then
+  exit 0
+fi
+
+# update snapshot
+echo "updating http://hci.mit.edu from git..."
+GIT_WORK_TREE=$webfolder git checkout -f
