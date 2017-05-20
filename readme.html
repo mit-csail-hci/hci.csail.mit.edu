@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>MIT HCI Seminar</title>
+	<link rel="stylesheet" href="style.css" />
+	<meta name="viewport" content="width=device-width" />
+</head>
+<body>
+
+<header>
+	<nav>
+		<h1>
+			<a href="http://hci.csail.mit.edu"><img src="images/logos/mithci.svg" alt="MIT HCI" /></a>
+			<svg viewBox="0 0 175 134"><use xlink:href="images/logos/csail.svg#logo" /></svg>
+		</h1>
+		<ul>
+			<!-- <li><a href="#2017">2017</a></li> -->
+			<li><a href="#2014">2014</a></li>
+			<li><a href="#2013">2013</a></li>
+			<li><a href="#2012">2012</a></li>
+			<li><a href="#2011">2011</a></li>
+			<li><a href="#2010">2010</a></li>
+			<li><a href="#2009">2009</a></li>
+			<li><a href="#2008">2008</a></li>
+			<li><a href="#2007">2007</a></li>
+			<li><a href="#2006">2006</a></li>
+			<li><a href="#2005">2005</a></li>
+			<li><a href="#2004">2004</a></li>
+			<li><a href="#2003">2003</a></li>
+		</ul>
+	</nav>
+
+	<h2>Readme: to update MIT HCI website for each PIs group</h2>
+</header>
+
+
+<section id="readme">
+	
+	<h1>How to update hci.csail.mit.edu?</h1>
+	<br/>
+	<h2 class="seminaryear">What content can I edit?</h2>
+	Each PIs group can edit the content that belongs to their group:
+	<ul>
+		<li>add or remove their own people including updating their photos, changing their personal webpage links etc.</li>
+		<li>add or remove their own research projects</li>
+		<li>add or remove their own classes</li>
+	</ul>
+	<br/>
+	<h2 class="seminaryear">What content can I not edit?</h2>	
+	For anything that is a global change, e.g. restructuring the website, updating things in the footer, 
+	adding new sections, please talk to me first and we can find a solution together.
+	<br/>
+	<br/>
+	<h3 id="t7">Process for editing (thank you Rob!):</h3>
+	<br/>
+	1. get the website code on your local:
+	<br/>
+	<br/>
+	<pre>
+	<code>git clone ssh://login.csail.mit.edu/afs/csail.mit.edu/proj/hci/git</code>
+	</pre>
+	<br/>
+	2. Make your changes locally, then 
+	<br/>
+	<br/>
+	<pre>
+	<code>git push</code>
+	</pre>
+	<br/>
+	you should see a line of output 'remote: updating http://hci.mit.edu from git...'
+	<br/>
+	which means that it's updating the website using what you just pushed.
+	<br/>
+	<br/>
+	(In the background, a simple hook script (/afs/csail.mit.edu/proj/hci/git/hooks/post-receive) updates the web folder 
+	(/afs/csail.mit.edu/proj/hci/www/data) whenever anybody pushes to the git repo.)
+	<br/>
+	<br/>
+	3. Adding new people with editing rights:
+	<br/>
+	In order to have permission to access the git repo, people will need CSAIL accounts and to be members of the hci group.  
+	<br/>
+	Any member of the hci group can add somebody else using this command:
+	<br/>
+	<br/>
+	<pre>
+	<code>ssh login.csail.mit.edu pts adduser -group hci -user USERNAME</code>
+	</pre>
+
+	<br/>
+	<br/>
+	<br/>
+</section>
+
+<!--
+<footer>
+	<p>This website is open source (MIT licensed), feel free to <a href="https://github.com/LeaVerou/hci.mit.edu">fork it!</a></p>
+	<a href="http://mit.edu" class="logo"><img src="images/logos/mit.svg" alt="MIT" /></a>
+	<a href="http://csail.mit.edu" class="logo"><img src="images/logos/csail.svg" alt="CSAIL" /></a>
+</footer>
+-->
+
+<footer>
+	<p>
+	This website template is open source (MIT licensed), Thanks <a href="https://github.com/LeaVerou/">LeaVerou</a>. 
+	<br/>
+	To update this website, please <a href="readme.html">README!</a>
+	</p>
+	<a href="http://mit.edu" class="logo"><img src="images/logos/mit.svg" alt="MIT" /></a>
+	<a href="http://csail.mit.edu" class="logo"><img src="images/logos/csail.svg" alt="CSAIL" /></a>
+</footer>
+
+<script>
+window.addEventListener("scroll", evt => 
+{
+	let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	document.documentElement.classList.toggle("scrolled", scrollTop > 200);
+});
+
+for (let h1 of document.querySelectorAll("body > section > h1")) 
+{
+	let hash = document.createElement("a");
+	hash.href = "#" + h1.parentNode.id;
+	while(h1.firstChild) hash.appendChild(h1.firstChild);
+	h1.appendChild(hash);
+}
+</script>
+</body>
+</html>
