@@ -85,7 +85,31 @@
 	<br/>
 	<br/>
 	<pre>
-	<code>ssh login.csail.mit.edu pts adduser -group hci -user USERNAME</code>
+	<code>ssh [CSAIL-USERNAME]@login.csail.mit.edu pts adduser -group hci -user USERNAME</code>
+	</pre>
+	<br/>
+	<br/>
+	4. Checking/Querying users in a group:
+	<br/>
+	In order to check the user's permission to access the git repo.  
+	<br/>
+	Any member of the hci group can query using this command:
+	<br/>
+	<br/>
+	<pre>
+	<code>ssh [CSAIL-USERNAME]@login.csail.mit.edu pts membership hci</code>
+	</pre>
+	<br/>
+	<br/>
+	5. Remove users in a group:
+	<br/>
+	In order to remove the exists user permission to access the git repo.  
+	<br/>
+	Any member of the hci group can remove another user using this command:
+	<br/>
+	<br/>
+	<pre>
+	<code>ssh [CSAIL-USERNAME]@login.csail.mit.edu pts remove -group hci -user USERNAME</code>
 	</pre>
 
 	<br/>
