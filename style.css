@@ -346,9 +346,24 @@ section[id="classes"] article {
 		font-size: 60%;
 	}
 	
+	section[id="alumni"] > section > h1 a {
+		display: inline-block;
+		vertical-align: .2em;
+		padding: .2em .5em;
+		border-radius: .3em;
+		background: hsl(220, 10%, 70%);
+		text-transform: uppercase;
+		color: white;
+		font-size: 60%;
+	}
+	
 	section[id="classes"] article .semester,
 	section[id="classes"] article.coming-soon h1::after,
 	section[id="seminar"] > section > h1 a:hover {
+		color: white !important;
+	}
+	
+	section[id="alumni"] > section > h1 a:hover {
 		color: white !important;
 	}
 
@@ -452,6 +467,11 @@ section[id="seminar"] > section {
 	}
 
 		section[id="seminar"] > section > h1 a:hover {
+			background: hsl(20, 100%, 45%);
+			text-decoration: none;
+		}
+		
+				section[id="alumni"] > section > h1 a:hover {
 			background: hsl(20, 100%, 45%);
 			text-decoration: none;
 		}
