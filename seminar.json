@@ -1,6 +1,47 @@
 {
 "series": [
   {
+	"year": "2018-2019",
+	"entries":[
+		{
+			"speaker": "",
+			"affiliation": "",
+			"title": "",
+			"date":"",
+			"time": "1-2pm",
+			"location": "32-G449",
+			"url": ""
+		},
+		{
+			"speaker": "",
+			"affiliation": "",
+			"title": "",
+			"date":"",
+			"time": "1-2pm",
+			"location": "32-G449",
+			"url": ""
+		},
+		{
+			"speaker": "",
+			"affiliation": "",
+			"title": "",
+			"date":"",
+			"time": "1-2pm",
+			"location": "32-G449",
+			"url": ""
+		},
+		{
+			"speaker": "",
+			"affiliation": "",
+			"title": "",
+			"date":"",
+			"time": "1-2pm",
+			"location": "32-G449",
+			"url": ""
+		},
+	]
+  },
+  {
 	"year": "2013-2014",
 	"entries":[
 		{

@@ -1,6 +1,6 @@
 <?php 
 // Set the current year. Update this every year!
-define("CUR_YEAR", "2015-2016");
+define("CUR_YEAR", "2018-2019");
 
 $string = file_get_contents("seminar.json");
 $json = json_decode($string, true);
