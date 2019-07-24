@@ -242,6 +242,7 @@ section.people {
 			display: block;
 			font-weight: bold;
 			color: rgba(0,0,0,.5);
+			font-size: 90%;
 		}
 
 	@media (min-width: 770px) {
