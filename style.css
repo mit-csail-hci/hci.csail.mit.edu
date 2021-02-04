@@ -554,3 +554,13 @@ section[id="previous"] > article {
 	padding-bottom: 10px;
 }
 
+thead {
+  border-bottom: 2px solid #ddd;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
