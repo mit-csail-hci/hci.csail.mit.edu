@@ -564,3 +564,11 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
+
+th {
+  padding: 0.4em;
+}
+
+td {
+  padding: 0.9em;
+}
