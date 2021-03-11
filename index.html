@@ -6,6 +6,36 @@
 	<title>MIT HCI</title>
 	<link rel="stylesheet" href="style.css" />
 	<meta name="viewport" content="width=device-width" />
+  <script src="https://get.mavo.io/stable/mavo.es5.min.js"></script>
+  <link rel="stylesheet" href="https://get.mavo.io/stable/mavo.min.css">
+
+  <style>
+    #phds {
+      --mv-app: phds;
+      --mv-storage: local;
+    }
+
+    #phds article {
+      --mv-property: member;
+      --mv-multiple: true;
+    }
+
+    #phds article a h1 {
+      --mv-property: name;
+    }
+    #phds article a img {
+      --mv-property: image;
+    }
+    #phds article a:not(.group) {
+      --mv-property: website;
+      background-color: aqua;   
+    }
+    #phds article .group {
+      --mv-property: group;
+      --mv-attribute: none;
+      background-color: tomato;
+    }
+  </style>
 </head>
 <body>
 
@@ -30,6 +60,12 @@
 </header>
 
 <section id="faculty" class="people">
+  <div mv-app="hobbyDemo" mv-storage="local">
+    Hobbies:
+    <ul>
+      <li property="hobby" mv-multiple>Eating</li>
+    </ul>
+  </div>
 	<h1>Faculty &amp; PIs</h1>
 	<article>
 		<a href="http://people.csail.mit.edu/davis/">
@@ -105,7 +141,7 @@
 	</article>
 </section>
 
-<section id="phds" class="people">
+<section id="phds" class="people" mv-plugins="importhtml">
 	<h1>PhDs &amp; PostDocs</h1>
 
 	<article>
