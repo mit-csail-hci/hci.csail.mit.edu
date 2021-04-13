@@ -52,66 +52,25 @@
 	adding new sections, please talk to <i>Stefanie Mueller</i> first and we can find a solution together.
 	<br/>
 	<br/>
-	<h3 id="t7">Process for editing (thank you Rob!):</h3>
+	<h3 id="t7">Process for editing:</h3>
 	<br/>
-	1. get the website code on your local:
-	<br/>
-	<br/>
-	<pre>
-	<code>git clone ssh://[CSAIL-USERNAME]@login.csail.mit.edu/afs/csail.mit.edu/proj/hci/git</code>
-	</pre>
-	<br/>
-	2. Make your changes locally, then 
-	<br/>
-	<br/>
-	<pre>
-	<code>git push</code>
-	</pre>
-	<br/>
-	you should see a line of output 'remote: updating http://hci.mit.edu from git...'
-	<br/>
-	which means that it's updating the website using what you just pushed.
-	<br/>
-	<br/>
-	(In the background, a simple hook script (/afs/csail.mit.edu/proj/hci/git/hooks/post-receive) updates the web folder 
-	(/afs/csail.mit.edu/proj/hci/www/data) whenever anybody pushes to the git repo.)
-	<br/>
-	<br/>
-	3. Adding new people with editing rights:
-	<br/>
-	In order to have permission to access the git repo, people will need CSAIL accounts and to be members of the hci group.  
-	<br/>
-	Any member of the hci group can add somebody else using this command:
-	<br/>
-	<br/>
-	<pre>
-	<code>ssh [CSAIL-USERNAME]@login.csail.mit.edu pts adduser -group hci -user USERNAME</code>
-	</pre>
-	<br/>
-	<br/>
-	4. Checking/Querying users in a group:
-	<br/>
-	In order to check the user's permission to access the git repo.  
-	<br/>
-	Any member of the hci group can query using this command:
-	<br/>
-	<br/>
-	<pre>
-	<code>ssh [CSAIL-USERNAME]@login.csail.mit.edu pts membership hci</code>
-	</pre>
-	<br/>
-	<br/>
-	5. Remove users in a group:
-	<br/>
-	In order to remove the exists user permission to access the git repo.  
-	<br/>
-	Any member of the hci group can remove another user using this command:
-	<br/>
-	<br/>
-	<pre>
-	<code>ssh [CSAIL-USERNAME]@login.csail.mit.edu pts remove -group hci -user USERNAME</code>
-	</pre>
-
+    <ol>
+        <li>
+            The code is available on GitHub:
+            <a>https://github.com/mit-csail-hci/hci.csail.mit.edu</a>.
+            <br/>
+            Contact Josh or Faraz if you need access to the repository.
+        </li>
+        <li>
+            Clone the repo: <code>git clone git@github.com:mit-csail-hci/hci.csail.mit.edu.git</code>
+        </li>
+        <li>
+            Make changes locally, then push them: <code>git push</code>
+        </li>
+        <li>
+            The website will update automatically!
+        </li>
+    </ol>
 	<br/>
 	<br/>
 	<br/>
