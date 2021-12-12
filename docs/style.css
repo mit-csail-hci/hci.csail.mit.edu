@@ -411,11 +411,11 @@ section[id="classes"] article {
 	}
 
 	section[id="classes"] article .semester.fall {
-		background: hsl(42, 91%, 39%);
+		background: hsl(42, 76%, 68%);
 	}
 
 	section[id="classes"] article .semester.spring {
-		background:  hsl(42, 91%, 39%);
+		background:  hsl(73, 37%, 48%);
 	}
 
 		section[id="classes"] article .semester::before {
