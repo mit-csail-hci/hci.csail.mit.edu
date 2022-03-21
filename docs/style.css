@@ -229,6 +229,7 @@ section.people {
 
 		section.people article h1 {
 			margin: 0;
+			text-align: center;
 		}
 
 		section.people article img {
@@ -243,6 +244,7 @@ section.people {
 			font-weight: bold;
 			color: rgba(0,0,0,.5);
 			font-size: 90%;
+			text-align: center;
 		}
 
 	@media (min-width: 770px) {
