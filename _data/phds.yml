@@ -83,20 +83,20 @@
   academic_level: phd
 
 - name: Kendall Nakai
-  url: ""
+  url: https://kendallnakai.com/
   image: kendall.jpeg
   group_id: haystack
   academic_level: phd
 
 - name: Arnav Verma
-  url: ""
+  url: https://www.arnavverma.com/
   image: arnav-verma.jpeg
   group_id: visualization
   academic_level: phd
 
 - name: Carmel Schare
-  url: ""
-  image: ""
+  url: https://schare.space
+  image: carmel-schare.jpg
   group_id: software_design
   academic_level: phd
 
