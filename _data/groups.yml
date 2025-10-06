@@ -1,0 +1,54 @@
+design_rationale:
+  name: Design Rationale Group
+  url: http://rationale.csail.mit.edu/
+  short_name: Design Rationale
+
+usable_programming:
+  name: Usable Programming Group
+  url: http://up.csail.mit.edu/
+  short_name: Usable Programming
+
+ice_lab:
+  name: Imagination, Computation, and Expression Lab
+  url: https://groups.csail.mit.edu/icelab/
+  short_name: ICE Lab
+
+software_design:
+  name: Software Design Group
+  url: https://sdg.csail.mit.edu
+  short_name: Software Design
+
+haystack:
+  name: Haystack Group
+  url: http://haystack.csail.mit.edu/index.html
+  short_name: Haystack
+
+hci_engineering:
+  name: HCI Engineering Group
+  url: http://hcie.csail.mit.edu
+  short_name: HCI Engineering
+
+perceptual_science:
+  name: Perceptual Science Lab
+  url: http://persci.mit.edu/people/rosenholtz
+  short_name: Perceptual Science
+
+visualization:
+  name: Visualization Group
+  url: http://vis.csail.mit.edu
+  short_name: Visualization
+
+computer_graphics:
+  name: Computer Graphics Group
+  url: http://graphics.csail.mit.edu/
+  short_name: Computer Graphics
+
+interaction_alignment:
+  name: Interaction & Alignment Group
+  url: #
+  short_name: Interaction & Alignment
+
+human_ai_resonance:
+  name: Human-AI Resonance Lab
+  url: #
+  short_name: Human-AI Resonance

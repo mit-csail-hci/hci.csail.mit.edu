@@ -1,0 +1,155 @@
+- name: Marwa AlAlawi
+  url: https://malalawi.github.io/MarwaAlAlawi/
+  image: marwa-alalawi.png
+  group_id: hci_engineering
+  academic_level: phd
+
+- name: Angie Boggust
+  url: http://angieboggust.com/
+  image: angie-boggust.png
+  group_id: visualization
+  academic_level: phd
+
+- name: Abutalib Namazov
+  url: ""
+  image: barish-namazov.jpeg
+  group_id: software_design
+  academic_level: phd
+
+- name: Faraz Faruqi
+  url: https://www.farazfaruqi.com/
+  image: faraz-faruqi.jpeg
+  group_id: hci_engineering
+  academic_level: phd
+
+- name: Hope Dargan
+  url: ""
+  image: hope-dargan.jpeg
+  group_id: usable_programming
+  academic_level: phd
+
+- name: Theia Henderson
+  url: https://www.linkedin.com/in/theia-henderson-ab69038b
+  image: theia-henderson.jpg
+  group_id: haystack
+  academic_level: phd
+
+- name: Nouran Soliman
+  url: https://www.nouransoliman.com/
+  image: nouran-soliman.jpg
+  group_id: haystack
+  academic_level: phd
+
+- name: Prerna Ravi
+  url: https://prernaravi.com/#/
+  image: prerna-ravi.jpeg
+  group_id: haystack
+  academic_level: phd
+
+- name: Josh Pollock
+  url: https://joshmpollock.com/
+  image: jmp.jpg
+  group_id: visualization
+  academic_level: phd
+
+- name: Ticha Sethapakdi
+  url: http://www.tichamelody.com/
+  image: ticha-sethapakdi.png
+  group_id: hci_engineering
+  academic_level: phd
+
+- name: Dylan Wooton
+  url: https://dylanwootton.com/
+  image: dylan-wooton.jpg
+  group_id: visualization
+  academic_level: phd
+
+- name: Yunyi Zhu
+  url: http://www.yunyizhu.info/
+  image: yunyi-zhu.jpg
+  group_id: hci_engineering
+  academic_level: phd
+
+- name: Andre Ye
+  url: https://andre-ye.org
+  image: andre-ye.jpg
+  group_id: interaction_alignment
+  academic_level: phd
+
+- name: Helen Bang
+  url: ""
+  image: helen.png
+  group_id: interaction_alignment
+  academic_level: phd
+
+- name: Kendall Nakai
+  url: ""
+  image: kendall.jpeg
+  group_id: haystack
+  academic_level: phd
+
+- name: Arnav Verma
+  url: ""
+  image: arnav-verma.jpeg
+  group_id: visualization
+  academic_level: phd
+
+- name: Carmel Schare
+  url: ""
+  image: ""
+  group_id: software_design
+  academic_level: phd
+
+- name: Maxine Perroni-Scharf
+  url: https://maxineps.com/
+  image: maxine-perroni-scharf.jpg
+  group_id: hci_engineering
+  academic_level: phd
+
+- name: Paris Myers
+  url: https://parismyers.com/
+  image: paris-myers.png
+  group_id: hci_engineering
+  academic_level: phd
+
+- name: Demircan Tas
+  url: https://demircantas.com
+  image: demiran-tas.jpeg
+  group_id: hci_engineering
+  academic_level: phd
+
+- name: Stephen Brade
+  url: ""
+  image: stephen-brade.png
+  group_id: human_ai_resonance
+  academic_level: phd
+
+- name: Jiaji Li
+  url: ""
+  image: jiaji-li.jpg
+  group_id: hci_engineering
+  academic_level: postdoc
+
+- name: Eagon Meng
+  url: https://scholar.google.com/citations?user=afzAaxwAAAAJ&hl=en
+  image: eagon-meng.png
+  group_id: software_design
+  academic_level: phd
+
+- name: Carolina Moura Valle Costa
+  url: https://www.linkedin.com/in/carolina-moura-valle-costa-4476b4229/
+  image: ""
+  group_id: software_design
+  academic_level: ugrad
+
+- name: Ryan Yen
+  url: https://ryanyen2.github.io
+  image: ryan-yen.jpg
+  group_id: visualization
+  academic_level: phd
+
+- name: Zoe De Simone
+  url: https://zoedesimone.github.io/
+  image: zoe-de-simone.jpg
+  group_id: visualization
+  academic_level: phd

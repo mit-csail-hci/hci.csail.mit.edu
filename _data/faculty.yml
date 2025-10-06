@@ -1,0 +1,34 @@
+- name: Daniel Jackson
+  url: http://people.csail.mit.edu/dnj/
+  image: daniel-jackson.jpg
+  group_id: software_design
+
+- name: David R. Karger
+  url: http://people.csail.mit.edu/karger/
+  image: david-karger.jpg
+  group_id: haystack
+
+- name: Rob Miller
+  url: http://people.csail.mit.edu/rcm/
+  image: rob-miller.jpg
+  group_id: usable_programming
+
+- name: Stefanie Mueller
+  url: http://people.csail.mit.edu/stefaniemueller
+  image: stefanie-mueller.jpg
+  group_id: hci_engineering
+
+- name: Arvind Satyanarayan
+  url: http://arvindsatya.com/
+  image: arvind-satyanarayan.jpg
+  group_id: visualization
+
+- name: Anna Huang
+  url: https://czhuang.github.io/
+  image: anna-huang.jpg
+  group_id: human_ai_resonance
+
+- name: Mitchell L. Gordon
+  url: https://mgordon.me/
+  image: mitchell-gordon.jpg
+  group_id: interaction_alignment

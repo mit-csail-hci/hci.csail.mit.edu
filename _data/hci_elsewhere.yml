@@ -1,0 +1,75 @@
+research_groups:
+  - name: Imagination, Computation, and Expression Laboratory
+    url: http://groups.csail.mit.edu/icelab/
+    faculty: Fox Harrell
+    location: MIT CSAIL
+  - name: Interactive Robotics Group
+    url: https://interactive.mit.edu/
+    faculty: Julie Shah
+    location: MIT CSAIL
+  - name: Spoken Language Systems Group
+    url: https://groups.csail.mit.edu/sls/
+    faculty: Jim Glass, Stephanie Seneff, Victor Zue
+    location: MIT CSAIL
+  - name: Tangible Media Group
+    url: http://tangible.media.mit.edu/
+    faculty: Hiroshi Ishii
+    location: MIT Media Lab
+  - name: Responsive Environments Group
+    url: https://www.media.mit.edu/research/groups/responsive-environments
+    faculty: Joseph A. Paradiso
+    location: MIT Media Lab
+  - name: Living Mobile Group
+    url: https://www.media.mit.edu/research/groups/living-mobile
+    faculty: Chris Schmandt
+    location: MIT Media Lab
+  - name: Lifelong Kindergarten Group
+    url: https://www.media.mit.edu/research/groups/lifelong-kindergarten
+    faculty: Mitchel Resnick
+    location: MIT Media Lab
+  - name: Affective Computing Group
+    url: http://affect.media.mit.edu/
+    faculty: Rosalind Picard
+    location: MIT Media Lab
+  - name: Fluid Interfaces Group
+    url: http://fluid.media.mit.edu/
+    faculty: Pattie Maes
+    location: MIT Media Lab
+  - name: Camera Culture Group
+    url: http://cameraculture.media.mit.edu/
+    faculty: Ramesh Raskar
+    location: MIT Media Lab
+  - name: Personal Robots Group
+    url: http://robotic.media.mit.edu/
+    faculty: Cynthia Breazeal
+    location: MIT Media Lab
+  - name: Software Agents Group
+    url: http://agents.media.mit.edu/
+    faculty: Henry Lieberman, Junia Anacleto
+    location: MIT Media Lab
+  - name: Ideation Laboratory
+    url: http://web.mit.edu/ideation/index.html
+    faculty: Maria Yang
+    location: MIT Mechanical Engineering
+  - name: Perceptual Science Group
+    url: http://persci.mit.edu/
+    faculty: Edward Adelson, Ruth Rosenholtz
+    location: MIT Brain/Cognitive Sciences
+  - name: Center for Collective Intelligence
+    url: http://cci.mit.edu/
+    faculty:
+    location: MIT Sloan
+  - name: Human Dynamics Group
+    url: http://hd.media.mit.edu/
+    faculty:
+    location: MIT Media Lab
+  - name: New Media Medicine
+    url: http://newmed.media.mit.edu/
+    faculty:
+    location: MIT Media Lab
+
+seminars_meetings:
+  - name: Upcoming Media Lab Talks
+    url: http://media.mit.edu/events/upcoming
+  - name: BostonCHI (HCI groups around the Boston area)
+    url: https://www.bostonchi.org/

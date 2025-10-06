@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+	<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+	<link rel="stylesheet" href="{{ '/assets/css/interactive.css' | relative_url }}" />
+	{% seo %}
+</head>
+<body>
+{{ content }}
+
+<footer>
+	<p>
+		This website template is open source (MIT licensed). Thanks <a href="https://github.com/LeaVerou/">LeaVerou</a>.
+		<br/><br/>
+		If you have any questions about the website or wish to make changes,<br/>
+		please contact <a href="mailto:andreye@mit.edu">Andre Ye</a> or <a href="mailto:schare@mit.edu">Carmel Schare</a>.
+		<br/>
+		Thank you to our previous webmasters Josh Pollock and Faraz Faruqi.
+		<br/><br/>
+		<a href="https://accessibility.mit.edu/">Accessibility</a>
+		<br/><br/>
+	</p>
+	<a href="http://mit.edu" class="logo"><img src="{{ '/assets/images/logos/mit.svg' | relative_url }}" alt="MIT" /></a>
+	<a href="http://csail.mit.edu" class="logo"><img src="{{ '/assets/images/logos/csail.svg' | relative_url }}" alt="CSAIL" /></a>
+</footer>
+
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

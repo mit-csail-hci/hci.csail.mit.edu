@@ -1,0 +1,30 @@
+# Site settings
+title: MIT HCI
+description: Human-Computer Interaction at MIT CSAIL
+url: "https://hci.csail.mit.edu"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  people:
+    output: false
+  research:
+    output: false
+
+# Exclude files from build
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+
+# Assets
+sass:
+  sass_dir: _sass
+  style: compressed

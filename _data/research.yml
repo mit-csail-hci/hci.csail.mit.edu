@@ -1,0 +1,132 @@
+- title: Redesign Email Inbox
+  group: Haystack Group
+  group_url: http://haystack.csail.mit.edu/
+  description: >
+    Email has grown from a tool for communication to one that also encompasses task management, notifications, and a personal information repository.
+    However, current email clients are not flexible or powerful enough to handle users' myriad needs for email.
+    To address users' demand, we aim to redesign emails ranging from programmable personal inbox to community-wide mailing-list.
+  projects:
+    - name: YoUPS
+      url: https://youps.csail.mit.edu/
+    - name: Murmur
+      url: http://murmur.csail.mit.edu/
+    - name: Squadbox
+      url: https://squadbox.csail.mit.edu/
+
+- title: New Interaction Models for Personal Fabrication
+  group: HCI Engineering Group
+  group_url: http://hcie.csail.mit.edu
+  description: >
+    Inspired by the history of the user interface for personal computing, we are developing new interaction models for personal fabrication.
+    Instead of working through a digital 3D editor, we propose to let users work hands-on on the physical workpiece and to update the physical
+    object after every editing step. Our long-term vision is to enable direct manipulation for physical matter in the same way as we today
+    manipulate digital data on touch-devices, such as the iPad.
+  projects:
+    - name: Lenticular Objects
+      url: https://hcie.csail.mit.edu/research/lenticularobject/lenticular-object.html
+    - name: SensiCut
+      url: https://hcie.csail.mit.edu/research/sensicut/sensicut.html
+    - name: MetaSense
+      url: https://hcie.csail.mit.edu/research/metasense/metasense.html
+    - name: EIT-Kit
+      url: https://hcie.csail.mit.edu/research/eit-kit/eit-kit.html
+    - name: Fabricaide
+      url: https://hcie.csail.mit.edu/research/fabricaide/fabricaide.html
+    - name: LaserFactory
+      url: https://hcie.csail.mit.edu/research/laserfactory/laserfactory.html
+    - name: ChromoUpdate
+      url: https://hcie.csail.mit.edu/research/chromoupdate/chromoupdate.html
+
+- title: Faster Prototyping and Design Iteration Techniques
+  group: HCI Engineering Group
+  group_url: http://hcie.csail.mit.edu
+  description: >
+    Even though considered a rapid prototyping tool, 3D printers are so slow that a reasonably sized object requires printing overnight.
+    This slows designers down to a single iteration per day. Our concept called Low-fidelity fabrication speeds up design iteration by
+    printing intermediate versions of a prototype as fast, low-fidelity previews. Only the final version is fabricated as a full 3D print.
+  projects:
+    - name: G-ID
+      url: https://hcie.csail.mit.edu/research/gid/gid.html
+    - name: FoodFab
+      url: https://hcie.csail.mit.edu/research/foodfab/foodfab.html
+    - name: WirePrint
+      url: http://stefaniemueller.org/WirePrint/
+    - name: Platener
+      url: http://stefaniemueller.org/platener/
+    - name: faBrickation
+      url: http://stefaniemueller.org/faBrickation/
+
+- title: "Gitless: a version control system"
+  group: Software Design Group
+  group_url: https://sdg.csail.mit.edu
+  description: >
+    Gitless is an experimental version control system built on top of Git. Many people complain that Git is hard to use.
+    We think the problem lies deeper than the user interface, in the concepts underlying Git. Gitless is an experiment to
+    see what happens if you put a simple veneer on an app that changes the underlying concepts. Because Gitless is implemented
+    on top of Git (could be considered what Git pros call a "porcelain" of Git), you can always fall back on Git. And of course
+    your coworkers you share a repo with need never know that you're not a Git aficionado.
+  projects:
+    - name: Gitless Documentation and Download
+      url: http://gitless.com/
+
+- title: Rethinking Software Design
+  group: Software Design Group
+  group_url: https://sdg.csail.mit.edu
+  description: >
+    For decades, 'software design' has been about the internal structure of the code. Recently though, with the growing interest
+    in design thinking, practitioners and researchers have started focusing more on the design of the behavior of the software.
+    The behavior not only determines the user experience, but also shapes the implementation in fundamental ways. In this project,
+    we are developing a radical new approach to software design that focuses on this aspect. The key idea is the identification of
+    conceptual constructs that embody the key behavioral features of the application. To realize the goal of a new design method for
+    software, we analyze existing systems and applications and develop new ones, polishing our design theory in response to what we
+    learn from case studies.
+  projects:
+    - name: Project Page
+      url: https://sdg.csail.mit.edu/projects/conceptual/
+
+- title: Espalier
+  group: Software Design Group
+  group_url: https://sdg.csail.mit.edu
+  description: >
+    Espalier (formerly Object Spreadsheets) is a new computational paradigm that combines the usability advantages of spreadsheets
+    with SQL-like expressive power, providing a way to build a wide class of interactive applications more easily than with existing
+    tools. Nearly every organization is responsible for processes that involve collection and manipulation of structured data subject
+    to certain rules; in CSAIL and EECS alone, examples range from a milk pool that tracks whose turn it is to buy milk next to the
+    graduate admissions process. The Espalier tool can be used to build <em>organizational applications</em> that support these processes
+    by letting users view and update data subject to the applicable constraints. Espalier seeks to provide an integrated visual environment
+    to construct the schema, data, and logic that is natural enough to appeal to end-user developers yet general enough to conveniently
+    express arbitrary logic.
+  projects:
+    - name: Project Page
+      url: https://sdg.csail.mit.edu/projects/espalier/
+
+
+- title: Sketch Interpretation for Natural Interaction
+  group: Design Rationale Group
+  group_url: http://rationale.csail.mit.edu/
+  description: >
+    Communication often has a pictorial component, as for example when designers (of many sorts) sketch, or stand at a whiteboard,
+    drawing, gesturing, and talking about their designs. We want the whiteboard to be smart enough to understand that interaction,
+    i.e., understand the sketches, the gestures, and the speech, and be able to draw, gesture and talk in response, as style we
+    call symmetric multimodal interaction.
+  projects:
+    - name: Multimodal Ouija Board
+      url: http://groups.csail.mit.edu/mug/pubs/Acquah2015Ouija.pdf
+    - name: A Direct Manipulation Language for Explaining Algorithms
+      url: http://groups.csail.mit.edu/mug/pubs/Scott2014DirectManipulation.pdf
+    - name: Balancing Appearance and Context in Sketch Interpretation
+      url: http://groups.csail.mit.edu/mug/pubs/SongDavisMaPenneyIJCAI16.pdf
+
+- title: Drawing Interpretation for Cognitive Assessment
+  group: Design Rationale Group
+  group_url: http://rationale.csail.mit.edu/
+  description: >
+    For many years neuropsychologists have tested people's cognitive status by having them draw simple diagrams. We have been
+    administering these tests using a digitizing ballpoint pen, then analyzing this data using a variety of sophisticated
+    techniques from sketch understandig, machine learning, and signal processing. This research has uncovered very subtle,
+    previously unknown movements made when drawing that are indicative of cognitive status.
+  projects:
+    - name: "THink: Inferring Cognitive Status from Subtle Behaviors"
+      url: http://groups.csail.mit.edu/mug/pubs/Davis2014THink.pdf
+    - name: Learning classification models of cognitive conditions from subtle behaviors in the digital Clock Drawing Test
+      url: http://groups.csail.mit.edu/mug/pubs/Souillard2015MLJ.pdf

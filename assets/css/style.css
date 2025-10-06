@@ -1,0 +1,923 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin-ext');
+
+/* ===================================
+   Base Styles
+   =================================== */
+
+* {
+	margin: 0;
+}
+
+body {
+	margin: 0;
+	background: white;
+	font: 100%/1.5 "Open Sans", Helvetica Neue, sans-serif;
+	text-decoration-skip: ink;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: rgba(255, 102, 0, 0.2);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.25;
+	margin: 1em 0 .5em;
+}
+
+h1 {
+	font-size: 120%;
+}
+
+p {
+	hyphens: auto;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px dotted #ccc;
+}
+
+nav a,
+a[href^="#"],
+article > a {
+	border-bottom: none;
+}
+
+a:hover,
+a:focus {
+	color: hsl(20, 100%, 45%) !important;
+}
+
+.seminaryear {
+	padding-top: 10px;
+	color: hsl(20, 100%, 45%);
+}
+
+/* ===================================
+   Header / Banner
+   =================================== */
+
+body > header {
+	padding: 3.5em 1.5em 2.5em 1.5em;
+	background-color: hsl(20, 100%, 45%);
+	background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)),
+	                  url("../images/social/group-meeting.jpg");
+	background-position: center center !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	background-attachment: scroll !important;
+	color: white;
+	text-align: center;
+	font-size: 120%;
+	text-shadow: 0 0 .5em rgba(0,0,0,.5);
+	position: relative;
+}
+
+/* Header Navigation */
+.header-nav {
+	display: flex;
+	padding: 0.5em 1em;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.header-nav .nav-logos {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.header-nav .nav-logo-link {
+	display: flex;
+	align-items: center;
+	border-bottom: none;
+}
+
+.header-nav .nav-logo-csail {
+	height: 2.5em;
+	width: auto;
+	filter: brightness(0) invert(1);
+}
+
+.header-nav .nav-menu {
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
+	margin: 0;
+	margin-right: 2em;
+	padding: 0;
+	list-style: none;
+	font-weight: bold;
+	align-items: center;
+}
+
+.header-nav .nav-menu li {
+	display: flex;
+	align-items: center;
+}
+
+.header-nav .nav-menu a {
+	padding: 0 .3em;
+	display: inline-flex;
+	align-items: center;
+	line-height: 1;
+	color: white;
+}
+
+body > header::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, rgba(255, 102, 0, 0.8), rgba(255, 69, 0, 0.8));
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+	z-index: 1;
+}
+
+html.scrolled body > header::after {
+	opacity: 1;
+}
+
+body > header nav,
+body > header h2,
+body > header .join,
+body > header .header-logo {
+	position: relative;
+	z-index: 2;
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 1001;
+	display: flex;
+	padding: 0.5em 1em;
+	align-items: center;
+	background-color: hsl(20, 100%, 45%);
+	background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)),
+	                  url("../images/social/group-meeting.jpg");
+	background-position: center center;
+	background-size: cover;
+	color: white;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-100%);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+html.scrolled .sticky-nav {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateY(0);
+}
+
+.sticky-nav::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(135deg, rgba(255, 102, 0, 0.8), rgba(255, 69, 0, 0.8));
+	opacity: 0.95;
+	z-index: -1;
+}
+
+.sticky-nav .nav-logos {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	position: relative;
+	z-index: 2;
+}
+
+.sticky-nav .nav-logo-link {
+	display: flex;
+	align-items: center;
+	border-bottom: none;
+}
+
+.sticky-nav .nav-logo-csail,
+.sticky-nav .nav-logo-hci {
+	height: 2.5em;
+	width: auto;
+	filter: brightness(0) invert(1);
+}
+
+.sticky-nav .nav-menu {
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-weight: bold;
+	align-items: center;
+	position: relative;
+	z-index: 2;
+}
+
+.sticky-nav .nav-menu li {
+	display: flex;
+	align-items: center;
+}
+
+.sticky-nav .nav-menu a {
+	padding: 0 .3em;
+	display: inline-flex;
+	align-items: center;
+	line-height: 1;
+	color: white;
+	text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.sticky-nav .nav-menu {
+	margin-right: 2em;
+}
+
+
+body > header h2 {
+	margin-top: 2em;
+	margin-bottom: .4em;
+	font-weight: 300;
+	font-size: 300%;
+}
+
+body > header .header-logo {
+	margin-top: 2em;
+	margin-bottom: .4em;
+	text-align: center;
+}
+
+body > header .header-logo img {
+	max-width: 25%;
+	height: auto;
+}
+
+body > header .header-subtitle {
+	margin: 1em 0 0;
+	font-size: 2rem;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	text-transform: lowercase;
+	text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+	display: block;
+}
+
+body > header .header-subtitle .subtitle-location {
+	white-space: nowrap;
+}
+
+body > header .join {
+	display: inline-block;
+	padding: .4em 1em .5em;
+	border: .15em solid white;
+	border-radius: .3em;
+	font-weight: bold;
+}
+
+body > header .join:hover {
+	text-decoration: none;
+	background: white;
+	color: black;
+	mix-blend-mode: screen;
+	text-shadow: none;
+}
+
+/* Mobile header adjustments */
+@media (max-width: 768px) {
+	body > header {
+		padding: 1.5em 1em 2em;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	body > header nav {
+		display: none;
+	}
+
+	body > header .header-logo img {
+		display: none;
+	}
+
+	body > header .header-subtitle {
+		font-size: clamp(1.5rem, 6vw, 2rem);
+		margin-top: auto;
+		margin-bottom: 2em;
+		font-weight: 500;
+		letter-spacing: 0.05em;
+	}
+
+	body > header .header-subtitle .subtitle-main::after {
+		content: '\A';
+		white-space: pre;
+	}
+
+	body > header .header-logo {
+		margin-top: auto;
+		margin-bottom: 1em;
+	}
+
+	body > header .join {
+		font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+		padding: .7em 1.8em .8em;
+		margin-top: 1.5em;
+		min-height: 44px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 400px) {
+	body > header {
+		padding: 0.8em 0.8em 1.5em;
+	}
+
+	body > header .header-subtitle {
+		font-size: clamp(1rem, 4vw, 1.2rem);
+	}
+
+	body > header .join {
+		font-size: 0.85rem;
+		padding: .6em 1.5em .7em;
+	}
+}
+
+/* ===================================
+   Main Content Layout
+   =================================== */
+
+body > section,
+body > footer {
+	max-width: 60rem;
+	margin: auto;
+	padding: 0 1em;
+}
+
+body > section > h1 {
+	position: relative;
+	z-index: 1;
+	color: hsl(20, 100%, 45%);
+	font-weight: 300;
+	font-size: 250%;
+	padding-top: 1.5em;
+	margin-top: 0;
+	text-align: center;
+}
+
+body > section > h1 > a::before {
+	content: "#";
+	position: absolute;
+	right: 100%;
+	bottom: -.55em;
+	z-index: -1;
+	margin-right: -.6em;
+	width: 1.2em;
+	padding: .5em;
+	border-radius: 50%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 120%;
+	color: white;
+	background: hsla(20, 100%, 85%, .75);
+	transition: .4s;
+}
+
+body > section:not(:target) > h1 > a:not(:hover)::before {
+	opacity: 0;
+	transform: scale(0);
+}
+
+body > section > h1 > a:hover::before {
+	color: inherit;
+}
+
+/* Mobile spacing adjustments */
+@media (max-width: 768px) {
+	body > section {
+		padding: 2em 1.5em;
+	}
+
+	body > section > h1 {
+		font-size: 1.8em;
+		margin-bottom: 1.5em;
+	}
+}
+
+/* ===================================
+   People Section
+   =================================== */
+
+section.people {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5em;
+	row-gap: 2em;
+}
+
+section.people > h1 {
+	width: 100%;
+	flex-basis: 100%;
+}
+
+section.people article {
+	margin: 0;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 16em;
+	flex-shrink: 0;
+}
+
+section.people article a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	width: 100%;
+}
+
+section.people article h1 {
+	margin: 0.5em 0 0.3em 0;
+	text-align: center;
+	width: 100%;
+}
+
+section.people article .group {
+	display: block;
+	font-weight: bold;
+	color: rgba(0,0,0,.5);
+	font-size: 90%;
+	text-align: center;
+	width: 100%;
+}
+
+section.people article img {
+	width: 12em;
+	height: 12em;
+	aspect-ratio: 1;
+	object-fit: cover;
+	object-position: center;
+	border-radius: 50%;
+	background: #1a1a1a;
+	border: 2px solid hsl(20, 100%, 60%);
+	box-sizing: border-box;
+	margin-bottom: 0.8em;
+}
+
+/* Faculty-specific styling */
+section.people[id=faculty] article {
+	max-width: 13em;
+}
+
+/* PhD students styling */
+section.people[id=phds] article img {
+	width: 10em;
+	height: 10em;
+}
+
+section.people[id=phds] article {
+	width: 10em;
+}
+
+section.people[id=phds] article .group {
+	font-weight: 300;
+	color: inherit;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 770px) {
+	section.people article img {
+		width: 20em;
+		height: 20em;
+	}
+
+	section.people[id=phds] article img {
+		width: 20em;
+		height: 20em;
+	}
+}
+
+/* Mobile breakpoint */
+@media (max-width: 600px) {
+	section.people {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	section.people article {
+		width: 100%;
+		max-width: 500px;
+	}
+
+	/* Faculty on mobile - horizontal layout */
+	section.people[id=faculty] article {
+		max-width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		text-align: left;
+		margin: 1em 0;
+	}
+
+	section.people[id=faculty] article a {
+		flex-direction: row;
+	}
+
+	section.people[id=faculty] article img {
+		width: 5em;
+		height: 5em;
+		flex-shrink: 0;
+		margin-right: 1em;
+		margin-bottom: 0;
+		border: 0.2em solid hsl(20, 100%, 60%);
+	}
+
+	section.people[id=faculty] article h1 {
+		text-align: left;
+		margin: 0;
+		flex: 1;
+	}
+
+	section.people[id=faculty] article .group {
+		text-align: left;
+		margin: 0.3em 0 0 0;
+	}
+
+	/* PhD students on mobile - vertical layout */
+	section.people[id=phds] {
+		gap: 1.5em;
+	}
+
+	section.people[id=phds] article {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	section.people[id=phds] article img {
+		width: min(60vw, 280px);
+		height: min(60vw, 280px);
+		border: 0.2em solid hsl(20, 100%, 60%);
+	}
+
+	section.people[id=phds] article h1 {
+		margin: 0.3em 0;
+	}
+
+	section.people[id=phds] article .group {
+		margin: 0.3em 0 0 0;
+	}
+}
+
+@media (max-width: 400px) {
+	section.people[id=phds] article img {
+		width: min(70vw, 250px);
+		height: min(70vw, 250px);
+	}
+
+	section.people[id=faculty] article img {
+		width: 4.5em;
+		height: 4.5em;
+	}
+}
+
+/* ===================================
+   Research Section
+   =================================== */
+
+section[id="research"] article {
+	margin-bottom: 2em;
+}
+
+section[id="research"] article > p {
+	font-weight: 300;
+	font-size: 80%;
+}
+
+section[id="research"] article footer {
+	padding: .6em 1em;
+	margin: 1em 0;
+	border-radius: .3em;
+	color: rgba(0,0,0,.5);
+	font-size: 80%;
+	background: hsl(20, 100%, 95%);
+	max-width: fit-content;
+}
+
+section[id="research"] article footer a,
+section[id="research"] article footer span[class="project"] {
+	font-weight: bold;
+	color: black;
+}
+
+section[id="research"] article a[href^="https://www.youtube.com"],
+section[id="research"] article a.video {
+	font-size: 0;
+}
+
+section[id="research"] article a[href^="https://www.youtube.com"]::before {
+	content: url("images/icons/icon_youtube.png");
+}
+
+section[id="research"] article a.video::before {
+	content: "📽";
+	font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+	section[id="research"] article {
+		margin-bottom: 1.5em;
+	}
+
+	section[id="research"] article footer {
+		font-size: 85%;
+	}
+}
+
+/* ===================================
+   Classes Section
+   =================================== */
+
+section[id="classes"] {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+section[id="classes"] > h1 {
+	width: 100%;
+	text-align: center;
+}
+
+section[id="classes"] article {
+	width: 100%;
+	max-width: 800px;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 12px;
+	padding: 30px;
+	margin: 20px 0;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	transition: box-shadow 0.2s ease;
+}
+
+section[id="classes"] article:hover {
+	box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+section[id="classes"] article h1 {
+	margin: 0 0 15px 0;
+	font-size: 1.4em;
+}
+
+section[id="classes"] article p {
+	margin: 10px 0;
+	line-height: 1.6;
+}
+
+section[id="classes"] article .description {
+	font-size: 95%;
+	color: #555;
+}
+
+section[id="classes"] article .semester {
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 6px;
+	background: rgba(255, 102, 0, 0.15);
+	color: hsl(20, 100%, 35%);
+	font-weight: 600;
+	font-size: 85%;
+	margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+	section[id="classes"] article {
+		padding: 20px;
+		margin: 15px 0;
+	}
+
+	section[id="classes"] article h1 {
+		font-size: 1.3em;
+	}
+}
+
+/* ===================================
+   Seminar Section
+   =================================== */
+
+section[id="seminar"] > section {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+section[id="seminar"] > .info {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	padding: .8em 1em;
+	margin: 1em -1em;
+	border-radius: .3em;
+	background: hsla(220, 15%, 50%, .15);
+	font-size: 95%;
+}
+
+section[id="seminar"] > .info a[title^="Where"] {
+	font-weight: bold;
+}
+
+section[id="seminar"] > section > h1 {
+	width: 100%;
+	margin-bottom: .5em;
+}
+
+section[id="seminar"] > section > h1 a {
+	display: inline-block;
+	vertical-align: .2em;
+	padding: .2em .5em;
+	border-radius: .3em;
+	background: hsl(220, 10%, 70%);
+	text-transform: uppercase;
+	color: white;
+	font-size: 60%;
+}
+
+section[id="seminar"] > section > h1 a:hover {
+	background: hsl(20, 100%, 45%);
+	color: white !important;
+	text-decoration: none;
+}
+
+section[id="seminar"] video {
+	width: 100%;
+}
+
+section[id="seminar"] article h1 {
+	margin: .3em 0;
+	font-weight: 300;
+	font-size: 100%;
+}
+
+section[id="seminar"] article h1 strong {
+	display: block;
+}
+
+@media (min-width: 750px) {
+	section[id="seminar"] article {
+		width: 49%;
+	}
+}
+
+@media (max-width: 800px) {
+	section[id="seminar"] > .info {
+		flex-flow: column;
+		line-height: 2;
+	}
+}
+
+/* ===================================
+   Alumni Section
+   =================================== */
+
+section[id="alumni"] > section > h1 a {
+	display: inline-block;
+	vertical-align: .2em;
+	padding: .2em .5em;
+	border-radius: .3em;
+	background: hsl(220, 10%, 70%);
+	text-transform: uppercase;
+	color: white;
+	font-size: 60%;
+}
+
+section[id="alumni"] > section > h1 a:hover {
+	background: hsl(20, 100%, 45%);
+	color: white !important;
+	text-decoration: none;
+}
+
+section[id="previous"] > article {
+	padding-bottom: 10px;
+}
+
+/* ===================================
+   Join Section
+   =================================== */
+
+section[id="join"] {
+	background: hsl(220, 10%, 30%);
+	box-shadow: -50vw 0 hsl(220, 10%, 30%), 50vw 0 hsl(220, 10%, 30%);
+	padding: 1em 1em 2em;
+	margin-top: 3em;
+	color: white;
+}
+
+section[id="join"] > h1 {
+	padding-top: 0;
+}
+
+section[id="join"] > p {
+	position: relative;
+	z-index: 1;
+}
+
+section[id="join"] > h1 > a:not(:hover)::before {
+	background: hsla(20, 100%, 80%, .75);
+	z-index: -1;
+}
+
+section[id="join"]:target > h1 > a:not(:hover)::before {
+	color: hsl(220, 10%, 30%);
+}
+
+/* ===================================
+   Footer
+   =================================== */
+
+body > footer {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 1em;
+	background: hsl(220, 10%, 90%);
+	box-shadow: -50vw 0 hsl(220, 10%, 90%), 50vw 0 hsl(220, 10%, 90%);
+}
+
+body > footer a {
+	font-weight: bold;
+}
+
+body > footer a.logo {
+	height: 3em;
+	margin: 0 .5em;
+}
+
+body > footer a.logo > img {
+	height: 100%;
+}
+
+@media (min-width: 470px) {
+	body > footer > p {
+		flex: 1;
+	}
+}
+
+@media (max-width: 768px) {
+	body > footer {
+		padding: 1.5em;
+		text-align: center;
+		justify-content: center;
+	}
+
+	body > footer p {
+		font-size: 0.9em;
+		line-height: 1.6;
+	}
+
+	body > footer a.logo {
+		margin: 1em 0.5em 0;
+	}
+}
+
+/* ===================================
+   Tables
+   =================================== */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead {
+	border-bottom: 2px solid #ddd;
+}
+
+th {
+	padding: 0.4em;
+}
+
+td {
+	padding: 0.9em;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}

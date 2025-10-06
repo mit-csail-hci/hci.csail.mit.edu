@@ -1,0 +1,41 @@
+<nav class="sticky-nav">
+	<div class="nav-logos">
+		<a href="https://www.csail.mit.edu/" target="_blank" class="nav-logo-link">
+			<img src="{{ '/assets/images/logos/csail.svg' | relative_url }}" alt="MIT CSAIL" class="nav-logo-csail" />
+		</a>
+		<a href="{{ '/' | relative_url }}" class="nav-logo-link">
+			<img src="{{ '/assets/images/logos/mithci.svg' | relative_url }}" alt="MIT HCI" class="nav-logo-hci" />
+		</a>
+	</div>
+	<ul class="nav-menu">
+		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#faculty">People</a></li>
+		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#research">Research</a></li>
+		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#classes">Classes</a></li>
+		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#seminar">Seminar</a></li>
+		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#alumni">Alumni</a></li>
+		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#join">Join us!</a></li>
+	</ul>
+</nav>
+
+<header>
+	<nav class="header-nav">
+		<div class="nav-logos">
+			<a href="https://www.csail.mit.edu/" target="_blank" class="nav-logo-link">
+				<img src="{{ '/assets/images/logos/csail.svg' | relative_url }}" alt="MIT CSAIL" class="nav-logo-csail" />
+			</a>
+		</div>
+		<ul class="nav-menu">
+			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#faculty">People</a></li>
+			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#research">Research</a></li>
+			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#classes">Classes</a></li>
+			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#seminar">Seminar</a></li>
+			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#alumni">Alumni</a></li>
+			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#join">Join us!</a></li>
+		</ul>
+	</nav>
+
+	<div class="header-logo">
+		<img src="{{ '/assets/images/logos/mithci.svg' | relative_url }}" alt="MIT HCI" />
+		<p class="header-subtitle"><span class="subtitle-main">human-computer interaction</span> <span class="subtitle-location">@ mit csail</span></p>
+	</div>
+</header>

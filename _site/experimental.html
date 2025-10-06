@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>MIT HCI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+	<link rel="stylesheet" href="/assets/css/style.css" />
+	<link rel="stylesheet" href="/assets/css/interactive.css" />
+	<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MIT HCI | Human-Computer Interaction at MIT CSAIL</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="MIT HCI" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Human-Computer Interaction at MIT CSAIL" />
+<meta property="og:description" content="Human-Computer Interaction at MIT CSAIL" />
+<link rel="canonical" href="http://localhost:4000/experimental.html" />
+<meta property="og:url" content="http://localhost:4000/experimental.html" />
+<meta property="og:site_name" content="MIT HCI" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MIT HCI" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Human-Computer Interaction at MIT CSAIL","headline":"MIT HCI","url":"http://localhost:4000/experimental.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+<!-- Cursor Chat Feature -->
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script type="module">
+  import { initCursorChat } from 'https://esm.sh/cursor-chat'
+  initCursorChat("mit-hci-experimental-room")
+</script>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/cursor-chat/dist/style.css"/>
+
+<style>
+/* Clean experimental styling */
+.experimental-badge {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background: rgba(255, 111, 0, 0.1);
+	border: 1px solid rgba(255, 111, 0, 0.3);
+	border-radius: 8px;
+	padding: 8px 16px;
+	font-size: 12px;
+	color: #ff6f00;
+	z-index: 1000;
+	backdrop-filter: blur(10px);
+}
+
+/* Logo hover effect */
+header nav h1 img {
+	transition: all 0.3s ease;
+}
+
+header nav h1 img:hover {
+	transform: scale(1.05);
+	filter: drop-shadow(0 0 20px rgba(255, 111, 0, 0.5));
+}
+
+/* Simple controls */
+.simple-controls {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	display: flex;
+	gap: 10px;
+	z-index: 1000;
+}
+
+.control-btn {
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid rgba(255, 111, 0, 0.3);
+	border-radius: 6px;
+	padding: 8px 12px;
+	font-size: 12px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+	background: rgba(255, 111, 0, 0.1);
+	border-color: #ff6f00;
+	transform: translateY(-1px);
+}
+
+.control-btn.active {
+	background: #ff6f00;
+	color: white;
+	border-color: #ff6f00;
+}
+
+/* Chat notice */
+.chat-notice {
+	position: fixed;
+	bottom: 80px;
+	right: 20px;
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 8px 12px;
+	border-radius: 6px;
+	font-size: 11px;
+	z-index: 1000;
+	opacity: 0.7;
+}
+
+/* Logo effects */
+@keyframes subtle-glow {
+	0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 111, 0, 0.3)); }
+	50% { filter: drop-shadow(0 0 20px rgba(255, 111, 0, 0.6)); }
+}
+
+.logo-glow {
+	animation: subtle-glow 3s ease-in-out infinite;
+}
+
+@keyframes rainbow {
+	0% { filter: hue-rotate(0deg); }
+	100% { filter: hue-rotate(360deg); }
+}
+
+.logo-rainbow {
+	animation: rainbow 3s linear infinite;
+}
+
+.logo-spin {
+	animation: spin 0.6s ease-out;
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+</style>
+
+<!-- Experimental badge -->
+<div class="experimental-badge">
+	🧪 EXPERIMENTAL
+</div>
+
+<!-- Chat notice -->
+<div class="chat-notice">
+	Press "/" for cursor chat
+</div>
+
+<!-- Simple controls -->
+<div class="simple-controls">
+	<div class="control-btn" onclick="toggleGlow()" id="glowBtn">Glow</div>
+	<div class="control-btn" onclick="toggleRainbow()" id="rainbowBtn">Rainbow</div>
+	<div class="control-btn" onclick="logoSpin()" id="spinBtn">Spin</div>
+	<div class="control-btn" onclick="resetEffects()" id="resetBtn">Reset</div>
+</div>
+
+<nav class="sticky-nav">
+	<div class="nav-logos">
+		<a href="https://www.csail.mit.edu/" target="_blank" class="nav-logo-link">
+			<img src="/assets/images/logos/csail.svg" alt="MIT CSAIL" class="nav-logo-csail" />
+		</a>
+		<a href="/" class="nav-logo-link">
+			<img src="/assets/images/logos/mithci.svg" alt="MIT HCI" class="nav-logo-hci" />
+		</a>
+	</div>
+	<ul class="nav-menu">
+		<li><a href="/#faculty">People</a></li>
+		<li><a href="/#research">Research</a></li>
+		<li><a href="/#classes">Classes</a></li>
+		<li><a href="/#seminar">Seminar</a></li>
+		<li><a href="/#alumni">Alumni</a></li>
+		<li><a href="/#join">Join us!</a></li>
+	</ul>
+</nav>
+
+<header>
+	<nav class="header-nav">
+		<div class="nav-logos">
+			<a href="https://www.csail.mit.edu/" target="_blank" class="nav-logo-link">
+				<img src="/assets/images/logos/csail.svg" alt="MIT CSAIL" class="nav-logo-csail" />
+			</a>
+		</div>
+		<ul class="nav-menu">
+			<li><a href="/#faculty">People</a></li>
+			<li><a href="/#research">Research</a></li>
+			<li><a href="/#classes">Classes</a></li>
+			<li><a href="/#seminar">Seminar</a></li>
+			<li><a href="/#alumni">Alumni</a></li>
+			<li><a href="/#join">Join us!</a></li>
+		</ul>
+	</nav>
+
+	<div class="header-logo">
+		<img src="/assets/images/logos/mithci.svg" alt="MIT HCI" />
+		<p class="header-subtitle"><span class="subtitle-main">human-computer interaction</span> <span class="subtitle-location">@ mit csail</span></p>
+	</div>
+</header>
+
+<script>
+// Simple, clean experimental controls
+let logo;
+
+document.addEventListener('DOMContentLoaded', () => {
+	logo = document.querySelector('header nav h1 img');
+});
+
+function toggleGlow() {
+	const btn = document.getElementById('glowBtn');
+	logo.classList.toggle('logo-glow');
+	btn.classList.toggle('active');
+}
+
+function toggleRainbow() {
+	const btn = document.getElementById('rainbowBtn');
+	logo.classList.toggle('logo-rainbow');
+	btn.classList.toggle('active');
+}
+
+function logoSpin() {
+	logo.classList.add('logo-spin');
+	setTimeout(() => {
+		logo.classList.remove('logo-spin');
+	}, 600);
+}
+
+function resetEffects() {
+	logo.classList.remove('logo-glow', 'logo-rainbow', 'logo-spin');
+	document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+}
+</script>
+
+<!-- Rest of the content same as index.html -->
+<section id="faculty" class="people">
+	<h1>Faculty &amp; PIs</h1>
+	
+	<article>
+		<a href="http://people.csail.mit.edu/dnj/">
+			<img src="/assets/images/profile-pictures/faculty/daniel-jackson.jpg" />
+			<h1>Daniel Jackson</h1>
+		</a>
+		
+		
+		<a href="https://sdg.csail.mit.edu" class="group">Software Design Group</a>
+		
+	</article>
+	
+	<article>
+		<a href="http://people.csail.mit.edu/karger/">
+			<img src="/assets/images/profile-pictures/faculty/david-karger.jpg" />
+			<h1>David R. Karger</h1>
+		</a>
+		
+		
+		<a href="http://haystack.csail.mit.edu/index.html" class="group">Haystack Group</a>
+		
+	</article>
+	
+	<article>
+		<a href="http://people.csail.mit.edu/rcm/">
+			<img src="/assets/images/profile-pictures/faculty/rob-miller.jpg" />
+			<h1>Rob Miller</h1>
+		</a>
+		
+		
+		<a href="http://up.csail.mit.edu/" class="group">Usable Programming Group</a>
+		
+	</article>
+	
+	<article>
+		<a href="http://people.csail.mit.edu/stefaniemueller">
+			<img src="/assets/images/profile-pictures/faculty/stefanie-mueller.jpg" />
+			<h1>Stefanie Mueller</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" class="group">HCI Engineering Group</a>
+		
+	</article>
+	
+	<article>
+		<a href="http://arvindsatya.com/">
+			<img src="/assets/images/profile-pictures/faculty/arvind-satyanarayan.jpg" />
+			<h1>Arvind Satyanarayan</h1>
+		</a>
+		
+		
+		<a href="http://vis.csail.mit.edu" class="group">Visualization Group</a>
+		
+	</article>
+	
+	<article>
+		<a href="https://czhuang.github.io/">
+			<img src="/assets/images/profile-pictures/faculty/anna-huang.jpg" />
+			<h1>Anna Huang</h1>
+		</a>
+		
+		
+		<a href="" class="group">Human-AI Resonance Lab</a>
+		
+	</article>
+	
+	<article>
+		<a href="https://mgordon.me/">
+			<img src="/assets/images/profile-pictures/faculty/mitchell-gordon.jpg" />
+			<h1>Mitchell L. Gordon</h1>
+		</a>
+		
+		
+		<a href="" class="group">Interaction & Alignment Group</a>
+		
+	</article>
+	
+</section>
+
+<section id="phds" class="people">
+	<h1>PhDs &amp; PostDocs</h1>
+
+	<div class="group-filters">
+		<button class="filter-btn active" data-group="all">All</button>
+		
+		
+		
+		
+		<button class="filter-btn" data-group="software_design">Software Design</button>
+		
+		
+		
+		
+		<button class="filter-btn" data-group="haystack">Haystack</button>
+		
+		
+		
+		
+		<button class="filter-btn" data-group="usable_programming">Usable Programming</button>
+		
+		
+		
+		
+		<button class="filter-btn" data-group="hci_engineering">HCI Engineering</button>
+		
+		
+		
+		
+		<button class="filter-btn" data-group="visualization">Visualization</button>
+		
+		
+		
+		
+		<button class="filter-btn" data-group="interaction_alignment">Interaction & Alignment</button>
+		
+		
+		
+		
+		<button class="filter-btn" data-group="human_ai_resonance">Human-AI Resonance</button>
+		
+		
+	</div>
+
+	
+	<article data-group="hci_engineering">
+		
+		<a href="https://malalawi.github.io/MarwaAlAlawi/">
+			<img src="/assets/images/profile-pictures/students/marwa-alalawi.png" />
+			<h1>Marwa AlAlawi</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" target="_blank" class="group">HCI Engineering</a>
+	</article>
+	
+	<article data-group="visualization">
+		
+		<a href="http://angieboggust.com/">
+			<img src="/assets/images/profile-pictures/students/angie-boggust.png" />
+			<h1>Angie Boggust</h1>
+		</a>
+		
+		
+		<a href="http://vis.csail.mit.edu" target="_blank" class="group">Visualization</a>
+	</article>
+	
+	<article data-group="software_design">
+		
+		<a href="">
+			<img src="/assets/images/profile-pictures/students/barish-namazov.jpeg" />
+			<h1>Abutalib Namazov</h1>
+		</a>
+		
+		
+		<a href="https://sdg.csail.mit.edu" target="_blank" class="group">Software Design</a>
+	</article>
+	
+	<article data-group="hci_engineering">
+		
+		<a href="https://www.farazfaruqi.com/">
+			<img src="/assets/images/profile-pictures/students/faraz-faruqi.jpeg" />
+			<h1>Faraz Faruqi</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" target="_blank" class="group">HCI Engineering</a>
+	</article>
+	
+	<article data-group="usable_programming">
+		
+		<a href="">
+			<img src="/assets/images/profile-pictures/students/hope-dargan.jpeg" />
+			<h1>Hope Dargan</h1>
+		</a>
+		
+		
+		<a href="http://up.csail.mit.edu/" target="_blank" class="group">Usable Programming</a>
+	</article>
+	
+	<article data-group="haystack">
+		
+		<a href="https://www.linkedin.com/in/theia-henderson-ab69038b">
+			<img src="/assets/images/profile-pictures/students/theia-henderson.jpg" />
+			<h1>Theia Henderson</h1>
+		</a>
+		
+		
+		<a href="http://haystack.csail.mit.edu/index.html" target="_blank" class="group">Haystack</a>
+	</article>
+	
+	<article data-group="haystack">
+		
+		<a href="https://www.nouransoliman.com/">
+			<img src="/assets/images/profile-pictures/students/nouran-soliman.jpg" />
+			<h1>Nouran Soliman</h1>
+		</a>
+		
+		
+		<a href="http://haystack.csail.mit.edu/index.html" target="_blank" class="group">Haystack</a>
+	</article>
+	
+	<article data-group="haystack">
+		
+		<a href="https://prernaravi.com/#/">
+			<img src="/assets/images/profile-pictures/students/prerna-ravi.jpeg" />
+			<h1>Prerna Ravi</h1>
+		</a>
+		
+		
+		<a href="http://haystack.csail.mit.edu/index.html" target="_blank" class="group">Haystack</a>
+	</article>
+	
+	<article data-group="visualization">
+		
+		<a href="https://joshmpollock.com/">
+			<img src="/assets/images/profile-pictures/students/jmp.jpg" />
+			<h1>Josh Pollock</h1>
+		</a>
+		
+		
+		<a href="http://vis.csail.mit.edu" target="_blank" class="group">Visualization</a>
+	</article>
+	
+	<article data-group="hci_engineering">
+		
+		<a href="http://www.tichamelody.com/">
+			<img src="/assets/images/profile-pictures/students/ticha-sethapakdi.png" />
+			<h1>Ticha Sethapakdi</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" target="_blank" class="group">HCI Engineering</a>
+	</article>
+	
+	<article data-group="visualization">
+		
+		<a href="https://dylanwootton.com/">
+			<img src="/assets/images/profile-pictures/students/dylan-wooton.jpg" />
+			<h1>Dylan Wooton</h1>
+		</a>
+		
+		
+		<a href="http://vis.csail.mit.edu" target="_blank" class="group">Visualization</a>
+	</article>
+	
+	<article data-group="hci_engineering">
+		
+		<a href="http://www.yunyizhu.info/">
+			<img src="/assets/images/profile-pictures/students/yunyi-zhu.jpg" />
+			<h1>Yunyi Zhu</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" target="_blank" class="group">HCI Engineering</a>
+	</article>
+	
+	<article data-group="interaction_alignment">
+		
+		<a href="https://andre-ye.org">
+			<img src="/assets/images/profile-pictures/students/andre-ye.jpg" />
+			<h1>Andre Ye</h1>
+		</a>
+		
+		
+		<a href="" target="_blank" class="group">Interaction & Alignment</a>
+	</article>
+	
+	<article data-group="interaction_alignment">
+		
+		<a href="">
+			<img src="/assets/images/profile-pictures/students/helen.png" />
+			<h1>Helen Bang</h1>
+		</a>
+		
+		
+		<a href="" target="_blank" class="group">Interaction & Alignment</a>
+	</article>
+	
+	<article data-group="haystack">
+		
+		<a href="">
+			<img src="/assets/images/profile-pictures/students/kendall.jpeg" />
+			<h1>Kendall Nakai</h1>
+		</a>
+		
+		
+		<a href="http://haystack.csail.mit.edu/index.html" target="_blank" class="group">Haystack</a>
+	</article>
+	
+	<article data-group="visualization">
+		
+		<a href="">
+			<img src="/assets/images/profile-pictures/students/arnav-verma.jpeg" />
+			<h1>Arnav Verma</h1>
+		</a>
+		
+		
+		<a href="http://vis.csail.mit.edu" target="_blank" class="group">Visualization</a>
+	</article>
+	
+	<article data-group="software_design">
+		
+		<a href="">
+			<img src="/assets/images/profile-pictures/students/" />
+			<h1>Carmel Schare</h1>
+		</a>
+		
+		
+		<a href="https://sdg.csail.mit.edu" target="_blank" class="group">Software Design</a>
+	</article>
+	
+	<article data-group="hci_engineering">
+		
+		<a href="https://maxineps.com/">
+			<img src="/assets/images/profile-pictures/students/maxine-perroni-scharf.jpg" />
+			<h1>Maxine Perroni-Scharf</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" target="_blank" class="group">HCI Engineering</a>
+	</article>
+	
+	<article data-group="hci_engineering">
+		
+		<a href="https://parismyers.com/">
+			<img src="/assets/images/profile-pictures/students/paris-myers.png" />
+			<h1>Paris Myers</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" target="_blank" class="group">HCI Engineering</a>
+	</article>
+	
+	<article data-group="hci_engineering">
+		
+		<a href="https://demircantas.com">
+			<img src="/assets/images/profile-pictures/students/demiran-tas.jpeg" />
+			<h1>Demircan Tas</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" target="_blank" class="group">HCI Engineering</a>
+	</article>
+	
+	<article data-group="human_ai_resonance">
+		
+		<a href="">
+			<img src="/assets/images/profile-pictures/students/stephen-brade.png" />
+			<h1>Stephen Brade</h1>
+		</a>
+		
+		
+		<a href="" target="_blank" class="group">Human-AI Resonance</a>
+	</article>
+	
+	<article data-group="hci_engineering">
+		
+		<a href="">
+			<img src="/assets/images/profile-pictures/students/jiaji-li.jpg" />
+			<h1>Jiaji Li</h1>
+		</a>
+		
+		
+		<a href="http://hcie.csail.mit.edu" target="_blank" class="group">HCI Engineering</a>
+	</article>
+	
+	<article data-group="software_design">
+		
+		<a href="https://scholar.google.com/citations?user=afzAaxwAAAAJ&hl=en">
+			<img src="/assets/images/profile-pictures/students/eagon-meng.png" />
+			<h1>Eagon Meng</h1>
+		</a>
+		
+		
+		<a href="https://sdg.csail.mit.edu" target="_blank" class="group">Software Design</a>
+	</article>
+	
+	<article data-group="software_design">
+		
+		<a href="https://www.linkedin.com/in/carolina-moura-valle-costa-4476b4229/">
+			<img src="/assets/images/profile-pictures/students/" />
+			<h1>Carolina Moura Valle Costa</h1>
+		</a>
+		
+		
+		<a href="https://sdg.csail.mit.edu" target="_blank" class="group">Software Design</a>
+	</article>
+	
+	<article data-group="visualization">
+		
+		<a href="https://ryanyen2.github.io">
+			<img src="/assets/images/profile-pictures/students/ryan-yen.jpg" />
+			<h1>Ryan Yen</h1>
+		</a>
+		
+		
+		<a href="http://vis.csail.mit.edu" target="_blank" class="group">Visualization</a>
+	</article>
+	
+	<article data-group="visualization">
+		
+		<a href="https://zoedesimone.github.io/">
+			<img src="/assets/images/profile-pictures/students/zoe-de-simone.jpg" />
+			<h1>Zoe De Simone</h1>
+		</a>
+		
+		
+		<a href="http://vis.csail.mit.edu" target="_blank" class="group">Visualization</a>
+	</article>
+	
+</section>
+
+<section id="research">
+	<h1>Research</h1>
+
+	
+	<article>
+		<h1>Redesign Email Inbox</h1>
+		<div class="project-group"><a href="http://haystack.csail.mit.edu/" class="group">Haystack Group</a></div>
+		<p>Email has grown from a tool for communication to one that also encompasses task management, notifications, and a personal information repository. However, current email clients are not flexible or powerful enough to handle users' myriad needs for email. To address users' demand, we aim to redesign emails ranging from programmable personal inbox to community-wide mailing-list.
+</p>
+		<footer>
+			Example Projects:
+			
+			<a href="https://youps.csail.mit.edu/">YoUPS</a>,
+			
+			<a href="http://murmur.csail.mit.edu/">Murmur</a>,
+			
+			<a href="https://squadbox.csail.mit.edu/">Squadbox</a>
+			
+		</footer>
+	</article>
+	
+	<article>
+		<h1>New Interaction Models for Personal Fabrication</h1>
+		<div class="project-group"><a href="http://hcie.csail.mit.edu" class="group">HCI Engineering Group</a></div>
+		<p>Inspired by the history of the user interface for personal computing, we are developing new interaction models for personal fabrication. Instead of working through a digital 3D editor, we propose to let users work hands-on on the physical workpiece and to update the physical object after every editing step. Our long-term vision is to enable direct manipulation for physical matter in the same way as we today manipulate digital data on touch-devices, such as the iPad.
+</p>
+		<footer>
+			Example Projects:
+			
+			<a href="https://hcie.csail.mit.edu/research/lenticularobject/lenticular-object.html">Lenticular Objects</a>,
+			
+			<a href="https://hcie.csail.mit.edu/research/sensicut/sensicut.html">SensiCut</a>,
+			
+			<a href="https://hcie.csail.mit.edu/research/metasense/metasense.html">MetaSense</a>,
+			
+			<a href="https://hcie.csail.mit.edu/research/eit-kit/eit-kit.html">EIT-Kit</a>,
+			
+			<a href="https://hcie.csail.mit.edu/research/fabricaide/fabricaide.html">Fabricaide</a>,
+			
+			<a href="https://hcie.csail.mit.edu/research/laserfactory/laserfactory.html">LaserFactory</a>,
+			
+			<a href="https://hcie.csail.mit.edu/research/chromoupdate/chromoupdate.html">ChromoUpdate</a>
+			
+		</footer>
+	</article>
+	
+	<article>
+		<h1>Faster Prototyping and Design Iteration Techniques</h1>
+		<div class="project-group"><a href="http://hcie.csail.mit.edu" class="group">HCI Engineering Group</a></div>
+		<p>Even though considered a rapid prototyping tool, 3D printers are so slow that a reasonably sized object requires printing overnight. This slows designers down to a single iteration per day. Our concept called Low-fidelity fabrication speeds up design iteration by printing intermediate versions of a prototype as fast, low-fidelity previews. Only the final version is fabricated as a full 3D print.
+</p>
+		<footer>
+			Example Projects:
+			
+			<a href="https://hcie.csail.mit.edu/research/gid/gid.html">G-ID</a>,
+			
+			<a href="https://hcie.csail.mit.edu/research/foodfab/foodfab.html">FoodFab</a>,
+			
+			<a href="http://stefaniemueller.org/WirePrint/">WirePrint</a>,
+			
+			<a href="http://stefaniemueller.org/platener/">Platener</a>,
+			
+			<a href="http://stefaniemueller.org/faBrickation/">faBrickation</a>
+			
+		</footer>
+	</article>
+	
+	<article>
+		<h1>Gitless: a version control system</h1>
+		<div class="project-group"><a href="https://sdg.csail.mit.edu" class="group">Software Design Group</a></div>
+		<p>Gitless is an experimental version control system built on top of Git. Many people complain that Git is hard to use. We think the problem lies deeper than the user interface, in the concepts underlying Git. Gitless is an experiment to see what happens if you put a simple veneer on an app that changes the underlying concepts. Because Gitless is implemented on top of Git (could be considered what Git pros call a "porcelain" of Git), you can always fall back on Git. And of course your coworkers you share a repo with need never know that you're not a Git aficionado.
+</p>
+		<footer>
+			Example Projects:
+			
+			<a href="http://gitless.com/">Gitless Documentation and Download</a>
+			
+		</footer>
+	</article>
+	
+	<article>
+		<h1>Rethinking Software Design</h1>
+		<div class="project-group"><a href="https://sdg.csail.mit.edu" class="group">Software Design Group</a></div>
+		<p>For decades, 'software design' has been about the internal structure of the code. Recently though, with the growing interest in design thinking, practitioners and researchers have started focusing more on the design of the behavior of the software. The behavior not only determines the user experience, but also shapes the implementation in fundamental ways. In this project, we are developing a radical new approach to software design that focuses on this aspect. The key idea is the identification of conceptual constructs that embody the key behavioral features of the application. To realize the goal of a new design method for software, we analyze existing systems and applications and develop new ones, polishing our design theory in response to what we learn from case studies.
+</p>
+		<footer>
+			Example Projects:
+			
+			<a href="https://sdg.csail.mit.edu/projects/conceptual/">Project Page</a>
+			
+		</footer>
+	</article>
+	
+	<article>
+		<h1>Espalier</h1>
+		<div class="project-group"><a href="https://sdg.csail.mit.edu" class="group">Software Design Group</a></div>
+		<p>Espalier (formerly Object Spreadsheets) is a new computational paradigm that combines the usability advantages of spreadsheets with SQL-like expressive power, providing a way to build a wide class of interactive applications more easily than with existing tools. Nearly every organization is responsible for processes that involve collection and manipulation of structured data subject to certain rules; in CSAIL and EECS alone, examples range from a milk pool that tracks whose turn it is to buy milk next to the graduate admissions process. The Espalier tool can be used to build <em>organizational applications</em> that support these processes by letting users view and update data subject to the applicable constraints. Espalier seeks to provide an integrated visual environment to construct the schema, data, and logic that is natural enough to appeal to end-user developers yet general enough to conveniently express arbitrary logic.
+</p>
+		<footer>
+			Example Projects:
+			
+			<a href="https://sdg.csail.mit.edu/projects/espalier/">Project Page</a>
+			
+		</footer>
+	</article>
+	
+	<article>
+		<h1>Sketch Interpretation for Natural Interaction</h1>
+		<div class="project-group"><a href="http://rationale.csail.mit.edu/" class="group">Design Rationale Group</a></div>
+		<p>Communication often has a pictorial component, as for example when designers (of many sorts) sketch, or stand at a whiteboard, drawing, gesturing, and talking about their designs. We want the whiteboard to be smart enough to understand that interaction, i.e., understand the sketches, the gestures, and the speech, and be able to draw, gesture and talk in response, as style we call symmetric multimodal interaction.
+</p>
+		<footer>
+			Example Projects:
+			
+			<a href="http://groups.csail.mit.edu/mug/pubs/Acquah2015Ouija.pdf">Multimodal Ouija Board</a>,
+			
+			<a href="http://groups.csail.mit.edu/mug/pubs/Scott2014DirectManipulation.pdf">A Direct Manipulation Language for Explaining Algorithms</a>,
+			
+			<a href="http://groups.csail.mit.edu/mug/pubs/SongDavisMaPenneyIJCAI16.pdf">Balancing Appearance and Context in Sketch Interpretation</a>
+			
+		</footer>
+	</article>
+	
+	<article>
+		<h1>Drawing Interpretation for Cognitive Assessment</h1>
+		<div class="project-group"><a href="http://rationale.csail.mit.edu/" class="group">Design Rationale Group</a></div>
+		<p>For many years neuropsychologists have tested people's cognitive status by having them draw simple diagrams. We have been administering these tests using a digitizing ballpoint pen, then analyzing this data using a variety of sophisticated techniques from sketch understandig, machine learning, and signal processing. This research has uncovered very subtle, previously unknown movements made when drawing that are indicative of cognitive status.
+</p>
+		<footer>
+			Example Projects:
+			
+			<a href="http://groups.csail.mit.edu/mug/pubs/Davis2014THink.pdf">THink: Inferring Cognitive Status from Subtle Behaviors</a>,
+			
+			<a href="http://groups.csail.mit.edu/mug/pubs/Souillard2015MLJ.pdf">Learning classification models of cognitive conditions from subtle behaviors in the digital Clock Drawing Test</a>
+			
+		</footer>
+	</article>
+	
+
+</section>
+
+<section id="classes">
+	<h1>Classes</h1>
+
+	
+	<article>
+		<img src="/assets/images/classes/software-studio.jpg">
+		<div>
+			<h1><a href="https://student.mit.edu/catalog/search.cgi?search=6.1040">6.1040 Software Design</a></h1>
+			<strong class="semester">Fall 2025</strong> Instructors: Daniel Jackson, Mitchell Gordon
+			<p class="description">Provides design-focused instruction on how to build complex software applications. Design topics include classic human-computer interaction (HCI) design tactics (need finding, heuristic evaluation, prototyping, user testing), conceptual design (inventing, modeling and evaluating constituent concepts), social and ethical implications, abstract data modeling, and visual design. Implementation topics include reactive front-ends, web services, and databases. Students work both on individual projects and a larger team project in which they design and build full-stack web applications.
+</p>
+		</div>
+	</article>
+	
+	<article>
+		<img src="/assets/images/classes/software-studio.jpg">
+		<div>
+			<h1><a href="https://stellar.mit.edu/S/course/6/fa16/6.170/index.html">6.104 Software Studio</a></h1>
+			<strong class="semester">Fall 2019</strong> Instructors: Daniel Jackson, Arvind Satyanarayan
+			<p class="description">Covers design and implementation of software systems, using web applications as the platform. Emphasizes the role of conceptual design in achieving clarity, simplicity, and modularity. Students complete open-ended individual assignments and a major team project. Enrollment may be limited.
+</p>
+		</div>
+	</article>
+	
+	<article>
+		<img src="/assets/images/classes/engineering-interactive-technologies.png">
+		<div>
+			<h1><a href="https://hcie.csail.mit.edu/classes/2021-fall-6810/6810-engineering-interactive-technologies.html">6.451 Engineering Interactive Technologies</a></h1>
+			<strong class="semester">Fall 2021</strong> Instructor: Stefanie Mueller
+			<p class="description">Teaches how to build cutting edge interactive technologies and provides an overview of each field. Topics covered include multitouch, augmented reality, haptics, wearables, brain computer interfaces, tangibles, fabrication, and more.
+</p>
+		</div>
+	</article>
+	
+	<article>
+		<img src="/assets/images/classes/multimodal.png">
+		<div>
+			<h1><a href="https://stellar.mit.edu/S/course/6/sp17/6.835/">6.851 Intelligent Multimodal User Interfaces</a></h1>
+			<strong class="semester">Spring 2019</strong> Instructor: Randall Davis
+			<p class="description">Topics include basic technologies for handling speech, vision, pen-based interaction, and other modalities, as well as various techniques for combining modalities. Substantial readings and a term project, where students build an interface.
+</p>
+		</div>
+	</article>
+	
+	<article>
+		<img src="/assets/images/classes/dataviz.png">
+		<div>
+			<h1><a href="http://vis.csail.mit.edu/classes/6.894/">6.C35 / 6.C85 Interactive Data Visualization</a></h1>
+			<strong class="semester">Spring 2021</strong> Instructor: Arvind Satyanarayan
+			<p class="description">Interactive visualization provides a means of making sense of a world awash in data. This course covers the techniques and algorithms for creating effective visualizations, using principles from graphic design, perceptual psychology, and cognitive science. Short assignments will build familiarity with the data analysis and visualization design process, and a final project will provide experience designing, implementing, and deploying an explanatory narrative visualization or visual analysis tool to address a concrete challenge.</p>
+		</div>
+	</article>
+	
+</section>
+
+
+<section id="seminar">
+	<h1><a href="/hci-seminar.html">HCI Seminar</a></h1>
+
+	<p class="info">
+		<strong title="When">📅 &nbsp;Tuesdays, 4pm</strong>
+		📍 Star Room (32-D463)
+		<span>🔓 Open to the public</span>
+		<a href="http://lists.csail.mit.edu/mailman/listinfo/hci-seminar">📫 Subscribe</a>
+		<a href="mailto:arvindsatya@mit.edu">✉️ Contact</a>
+	</p>
+
+	<p class="lunch-info">
+		<strong>Lunch with speakers:</strong> 12pm in HCI Lounge (32-G707)
+	</p>
+
+	<p class="organizers">
+		<strong>Organizers:</strong> Profs. Crystal Lee (CMS/W), Mitchell Gordon (EECS, CSAIL), and Anna Huang (MTA, EECS, CSAIL)<br>
+		<strong>Coordinator:</strong> Cindy Rosenthal
+	</p>
+
+	<h2>Fall 2025 Talk Schedule</h2>
+	<ul>
+		
+		<li>
+			September 16 - <strong>Ziv Epstein</strong>, MIT SERC
+		</li>
+		
+		<li>
+			September 23 - <strong>Kate Isaacs</strong>, University of Utah (Recent PECASE winner and visualization researcher)
+		</li>
+		
+		<li>
+			October 7 - <strong>Sarah Chasins</strong>, UC Berkeley
+		</li>
+		
+		<li>
+			October 14 - <strong>Parastoo Abtahi</strong>, Princeton
+		</li>
+		
+		<li>
+			October 28 - <strong>Liz Rodwell</strong>, University of Houston
+		</li>
+		
+		<li>
+			November 18 - <strong>Ana Crisan</strong>, University of Waterloo
+		</li>
+		
+		<li>
+			December 2 - <strong>Lace Padilla</strong>, Northeastern
+		</li>
+		
+		<li>
+			December 9 - <strong>Jeff Bigham</strong>, CMU + Apple
+		</li>
+		
+	</ul>
+</section>
+
+
+<section id="alumni">
+	<h1>Alumni</h1>
+
+	
+
+	
+
+	
+
+	<p style="text-align: center; margin-top: 20px;">
+		<a href="/alumni.html" class="see-more-btn">See All Alumni</a>
+	</p>
+
+</section>
+
+
+<section id="elsewhere">
+	<h1>HCI Elsewhere at MIT</h1>
+
+	<h2>Research Groups</h2>
+	<ul>
+		
+		<li>
+			<a href="http://groups.csail.mit.edu/icelab/" target="_blank">Imagination, Computation, and Expression Laboratory</a>
+			(Fox Harrell, MIT CSAIL)
+		</li>
+		
+		<li>
+			<a href="https://interactive.mit.edu/" target="_blank">Interactive Robotics Group</a>
+			(Julie Shah, MIT CSAIL)
+		</li>
+		
+		<li>
+			<a href="https://groups.csail.mit.edu/sls/" target="_blank">Spoken Language Systems Group</a>
+			(Jim Glass, Stephanie Seneff, Victor Zue, MIT CSAIL)
+		</li>
+		
+		<li>
+			<a href="http://tangible.media.mit.edu/" target="_blank">Tangible Media Group</a>
+			(Hiroshi Ishii, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="https://www.media.mit.edu/research/groups/responsive-environments" target="_blank">Responsive Environments Group</a>
+			(Joseph A. Paradiso, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="https://www.media.mit.edu/research/groups/living-mobile" target="_blank">Living Mobile Group</a>
+			(Chris Schmandt, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="https://www.media.mit.edu/research/groups/lifelong-kindergarten" target="_blank">Lifelong Kindergarten Group</a>
+			(Mitchel Resnick, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="http://affect.media.mit.edu/" target="_blank">Affective Computing Group</a>
+			(Rosalind Picard, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="http://fluid.media.mit.edu/" target="_blank">Fluid Interfaces Group</a>
+			(Pattie Maes, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="http://cameraculture.media.mit.edu/" target="_blank">Camera Culture Group</a>
+			(Ramesh Raskar, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="http://robotic.media.mit.edu/" target="_blank">Personal Robots Group</a>
+			(Cynthia Breazeal, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="http://agents.media.mit.edu/" target="_blank">Software Agents Group</a>
+			(Henry Lieberman, Junia Anacleto, MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="http://web.mit.edu/ideation/index.html" target="_blank">Ideation Laboratory</a>
+			(Maria Yang, MIT Mechanical Engineering)
+		</li>
+		
+		<li>
+			<a href="http://persci.mit.edu/" target="_blank">Perceptual Science Group</a>
+			(Edward Adelson, Ruth Rosenholtz, MIT Brain/Cognitive Sciences)
+		</li>
+		
+		<li>
+			<a href="http://cci.mit.edu/" target="_blank">Center for Collective Intelligence</a>
+			(MIT Sloan)
+		</li>
+		
+		<li>
+			<a href="http://hd.media.mit.edu/" target="_blank">Human Dynamics Group</a>
+			(MIT Media Lab)
+		</li>
+		
+		<li>
+			<a href="http://newmed.media.mit.edu/" target="_blank">New Media Medicine</a>
+			(MIT Media Lab)
+		</li>
+		
+	</ul>
+
+	<h2>Seminars and Meetings</h2>
+	<ul>
+		
+		<li><a href="http://media.mit.edu/events/upcoming" target="_blank">Upcoming Media Lab Talks</a></li>
+		
+		<li><a href="https://www.bostonchi.org/" target="_blank">BostonCHI (HCI groups around the Boston area)</a></li>
+		
+	</ul>
+</section>
+
+<section id="join">
+	<h1>Join us!</h1>
+
+	<p>As a PhD student: apply to the <a href="http://www.eecs.mit.edu/academics-admissions/graduate-program/admissions">MIT EECS PhD program</a> by December 15.
+	<p>As a postdoc or UROP/SuperUROP/MEng: email individual faculty directly.
+</section>
+
+<footer>
+	<p>
+		This website template is open source (MIT licensed). Thanks <a href="https://github.com/LeaVerou/">LeaVerou</a>.
+		<br/><br/>
+		If you have any questions about the website or wish to make changes,<br/>
+		please contact <a href="mailto:andreye@mit.edu">Andre Ye</a> or <a href="mailto:schare@mit.edu">Carmel Schare</a>.
+		<br/>
+		Thank you to our previous webmasters Josh Pollock and Faraz Faruqi.
+		<br/><br/>
+		<a href="https://accessibility.mit.edu/">Accessibility</a>
+		<br/><br/>
+	</p>
+	<a href="http://mit.edu" class="logo"><img src="/assets/images/logos/mit.svg" alt="MIT" /></a>
+	<a href="http://csail.mit.edu" class="logo"><img src="/assets/images/logos/csail.svg" alt="CSAIL" /></a>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

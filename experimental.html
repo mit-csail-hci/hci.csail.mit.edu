@@ -1,0 +1,357 @@
+---
+layout: default
+---
+
+<!-- Cursor Chat Feature -->
+<div id="cursor-chat-layer">
+  <input type="text" id="cursor-chat-box">
+</div>
+<script type="module">
+  import { initCursorChat } from 'https://esm.sh/cursor-chat'
+  initCursorChat("mit-hci-experimental-room")
+</script>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/cursor-chat/dist/style.css"/>
+
+<style>
+/* Clean experimental styling */
+.experimental-badge {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background: rgba(255, 111, 0, 0.1);
+	border: 1px solid rgba(255, 111, 0, 0.3);
+	border-radius: 8px;
+	padding: 8px 16px;
+	font-size: 12px;
+	color: #ff6f00;
+	z-index: 1000;
+	backdrop-filter: blur(10px);
+}
+
+/* Logo hover effect */
+header nav h1 img {
+	transition: all 0.3s ease;
+}
+
+header nav h1 img:hover {
+	transform: scale(1.05);
+	filter: drop-shadow(0 0 20px rgba(255, 111, 0, 0.5));
+}
+
+/* Simple controls */
+.simple-controls {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	display: flex;
+	gap: 10px;
+	z-index: 1000;
+}
+
+.control-btn {
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid rgba(255, 111, 0, 0.3);
+	border-radius: 6px;
+	padding: 8px 12px;
+	font-size: 12px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+	background: rgba(255, 111, 0, 0.1);
+	border-color: #ff6f00;
+	transform: translateY(-1px);
+}
+
+.control-btn.active {
+	background: #ff6f00;
+	color: white;
+	border-color: #ff6f00;
+}
+
+/* Chat notice */
+.chat-notice {
+	position: fixed;
+	bottom: 80px;
+	right: 20px;
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 8px 12px;
+	border-radius: 6px;
+	font-size: 11px;
+	z-index: 1000;
+	opacity: 0.7;
+}
+
+/* Logo effects */
+@keyframes subtle-glow {
+	0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 111, 0, 0.3)); }
+	50% { filter: drop-shadow(0 0 20px rgba(255, 111, 0, 0.6)); }
+}
+
+.logo-glow {
+	animation: subtle-glow 3s ease-in-out infinite;
+}
+
+@keyframes rainbow {
+	0% { filter: hue-rotate(0deg); }
+	100% { filter: hue-rotate(360deg); }
+}
+
+.logo-rainbow {
+	animation: rainbow 3s linear infinite;
+}
+
+.logo-spin {
+	animation: spin 0.6s ease-out;
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+</style>
+
+<!-- Experimental badge -->
+<div class="experimental-badge">
+	🧪 EXPERIMENTAL
+</div>
+
+<!-- Chat notice -->
+<div class="chat-notice">
+	Press "/" for cursor chat
+</div>
+
+<!-- Simple controls -->
+<div class="simple-controls">
+	<div class="control-btn" onclick="toggleGlow()" id="glowBtn">Glow</div>
+	<div class="control-btn" onclick="toggleRainbow()" id="rainbowBtn">Rainbow</div>
+	<div class="control-btn" onclick="logoSpin()" id="spinBtn">Spin</div>
+	<div class="control-btn" onclick="resetEffects()" id="resetBtn">Reset</div>
+</div>
+
+{% include header.html %}
+
+<script>
+// Simple, clean experimental controls
+let logo;
+
+document.addEventListener('DOMContentLoaded', () => {
+	logo = document.querySelector('header nav h1 img');
+});
+
+function toggleGlow() {
+	const btn = document.getElementById('glowBtn');
+	logo.classList.toggle('logo-glow');
+	btn.classList.toggle('active');
+}
+
+function toggleRainbow() {
+	const btn = document.getElementById('rainbowBtn');
+	logo.classList.toggle('logo-rainbow');
+	btn.classList.toggle('active');
+}
+
+function logoSpin() {
+	logo.classList.add('logo-spin');
+	setTimeout(() => {
+		logo.classList.remove('logo-spin');
+	}, 600);
+}
+
+function resetEffects() {
+	logo.classList.remove('logo-glow', 'logo-rainbow', 'logo-spin');
+	document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+}
+</script>
+
+<!-- Rest of the content same as index.html -->
+<section id="faculty" class="people">
+	<h1>Faculty &amp; PIs</h1>
+	{% for person in site.data.faculty %}
+	<article>
+		<a href="{{ person.url }}">
+			<img src="{{ '/assets/images/profile-pictures/faculty/' | relative_url }}{{ person.image }}" />
+			<h1>{{ person.name }}</h1>
+		</a>
+		{% if person.group_id %}
+		{% assign group = site.data.groups[person.group_id] %}
+		<a href="{{ group.url }}" class="group">{{ group.name }}</a>
+		{% elsif person.group_text %}
+		<span class="group">{{ person.group_text }}</span>
+		{% endif %}
+	</article>
+	{% endfor %}
+</section>
+
+<section id="phds" class="people">
+	<h1>PhDs &amp; PostDocs</h1>
+
+	<div class="group-filters">
+		<button class="filter-btn active" data-group="all">All</button>
+		{% assign ordered_groups = "software_design,haystack,usable_programming,hci_engineering,visualization,interaction_alignment,human_ai_resonance" | split: "," %}
+		{% for group_id in ordered_groups %}
+		{% assign group = site.data.groups[group_id] %}
+		{% if group %}
+		<button class="filter-btn" data-group="{{ group_id }}">{{ group.short_name }}</button>
+		{% endif %}
+		{% endfor %}
+	</div>
+
+	{% for person in site.data.phds %}
+	<article data-group="{{ person.group_id }}">
+		{% if person.url and person.url != "" %}
+		<a href="{{ person.url }}">
+			<img src="{{ '/assets/images/profile-pictures/students/' | relative_url }}{{ person.image }}" />
+			<h1>{{ person.name }}</h1>
+		</a>
+		{% else %}
+		<a href="">
+			<img src="{{ '/assets/images/profile-pictures/students/' | relative_url }}{{ person.image }}" />
+			<h1>{{ person.name }}</h1>
+		</a>
+		{% endif %}
+		{% assign group = site.data.groups[person.group_id] %}
+		<a href="{{ group.url }}" target="_blank" class="group">{{ group.short_name }}</a>
+	</article>
+	{% endfor %}
+</section>
+
+<section id="research">
+	<h1>Research</h1>
+
+	{% for project in site.data.research %}
+	<article>
+		<h1>{{ project.title }}</h1>
+		<div class="project-group"><a href="{{ project.group_url }}" class="group">{{ project.group }}</a></div>
+		<p>{{ project.description }}</p>
+		<footer>
+			Example Projects:
+			{% for example in project.projects %}
+			<a href="{{ example.url }}">{{ example.name }}</a>{% unless forloop.last %},{% endunless %}
+			{% endfor %}
+		</footer>
+	</article>
+	{% endfor %}
+
+</section>
+
+<section id="classes">
+	<h1>Classes</h1>
+
+	{% for class in site.data.classes %}
+	<article>
+		<img src="{{ '/assets/images/classes/' | relative_url }}{{ class.image }}">
+		<div>
+			<h1><a href="{{ class.url }}">{{ class.number }} {{ class.title }}</a></h1>
+			<strong class="semester">{{ class.semester }}</strong> Instructor{% if class.instructors contains ',' %}s{% endif %}: {{ class.instructors }}
+			<p class="description">{{ class.description }}</p>
+		</div>
+	</article>
+	{% endfor %}
+</section>
+
+
+<section id="seminar">
+	<h1><a href="{{ '/hci-seminar.html' | relative_url }}">HCI Seminar</a></h1>
+
+	<p class="info">
+		<strong title="When">📅 &nbsp;{{ site.data.seminar.info.time }}</strong>
+		📍 {{ site.data.seminar.info.location }}
+		<span>🔓 {{ site.data.seminar.info.access }}</span>
+		<a href="{{ site.data.seminar.info.subscribe_url }}">📫 Subscribe</a>
+		<a href="mailto:{{ site.data.seminar.info.contact_email }}">✉️ Contact</a>
+	</p>
+
+	<p class="lunch-info">
+		<strong>Lunch with speakers:</strong> {{ site.data.seminar.info.lunch_time }} in {{ site.data.seminar.info.lunch_location }}
+	</p>
+
+	<p class="organizers">
+		<strong>Organizers:</strong> {{ site.data.seminar.info.organizers }}<br>
+		<strong>Coordinator:</strong> {{ site.data.seminar.info.coordinator }}
+	</p>
+
+	<h2>Fall 2025 Talk Schedule</h2>
+	<ul>
+		{% for talk in site.data.seminar.schedule.fall_2025 %}
+		<li>
+			{{ talk.date }} - <strong>{{ talk.speaker }}</strong>, {{ talk.affiliation }}{% if talk.note %} ({{ talk.note }}){% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+
+
+<section id="alumni">
+	<h1>Alumni</h1>
+
+	{% if site.data.alumni["2024"] %}
+	<h2>2024</h2>
+	<ul>
+		{% for person in site.data.alumni["2024"] %}
+		<li>
+			{{ person.name }}, {{ person.position }}
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if site.data.alumni["2022"] %}
+	<h2>2022</h2>
+	<ul>
+		{% for person in site.data.alumni["2022"] %}
+		<li>
+			{{ person.name }}, {{ person.position }}
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if site.data.alumni["2016"] %}
+	<h2>2016</h2>
+	<ul>
+		{% for person in site.data.alumni["2016"] %}
+		<li>
+			{{ person.name }}, {{ person.position }}
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	<p style="text-align: center; margin-top: 20px;">
+		<a href="{{ '/alumni.html' | relative_url }}" class="see-more-btn">See All Alumni</a>
+	</p>
+
+</section>
+
+
+<section id="elsewhere">
+	<h1>HCI Elsewhere at MIT</h1>
+
+	<h2>Research Groups</h2>
+	<ul>
+		{% for group in site.data.hci_elsewhere.research_groups %}
+		<li>
+			<a href="{{ group.url }}" target="_blank">{{ group.name }}</a>
+			{% if group.faculty %}({{ group.faculty }}, {{ group.location }}){% else %}({{ group.location }}){% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+
+	<h2>Seminars and Meetings</h2>
+	<ul>
+		{% for event in site.data.hci_elsewhere.seminars_meetings %}
+		<li><a href="{{ event.url }}" target="_blank">{{ event.name }}</a></li>
+		{% endfor %}
+	</ul>
+</section>
+
+<section id="join">
+	<h1>Join us!</h1>
+
+	<p>As a PhD student: apply to the <a href="http://www.eecs.mit.edu/academics-admissions/graduate-program/admissions">MIT EECS PhD program</a> by December 15.
+	<p>As a postdoc or UROP/SuperUROP/MEng: email individual faculty directly.
+</section>

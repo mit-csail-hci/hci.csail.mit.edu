@@ -1,0 +1,62 @@
+---
+layout: default
+title: HCI Seminar
+---
+
+<header>
+	<nav>
+		<h1>
+			<a href="{{ '/' | relative_url }}"><img src="{{ '/assets/images/logos/mithci.svg' | relative_url }}" alt="MIT HCI" /></a>
+			<svg viewBox="0 0 175 134"><use xlink:href="{{ '/assets/images/logos/csail.svg#logo' | relative_url }}" /></svg>
+		</h1>
+		<ul>
+		</ul>
+	</nav>
+
+	<h2>HCI Seminar at MIT CSAIL</h2>
+</header>
+
+<section id="schedule">
+
+	<br>
+	<br>
+	<p>The HCI seminar meets every other week on the first and third Tuesday of each month.
+	</p>
+	<br>
+
+ 	<p class="info"  style="padding-bottom:20px">
+		<strong title="When">📅 {{ site.data.seminar.info.time }}</strong><br>
+		📍 {{ site.data.seminar.info.location }}
+		<br>
+		<br>
+		<a href="{{ site.data.seminar.info.subscribe_url }}">📫 Subscribe</a>
+		<a href="mailto:{{ site.data.seminar.info.contact_email }}">✉️ Contact</a>
+		<a href="{{ site.data.seminar.info.calendar_url }}">📅 Calendar</a>
+	</p>
+
+  <h1>Spring 2021 Talk Schedule</h1>
+  <p>
+    <ul>
+		{% for talk in site.data.seminar.schedule.spring_2021 %}
+      <li>
+        <a href="#{{ talk.anchor }}">
+          {{ talk.date }} - {{ talk.speaker }}, {{ talk.affiliation }}.
+        </a>
+      </li>
+		{% endfor %}
+    </ul>
+  </p>
+
+	<h1>Latest Recorded Talks</h1>
+
+	{% for talk in site.data.seminar.recorded_talks %}
+	<article>
+		<iframe width="470" height="322" src="https://www.youtube.com/embed/{{ talk.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+		<h1>
+			<strong>{{ talk.speaker }} ({{ talk.affiliation }})</strong>
+			"{{ talk.title }}"
+		</h1>
+	</article>
+	{% endfor %}
+
+</section>
