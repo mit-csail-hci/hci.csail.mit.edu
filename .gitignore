@@ -1,4 +1,13 @@
 .DS_Store
 .dropbox
 Icon*
-
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+*.backup
+*.bak
+*.tmp
+*_files/
+node_modules/
+vendor/

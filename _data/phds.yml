@@ -153,3 +153,27 @@
   image: zoe-de-simone.jpg
   group_id: visualization
   academic_level: phd
+
+- name: Nithya Shikarpur
+  url: https://snnithya.github.io/
+  image: nithya-shikarpur.png
+  group_id: human_ai_resonance
+  academic_level: phd
+
+- name: Mason Wang
+  url: https://masonlwang.com/
+  image: mason-wang.jpg
+  group_id: human_ai_resonance
+  academic_level: phd
+
+- name: Shih-Lun Wu
+  url: https://slseanwu.github.io/
+  image: shih-lun-wu.jpg
+  group_id: human_ai_resonance
+  academic_level: phd
+
+- name: Amber Horvath
+  url: https://www.amberhorvath.com/
+  image: amber-horvath.jpeg
+  group_id: visualization
+  academic_level: phd

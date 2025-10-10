@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	initializeExternalLinks();
 	initializeGroupFilters();
 	initializeEasterEggs();
+	initializeStudentOfTheHour();
+	initializeResearchCarousel();
 });
 
 /**
@@ -115,6 +117,11 @@ function initializeEasterEggs() {
 		if (key === 'c') {
 			resetProfilePictures();
 		}
+
+		// 'i' - Rain down all student and faculty photos
+		if (key === 'i') {
+			rainProfilePictures();
+		}
 	});
 }
 
@@ -194,4 +201,350 @@ function resetProfilePictures() {
 	// Remove popup
 	const hPopup = document.querySelector('.h-key-popup');
 	if (hPopup) hPopup.remove();
+}
+
+/**
+ * Student of the Hour - randomly features a student every hour
+ */
+function initializeStudentOfTheHour() {
+	const spotlightContainer = document.getElementById('studentSpotlight');
+	if (!spotlightContainer) return;
+
+	// Get all PhD students from the page
+	const students = [];
+	const phdArticles = document.querySelectorAll('#phds article');
+
+	phdArticles.forEach(article => {
+		const nameElement = article.querySelector('h1');
+		const imgElement = article.querySelector('img');
+		const groupElement = article.querySelector('.group');
+		const linkElement = article.querySelector('a[href]');
+
+		if (nameElement && imgElement && imgElement.src && !imgElement.src.includes('data:image')) {
+			// Get URL from link element, exclude if empty or just a hash anchor
+			let url = '';
+			if (linkElement && linkElement.href) {
+				// Only exclude if it's JUST a hash (like "#" or starts with "#" but not "http")
+				if (linkElement.href.startsWith('http') || !linkElement.href.startsWith('#')) {
+					url = linkElement.href;
+				}
+			}
+
+			students.push({
+				name: nameElement.textContent.trim(),
+				image: imgElement.src,
+				group: groupElement ? groupElement.textContent.trim() : '',
+				url: url
+			});
+		}
+	});
+
+	if (students.length === 0) return;
+
+	// Sort students alphabetically by name to ensure consistent ordering across page loads
+	students.sort((a, b) => a.name.localeCompare(b.name));
+
+	// Seeded random shuffle using Fisher-Yates algorithm
+	// This creates a consistent random order that's the same for everyone
+	function seededShuffle(array, seed) {
+		const shuffled = [...array];
+		let currentIndex = shuffled.length;
+
+		// Simple seeded random number generator
+		function seededRandom() {
+			seed = (seed * 9301 + 49297) % 233280;
+			return seed / 233280;
+		}
+
+		while (currentIndex !== 0) {
+			const randomIndex = Math.floor(seededRandom() * currentIndex);
+			currentIndex--;
+			[shuffled[currentIndex], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[currentIndex]];
+		}
+
+		return shuffled;
+	}
+
+	// Create a shuffled order using current date as seed
+	// Changes the order daily but cycles through all students
+	const today = new Date();
+	const daysSinceEpoch = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
+	const shuffledStudents = seededShuffle(students, daysSinceEpoch);
+
+	// Function to select a student based on the current UTC hour
+	function selectStudentOfTheHour() {
+		const now = new Date();
+		// Get UTC hours since epoch
+		const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
+
+		// Cycle through all students - each student gets featured every N hours
+		// This ensures every student appears exactly once before repeating
+		const studentIndex = hoursSinceEpoch % shuffledStudents.length;
+
+		return shuffledStudents[studentIndex];
+	}
+
+	// Function to update the display
+	function updateStudentDisplay() {
+		const student = selectStudentOfTheHour();
+
+		const websiteLink = student.url
+			? `<a href="${student.url}" target="_blank" rel="noopener noreferrer" class="website-link">Personal Website</a>`
+			: '';
+
+		// Create share text
+		const shareText = `${student.name} is Student of the Hour on the MIT HCI website! 🎉🥳 See it for yourself: https://hci.csail.mit.edu/ @mithci #mithci`;
+
+		// URL encode for share links
+		const encodedText = encodeURIComponent(shareText);
+		const siteUrl = encodeURIComponent('https://hci.csail.mit.edu/');
+
+		// Create share URLs
+		const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedText}`;
+		const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${siteUrl}&quote=${encodedText}`;
+		const blueskyUrl = `https://bsky.app/intent/compose?text=${encodedText}`;
+
+		spotlightContainer.innerHTML = `
+			<div class="celebrate-wrapper">
+				<button class="celebrate-btn">Celebrate! 🎉</button>
+			</div>
+			<div class="top-section">
+				<div class="photo-container">
+					<img src="${student.image}" alt="${student.name}" class="student-photo" />
+					<div class="trophy">🏆</div>
+				</div>
+				<div class="info">
+					<h2>${student.name}</h2>
+					${student.group ? `<p class="student-group">${student.group}</p>` : ''}
+					${websiteLink}
+				</div>
+			</div>
+			<div class="button-group">
+				<a href="${twitterUrl}" target="_blank" rel="noopener noreferrer" class="share-btn twitter">Share on X</a>
+				<a href="${facebookUrl}" target="_blank" rel="noopener noreferrer" class="share-btn facebook">Share on Facebook</a>
+				<a href="${blueskyUrl}" target="_blank" rel="noopener noreferrer" class="share-btn bluesky">Share on Bluesky</a>
+			</div>
+		`;
+
+		// Add confetti on celebrate button click
+		const celebrateBtn = spotlightContainer.querySelector('.celebrate-btn');
+		if (celebrateBtn) {
+			celebrateBtn.addEventListener('click', createCelebrationConfetti);
+		}
+	}
+
+	// Initial display
+	updateStudentDisplay();
+
+	// Update at the top of every hour
+	const now = new Date();
+	const msUntilNextHour = (60 - now.getMinutes()) * 60 * 1000 - now.getSeconds() * 1000 - now.getMilliseconds();
+
+	setTimeout(() => {
+		updateStudentDisplay();
+		// Then update every hour after that
+		setInterval(updateStudentDisplay, 60 * 60 * 1000);
+	}, msUntilNextHour);
+}
+
+/**
+ * Create celebration confetti from top of page
+ */
+function createCelebrationConfetti() {
+	const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#ffd93d', '#6bcf7f', '#ff8787', '#a8dadc', '#ff9ff3', '#feca57'];
+	const confettiCount = 150;
+
+	// Create container if it doesn't exist
+	let container = document.querySelector('.confetti-container');
+	if (!container) {
+		container = document.createElement('div');
+		container.className = 'confetti-container';
+		document.body.appendChild(container);
+	}
+
+	// Get the current student of the hour image
+	const studentOfTheHourImg = document.querySelector('#studentSpotlight .student-photo');
+	const studentImage = studentOfTheHourImg ? studentOfTheHourImg.src : null;
+
+	// Create confetti pieces from top of screen
+	for (let i = 0; i < confettiCount; i++) {
+		setTimeout(() => {
+			const isPhoto = Math.random() < 0.12 && studentImage; // 12% chance of being the featured student photo
+			const confetti = document.createElement('div');
+			confetti.className = isPhoto ? 'confetti-photo' : 'confetti';
+
+			// Random properties
+			const startX = Math.random() * window.innerWidth;
+			const startY = -30;
+			const drift = (Math.random() - 0.5) * 400;
+
+			if (isPhoto) {
+				// Featured student photo confetti
+				confetti.style.backgroundImage = `url(${studentImage})`;
+				const size = Math.random() * 15 + 25; // 25-40px
+				confetti.style.width = size + 'px';
+				confetti.style.height = size + 'px';
+			} else {
+				// Regular confetti
+				const color = colors[Math.floor(Math.random() * colors.length)];
+				const size = Math.random() * 8 + 6;
+				confetti.style.backgroundColor = color;
+				confetti.style.width = size + 'px';
+				confetti.style.height = size + 'px';
+			}
+
+			confetti.style.left = startX + 'px';
+			confetti.style.top = startY + 'px';
+			confetti.style.setProperty('--drift', drift + 'px');
+
+			// Add animation
+			const duration = Math.random() * 1.5 + 2;
+			confetti.style.animation = `confetti-fall ${duration}s ease-in forwards`;
+
+			container.appendChild(confetti);
+
+			// Remove after animation
+			setTimeout(() => {
+				confetti.remove();
+			}, duration * 1000 + 100);
+		}, i * 8); // Stagger the creation
+	}
+}
+
+/**
+ * Rain down all student and faculty profile pictures
+ */
+function rainProfilePictures() {
+	// Create container if it doesn't exist
+	let container = document.querySelector('.confetti-container');
+	if (!container) {
+		container = document.createElement('div');
+		container.className = 'confetti-container';
+		document.body.appendChild(container);
+	}
+
+	// Get all student and faculty images
+	const allImages = [];
+	document.querySelectorAll('#phds article img, #faculty article img').forEach(img => {
+		if (img.src && !img.src.includes('data:image')) {
+			allImages.push(img.src);
+		}
+	});
+
+	if (allImages.length === 0) return;
+
+	// Create falling profile pictures
+	const photoCount = allImages.length * 2; // Show each person twice for variety
+	for (let i = 0; i < photoCount; i++) {
+		setTimeout(() => {
+			const photo = document.createElement('div');
+			photo.className = 'confetti-photo';
+
+			// Random properties
+			const randomImage = allImages[Math.floor(Math.random() * allImages.length)];
+			const size = 40; // Fixed size for all
+			const startX = Math.random() * window.innerWidth;
+			const startY = -50;
+			const drift = (Math.random() - 0.5) * 300;
+
+			photo.style.backgroundImage = `url(${randomImage})`;
+			photo.style.width = size + 'px';
+			photo.style.height = size + 'px';
+			photo.style.left = startX + 'px';
+			photo.style.top = startY + 'px';
+			photo.style.setProperty('--drift', drift + 'px');
+
+			// Add animation
+			const duration = Math.random() * 1.5 + 2.5;
+			photo.style.animation = `confetti-fall ${duration}s ease-in forwards`;
+
+			container.appendChild(photo);
+
+			// Remove after animation
+			setTimeout(() => {
+				photo.remove();
+			}, duration * 1000 + 100);
+		}, i * 20); // Stagger the creation more for smoother rain
+	}
+}
+
+/**
+ * Research carousel - swipe through research projects
+ */
+function initializeResearchCarousel() {
+	const track = document.querySelector('.carousel-track');
+	const prevBtn = document.querySelector('.prev-btn');
+	const nextBtn = document.querySelector('.next-btn');
+
+	if (!track || !prevBtn || !nextBtn) return;
+
+	const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+	const slideCount = slides.length;
+
+	// Start on a random slide
+	let currentIndex = Math.floor(Math.random() * slideCount);
+
+	function updateCarousel() {
+		const offset = -currentIndex * 100;
+		track.style.transform = `translateX(${offset}%)`;
+	}
+
+	// Set initial position
+	updateCarousel();
+
+	function nextSlide() {
+		currentIndex = (currentIndex + 1) % slideCount;
+		updateCarousel();
+	}
+
+	function prevSlide() {
+		currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+		updateCarousel();
+	}
+
+	// Button click handlers
+	nextBtn.addEventListener('click', nextSlide);
+	prevBtn.addEventListener('click', prevSlide);
+
+	// Keyboard navigation
+	document.addEventListener('keydown', function(event) {
+		// Only handle arrow keys when not typing in an input
+		if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+			return;
+		}
+
+		if (event.key === 'ArrowLeft') {
+			prevSlide();
+		} else if (event.key === 'ArrowRight') {
+			nextSlide();
+		}
+	});
+
+	// Touch/swipe support
+	let touchStartX = 0;
+	let touchEndX = 0;
+
+	track.addEventListener('touchstart', function(event) {
+		touchStartX = event.changedTouches[0].screenX;
+	}, { passive: true });
+
+	track.addEventListener('touchend', function(event) {
+		touchEndX = event.changedTouches[0].screenX;
+		handleSwipe();
+	}, { passive: true });
+
+	function handleSwipe() {
+		const swipeThreshold = 50;
+		const diff = touchStartX - touchEndX;
+
+		if (Math.abs(diff) > swipeThreshold) {
+			if (diff > 0) {
+				// Swiped left - go to next
+				nextSlide();
+			} else {
+				// Swiped right - go to previous
+				prevSlide();
+			}
+		}
+	}
 }

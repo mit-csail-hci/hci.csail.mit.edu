@@ -4,6 +4,15 @@ layout: default
 
 {% include header.html %}
 
+<section id="join-banner">
+	<p>
+		<strong>Join us!</strong>
+		As a PhD student: apply to the <a href="http://www.eecs.mit.edu/academics-admissions/graduate-program/admissions">MIT EECS PhD program</a> by December 1st, 2025.
+		<br>
+		As a postdoc or UROP/SuperUROP/MEng: email individual faculty directly.
+	</p>
+</section>
+
 <section id="faculty" class="people">
 	<h1>Faculty &amp; PIs</h1>
 	{% for person in site.data.faculty %}
@@ -92,20 +101,29 @@ layout: default
 
 <section id="research">
 	<h1>Research</h1>
+	<p class="research-note">Please look at lab websites for more information on research projects.</p>
 
-	{% for project in site.data.research %}
-	<article>
-		<h1>{{ project.title }}</h1>
-		<div class="project-group"><a href="{{ project.group_url }}" class="group">{{ project.group }}</a></div>
-		<p>{{ project.description }}</p>
-		<footer>
-			Example Projects:
-			{% for example in project.projects %}
-			<a href="{{ example.url }}">{{ example.name }}</a>{% unless forloop.last %},{% endunless %}
-			{% endfor %}
-		</footer>
-	</article>
-	{% endfor %}
+	<div class="research-carousel">
+		<button class="carousel-btn prev-btn" aria-label="Previous project">‹</button>
+		<div class="carousel-container">
+			<div class="carousel-track">
+				{% for project in site.data.research %}
+				<article class="carousel-slide">
+					<h1>{{ project.title }}</h1>
+					<div class="project-group"><a href="{{ project.group_url }}" class="group">{{ project.group }}</a></div>
+					<p>{{ project.description }}</p>
+					<footer>
+						Example Projects:
+						{% for example in project.projects %}
+						<a href="{{ example.url }}">{{ example.name }}</a>{% unless forloop.last %},{% endunless %}
+						{% endfor %}
+					</footer>
+				</article>
+				{% endfor %}
+			</div>
+		</div>
+		<button class="carousel-btn next-btn" aria-label="Next project">›</button>
+	</div>
 
 </section>
 
@@ -208,10 +226,10 @@ layout: default
 	</ul>
 </section>
 
-<section id="join">
-	<h1>Join us!</h1>
-
-	<p>As a PhD student: apply to the <a href="http://www.eecs.mit.edu/academics-admissions/graduate-program/admissions">MIT EECS PhD program</a> by December 1st, 2025.
-	<p>As a postdoc or UROP/SuperUROP/MEng: email individual faculty directly.
-	<p>For additional application support and resources, check out the <a href="https://eecs-gaap.mit.edu/">MIT EECS Graduate Application Assistance Program (GAAP)</a>.
+<section id="student-of-the-hour">
+	<h1>Student of the Hour</h1>
+	<p class="student-hour-description">Every hour, we honor one of our amazing PhD students and postdocs as Student of the Hour!</p>
+	<div class="student-spotlight" id="studentSpotlight">
+		<!-- Student will be dynamically inserted here -->
+	</div>
 </section>
