@@ -999,6 +999,15 @@ section[id="student-of-the-hour"] > h1 {
 	padding: 0 1em;
 }
 
+.student-of-the-hour-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
 .student-spotlight {
 	display: flex;
 	flex-direction: column;
@@ -1006,7 +1015,7 @@ section[id="student-of-the-hour"] > h1 {
 	justify-content: center;
 	gap: 0.5em;
 	max-width: 480px;
-	margin: 0 auto;
+	flex: 1;
 }
 
 .student-spotlight .top-section {
@@ -1222,6 +1231,7 @@ section[id="student-of-the-hour"] > h1 {
 
 	section[id="student-of-the-hour"] > h1 {
 		font-size: 1.4em;
+		white-space: normal;
 	}
 
 	.student-hour-description {
@@ -1229,8 +1239,14 @@ section[id="student-of-the-hour"] > h1 {
 		padding: 0 1em;
 	}
 
+	.student-of-the-hour-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
 	.student-spotlight {
 		gap: 0.6em;
+		max-width: 100%;
 	}
 
 	.student-spotlight .top-section {
@@ -1286,5 +1302,194 @@ section[id="student-of-the-hour"] > h1 {
 
 	.student-spotlight .trophy {
 		font-size: 1.6em;
+	}
+}
+
+/* ===================================
+   Student Ticker Ribbon (NYC-style)
+   =================================== */
+
+.ticker-ribbon-wrapper {
+	margin-top: 2em;
+}
+
+.ticker-ribbon-title {
+	text-align: center;
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 0.85em;
+	font-weight: 400;
+	margin: 0 0 0.8em 0;
+	letter-spacing: 0.02em;
+}
+
+.student-ticker-ribbon {
+	position: relative;
+	width: 100%;
+	background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+	border-top: 3px solid hsl(45, 100%, 50%);
+	border-bottom: 3px solid hsl(45, 100%, 50%);
+	padding: 0.8em 0;
+	overflow: hidden;
+	box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5),
+	            0 2px 8px rgba(255, 165, 0, 0.3);
+}
+
+.student-ticker-ribbon::before,
+.student-ticker-ribbon::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100px;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.student-ticker-ribbon::before {
+	left: 0;
+	background: linear-gradient(90deg,
+		rgba(26, 26, 26, 1) 0%,
+		rgba(26, 26, 26, 0.8) 30%,
+		rgba(26, 26, 26, 0) 100%);
+}
+
+.student-ticker-ribbon::after {
+	right: 0;
+	background: linear-gradient(90deg,
+		rgba(26, 26, 26, 0) 0%,
+		rgba(26, 26, 26, 0.8) 70%,
+		rgba(26, 26, 26, 1) 100%);
+}
+
+.ticker-track {
+	display: flex;
+	align-items: center;
+	gap: 1.5em;
+	animation: ticker-scroll 20s linear infinite;
+	white-space: nowrap;
+}
+
+@keyframes ticker-scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.ticker-student-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.25em 0.6em;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 0.3em;
+	border: 1px solid rgba(255, 165, 0, 0.3);
+	flex-shrink: 0;
+}
+
+.ticker-student-avatar {
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center;
+	border: 2px solid hsl(45, 100%, 50%);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+	flex-shrink: 0;
+}
+
+.ticker-student-info {
+	display: flex;
+	flex-direction: column;
+	line-height: 1.3;
+	min-width: 0;
+}
+
+.ticker-student-name {
+	font-size: 0.75em;
+	font-weight: 600;
+	color: #ffffff;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+	white-space: nowrap;
+}
+
+.ticker-student-time {
+	font-size: 0.6em;
+	color: hsl(45, 100%, 70%);
+	font-weight: 500;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+	white-space: nowrap;
+}
+
+.ticker-separator {
+	display: inline-block;
+	width: 3px;
+	height: 3px;
+	background: hsl(45, 100%, 50%);
+	border-radius: 50%;
+	margin: 0 0.5em;
+	box-shadow: 0 0 8px hsl(45, 100%, 50%);
+	animation: separator-pulse 2s ease-in-out infinite;
+	flex-shrink: 0;
+}
+
+@keyframes separator-pulse {
+	0%, 100% {
+		opacity: 0.6;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.3);
+	}
+}
+
+@media (max-width: 768px) {
+	.student-ticker-ribbon {
+		padding: 0.6em 0;
+		margin-top: 1.5em;
+	}
+
+	.ticker-track {
+		gap: 1.2em;
+	}
+
+	.ticker-student-item {
+		gap: 0.45em;
+		padding: 0.2em 0.5em;
+	}
+
+	.ticker-student-avatar {
+		width: 1.8em;
+		height: 1.8em;
+	}
+
+	.ticker-student-name {
+		font-size: 0.7em;
+	}
+
+	.ticker-student-time {
+		font-size: 0.55em;
+	}
+
+	.ticker-separator {
+		margin: 0 0.4em;
+	}
+}
+
+@media (max-width: 400px) {
+	.ticker-student-avatar {
+		width: 1.8em;
+		height: 1.8em;
+	}
+
+	.ticker-student-name {
+		font-size: 0.7em;
+	}
+
+	.ticker-student-time {
+		font-size: 0.55em;
 	}
 }

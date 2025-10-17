@@ -208,6 +208,7 @@ function resetProfilePictures() {
  */
 function initializeStudentOfTheHour() {
 	const spotlightContainer = document.getElementById('studentSpotlight');
+	const titleElement = document.getElementById('studentHourTitle');
 	if (!spotlightContainer) return;
 
 	// Get all PhD students from the page
@@ -244,44 +245,89 @@ function initializeStudentOfTheHour() {
 	// Sort students alphabetically by name to ensure consistent ordering across page loads
 	students.sort((a, b) => a.name.localeCompare(b.name));
 
-	// Seeded random shuffle using Fisher-Yates algorithm
-	// This creates a consistent random order that's the same for everyone
-	function seededShuffle(array, seed) {
-		const shuffled = [...array];
-		let currentIndex = shuffled.length;
-
-		// Simple seeded random number generator
-		function seededRandom() {
-			seed = (seed * 9301 + 49297) % 233280;
-			return seed / 233280;
-		}
-
-		while (currentIndex !== 0) {
-			const randomIndex = Math.floor(seededRandom() * currentIndex);
-			currentIndex--;
-			[shuffled[currentIndex], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[currentIndex]];
-		}
-
-		return shuffled;
+	// Simple seeded random number generator (Linear Congruential Generator)
+	function seededRandom(seed) {
+		const x = Math.sin(seed) * 10000;
+		return x - Math.floor(x);
 	}
 
-	// Create a shuffled order using current date as seed
-	// Changes the order daily but cycles through all students
-	const today = new Date();
-	const daysSinceEpoch = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
-	const shuffledStudents = seededShuffle(students, daysSinceEpoch);
-
 	// Function to select a student based on the current UTC hour
-	function selectStudentOfTheHour() {
+	// Uses hours since epoch as a random seed - totally random but synchronized for everyone
+	function selectStudentOfTheHour(hourOffset = 0) {
 		const now = new Date();
 		// Get UTC hours since epoch
-		const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
+		const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60)) - hourOffset;
 
-		// Cycle through all students - each student gets featured every N hours
-		// This ensures every student appears exactly once before repeating
-		const studentIndex = hoursSinceEpoch % shuffledStudents.length;
+		// Use hours as random seed to pick a random student
+		// Same hour = same seed = same random result for everyone
+		const randomValue = seededRandom(hoursSinceEpoch);
+		const studentIndex = Math.floor(randomValue * students.length);
 
-		return shuffledStudents[studentIndex];
+		return students[studentIndex];
+	}
+
+	// Function to format time and date in local timezone
+	function formatLocalTime(hoursAgo) {
+		const now = new Date();
+		const targetTime = new Date(now.getTime() - (hoursAgo * 60 * 60 * 1000));
+		const hours = targetTime.getHours();
+		const period = hours >= 12 ? 'PM' : 'AM';
+		const displayHours = hours % 12 || 12;
+
+		// Format date
+		const month = targetTime.getMonth() + 1;
+		const day = targetTime.getDate();
+		const dateString = `${month}/${day}`;
+
+		return `${dateString} ${displayHours}:00 ${period}`;
+	}
+
+	// Function to update the title with current hour
+	function updateTitle() {
+		if (!titleElement) return;
+		const now = new Date();
+		const hours = now.getHours();
+		const period = hours >= 12 ? 'PM' : 'AM';
+		const displayHours = hours % 12 || 12;
+		titleElement.textContent = `Student of the Hour (${displayHours}:00 ${period})`;
+	}
+
+
+	// Function to update the ticker ribbon
+	function updateTickerRibbon() {
+		const tickerTrack = document.getElementById('studentTickerTrack');
+		if (!tickerTrack) return;
+
+		// Generate ticker items for past 24 hours (duplicated twice for seamless loop)
+		let html = '';
+		const itemsToShow = 24;
+
+		// Create two sets of the same items for seamless infinite scroll
+		for (let set = 0; set < 2; set++) {
+			// Reverse order: earliest to latest (24 hours ago to 1 hour ago)
+			for (let i = itemsToShow; i >= 1; i--) {
+				const student = selectStudentOfTheHour(i);
+				const timeString = formatLocalTime(i);
+
+				html += `
+					<div class="ticker-student-item">
+						<img src="${student.image}" alt="${student.name}" class="ticker-student-avatar" />
+						<div class="ticker-student-info">
+							<div class="ticker-student-name">${student.name}</div>
+							<div class="ticker-student-time">Student of the Hour · ${timeString}</div>
+						</div>
+					</div>
+				`;
+
+				// Add separator after every item except the very last one
+				const isLastItem = (set === 1 && i === 1);
+				if (!isLastItem) {
+					html += '<span class="ticker-separator"></span>';
+				}
+			}
+		}
+
+		tickerTrack.innerHTML = html;
 	}
 
 	// Function to update the display
@@ -331,6 +377,10 @@ function initializeStudentOfTheHour() {
 		if (celebrateBtn) {
 			celebrateBtn.addEventListener('click', createCelebrationConfetti);
 		}
+
+		// Update title and ticker ribbon
+		updateTitle();
+		updateTickerRibbon();
 	}
 
 	// Initial display
@@ -345,6 +395,7 @@ function initializeStudentOfTheHour() {
 		// Then update every hour after that
 		setInterval(updateStudentDisplay, 60 * 60 * 1000);
 	}, msUntilNextHour);
+
 }
 
 /**
