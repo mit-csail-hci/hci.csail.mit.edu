@@ -56,11 +56,13 @@ function initializeExternalLinks() {
 }
 
 /**
- * Group filtering functionality for PhD students
+ * Group filtering functionality for faculty and PhD students
  */
 function initializeGroupFilters() {
 	const filterButtons = document.querySelectorAll('.filter-btn');
+	const facultyArticles = document.querySelectorAll('#faculty article[data-group]');
 	const phdArticles = document.querySelectorAll('#phds article[data-group]');
+	const allArticles = [...facultyArticles, ...phdArticles];
 
 	filterButtons.forEach(button => {
 		button.addEventListener('click', function() {
@@ -78,8 +80,8 @@ function initializeGroupFilters() {
 				filterContainer.classList.add('has-active');
 			}
 
-			// Filter articles
-			phdArticles.forEach(article => {
+			// Filter articles (both faculty and PhDs)
+			allArticles.forEach(article => {
 				const articleGroup = article.getAttribute('data-group');
 				article.classList.remove('filtered', 'selected');
 

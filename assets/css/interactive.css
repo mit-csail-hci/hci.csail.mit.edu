@@ -7,18 +7,62 @@
    Group Filter UI
    =================================== */
 
-.filter-wrapper {
+.people-container {
+	display: flex;
+	gap: 30px;
+	align-items: flex-start;
+	max-width: 60rem;
+	margin: 0 auto;
+	padding: 0 1em;
+	padding-top: 1.5em;
+}
+
+.people-sections {
+	flex: 1;
+	min-width: 0;
+}
+
+.people-sections section {
+	margin-bottom: 60px;
+}
+
+.people-sections section:last-child {
+	margin-bottom: 0;
+}
+
+.people-sections section > h1 {
+	position: relative;
+	z-index: 1;
+	color: hsl(20, 100%, 45%);
+	font-weight: 300;
+	font-size: 250%;
+	padding-top: 1.5em;
+	margin-top: 0;
+	text-align: center;
+	width: 100%;
+	flex-basis: 100%;
+}
+
+.people-sections section:first-child > h1 {
+	padding-top: 0;
+}
+
+.filter-sidebar {
+	position: sticky;
+	top: 75px; /* avoid the sticky nav bar */
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	margin: 10px auto 30px;
-	padding: 15px 30px 30px;
+	align-items: flex-start;
+	align-self: flex-start;
+	padding: 20px;
 	border: 2px solid rgba(255, 102, 0, 0.3);
 	border-radius: 12px;
-	background: rgba(255, 102, 0, 0.02);
-	width: fit-content;
-	max-width: 90%;
-	grid-column: 1 / -1;
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	width: 200px;
+	z-index: 100;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	flex-shrink: 0;
 }
 
 .filter-label {
@@ -26,23 +70,21 @@
 	font-weight: 600;
 	text-transform: lowercase;
 	color: hsl(20, 100%, 45%);
-	margin: 0 0 12px 0;
+	margin: 0 0 15px 0;
 	letter-spacing: 0.5px;
 }
 
 .group-filters {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-	justify-content: center;
-	align-items: center;
-	width: fit-content;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
 }
 
 .filter-btn {
 	background: transparent;
-	border: none;
-	padding: 6px;
+	border: 1px solid transparent;
+	padding: 8px;
 	cursor: pointer;
 	font-size: 14px;
 	font-weight: 500;
@@ -52,15 +94,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-width: 44px;
-	min-height: 44px;
+	width: 100%;
+	min-height: 50px;
+	border-radius: 8px;
 	-webkit-tap-highlight-color: transparent;
 }
 
 .filter-btn img {
-	height: 60px;
+	height: 45px;
 	width: auto;
-	max-width: 180px;
+	max-width: 100%;
 	object-fit: contain;
 	transition: all 0.3s ease;
 }
@@ -80,11 +123,12 @@
 .filter-btn.active img {
 	filter: drop-shadow(0 0 8px rgba(255, 102, 0, 1))
 	        drop-shadow(0 0 16px rgba(255, 102, 0, 0.6));
-	transform: scale(1.1);
 }
 
 .filter-btn.active {
 	color: #ff6600;
+	background: rgba(255, 102, 0, 0.05);
+	border-color: rgba(255, 102, 0, 0.4);
 }
 
 /* ===================================
@@ -109,24 +153,24 @@
 	opacity: 0.3;
 }
 
-#phds.people article {
+.people article {
 	transition: none;
 	order: 1;
 }
 
-#phds.people article.selected {
+.people article.selected {
 	order: 0;
 	transform: scale(1.02);
 }
 
-#phds.people article.selected img {
+.people article.selected img {
 	box-shadow: 0 0 15px rgba(255, 102, 0, 0.8), 0 0 30px rgba(255, 102, 0, 0.4);
 	border: 2px solid rgba(255, 102, 0, 0.6);
 	transform: scale(1.02);
 	transition: all 0.3s ease;
 }
 
-#phds.people article.filtered {
+.people article.filtered {
 	order: 2;
 	display: none;
 	opacity: 0.3;
@@ -423,14 +467,24 @@
 		gap: 10px;
 	}
 
-	.filter-wrapper {
-		padding: 20px 15px;
-		max-width: 95%;
+	.people-container {
+		gap: 15px;
+		padding: 0 10px;
+	}
+
+	.filter-sidebar {
+		width: 140px;
+		padding: 12px;
+	}
+
+	.filter-btn {
+		min-height: 40px;
+		padding: 6px;
 	}
 
 	.filter-btn img {
-		height: 50px;
-		max-width: 150px;
+		height: 35px;
+		max-width: 100%;
 	}
 
 	.filter-label {
@@ -439,35 +493,46 @@
 }
 
 @media (max-width: 600px) {
-	.filter-wrapper {
+	.people-container {
+		flex-direction: column;
+		padding: 0;
+	}
+
+	.filter-sidebar {
 		display: none;
 	}
 
-	#phds.people article.filtered {
+	.people article.filtered {
 		opacity: 1 !important;
 		filter: none !important;
 		pointer-events: auto !important;
 		transform: none !important;
 		order: 1 !important;
+		display: flex !important;
 	}
 
-	#phds.people article.selected {
+	.people article.selected {
 		order: 1 !important;
 		transform: none !important;
 	}
 
-	#phds.people article.filtered img {
+	.people article.filtered img {
 		filter: none !important;
 	}
 
-	#phds.people article.filtered h1,
-	#phds.people article.filtered .group {
+	.people article.filtered h1,
+	.people article.filtered .group {
 		opacity: 1 !important;
 	}
 
-	body > section > h1 {
+	body > section > h1,
+	.people-sections section > h1 {
 		font-size: 200%;
 		padding-top: 1em;
+	}
+
+	.people-sections section:first-child > h1 {
+		padding-top: 0;
 	}
 
 	.carousel-slide {
@@ -481,11 +546,10 @@
 
 @media (max-width: 400px) {
 	.filter-btn img {
-		height: 35px;
-		max-width: 100px;
+		height: 30px;
 	}
 
 	.group-filters {
-		gap: 6px;
+		gap: 8px;
 	}
 }
