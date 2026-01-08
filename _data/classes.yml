@@ -1,3 +1,12 @@
+- number: "6.4500"
+  title: Design for the Web
+  image: designftw.jpg
+  url: https://designftw.mit.edu/
+  semester: Spring 2026
+  instructors: David Karger
+  description: >
+    This course will teach the principles and technologies for designing usable user interfaces for the Web. You will learn the key principles and methods of user interface design, including learnability, efficiency, safety, prototyping, and user testing. You will learn the core web languages of HTML, CSS, and Javascript, their different roles, and the rationales for the widely varying designs. You will also learn about reactivity through the frontend web framework Vue.js. We will use these languages to create usable web interfaces. We will also touch on the fundamentals of graphic design theory, as design and usability go hand in hand.
+
 - number: "6.1040"
   title: Software Design
   image: software-studio.jpg
