@@ -516,8 +516,8 @@ section.people article .group {
 }
 
 section.people article img {
-	width: 12em;
-	height: 12em;
+	width: 10em;
+	height: 10em;
 	aspect-ratio: 1;
 	object-fit: cover;
 	object-position: center;
@@ -525,22 +525,16 @@ section.people article img {
 	background: #1a1a1a;
 	border: 2px solid hsl(20, 100%, 60%);
 	box-sizing: border-box;
-	margin-bottom: 0.8em;
 }
 
 /* Faculty-specific styling */
 section.people[id=faculty] article {
-	max-width: 13em;
+	max-width: 12em;
 }
 
 /* PhD students styling */
-section.people[id=phds] article img {
-	width: 10em;
-	height: 10em;
-}
-
 section.people[id=phds] article {
-	width: 10em;
+	max-width: 12em;
 }
 
 section.people[id=phds] article .group {

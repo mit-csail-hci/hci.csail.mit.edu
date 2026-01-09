@@ -11,7 +11,7 @@
 	display: flex;
 	gap: 30px;
 	align-items: flex-start;
-	max-width: 60rem;
+	max-width: 70rem;
 	margin: 0 auto;
 	padding: 0 1em;
 	padding-top: 1.5em;
@@ -26,6 +26,10 @@
 	margin-bottom: 60px;
 }
 
+.people-sections section#faculty {
+    margin-bottom: 0;
+}
+
 .people-sections section:last-child {
 	margin-bottom: 0;
 }
@@ -36,7 +40,7 @@
 	color: hsl(20, 100%, 45%);
 	font-weight: 300;
 	font-size: 250%;
-	padding-top: 1.5em;
+	padding-top: 1em;
 	margin-top: 0;
 	text-align: center;
 	width: 100%;
