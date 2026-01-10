@@ -1,37 +1,43 @@
 schedule:
-  fall_2025:
-    - date: September 16
-      speaker: Ziv Epstein
-      affiliation: MIT SERC
-      anchor: t20240916
-    - date: September 23
-      speaker: Kate Isaacs
-      affiliation: University of Utah
-      anchor: t20240923
-    - date: October 7
-      speaker: Sarah Chasins
-      affiliation: UC Berkeley
-      anchor: t20241007
-    - date: October 14
-      speaker: Parastoo Abtahi
-      affiliation: Princeton
-      anchor: t20241014
-    - date: October 28
-      speaker: Liz Rodwell
-      affiliation: University of Houston
-      anchor: t20241028
-    - date: November 18
-      speaker: Ana Crisan
-      affiliation: University of Waterloo
-      anchor: t20241118
-    - date: December 2
-      speaker: Lace Padilla
-      affiliation: Northeastern
-      anchor: t20241202
-    - date: December 9
-      speaker: Jeff Bigham
-      affiliation: CMU + Apple
-      anchor: t20241209
+  - semester: Spring 2026
+    talks:
+      - date: January 13
+        speaker: Siddhartha Prasad
+        affiliation: Brown
+  - semester: Fall 2025
+    talks:
+      - date: September 16
+        speaker: Ziv Epstein
+        affiliation: MIT SERC
+        anchor: t20240916
+      - date: September 23
+        speaker: Kate Isaacs
+        affiliation: University of Utah
+        anchor: t20240923
+      - date: October 7
+        speaker: Sarah Chasins
+        affiliation: UC Berkeley
+        anchor: t20241007
+      - date: October 14
+        speaker: Parastoo Abtahi
+        affiliation: Princeton
+        anchor: t20241014
+      - date: October 28
+        speaker: Liz Rodwell
+        affiliation: University of Houston
+        anchor: t20241028
+      - date: November 18
+        speaker: Ana Crisan
+        affiliation: University of Waterloo
+        anchor: t20241118
+      - date: December 2
+        speaker: Lace Padilla
+        affiliation: Northeastern
+        anchor: t20241202
+      - date: December 9
+        speaker: Jeff Bigham
+        affiliation: CMU + Apple
+        anchor: t20241209
 
 info:
   time: "Tuesdays, 4pm"

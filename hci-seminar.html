@@ -24,10 +24,11 @@ title: HCI Seminar
 		<a href="{{ site.data.seminar.info.calendar_url }}">📅 Calendar</a>
 	</p>
 
-  <h1>Spring 2021 Talk Schedule</h1>
+  {% for semester in site.data.seminar.schedule %}
+  <h1>{{ semester.semester }} Talk Schedule</h1>
   <p>
     <ul>
-		{% for talk in site.data.seminar.schedule.spring_2021 %}
+		{% for talk in semester.talks %}
       <li>
         <a href="#{{ talk.anchor }}">
           {{ talk.date }} - {{ talk.speaker }}, {{ talk.affiliation }}.
@@ -36,6 +37,7 @@ title: HCI Seminar
 		{% endfor %}
     </ul>
   </p>
+  {% endfor %}
 
 	<h1>Latest Recorded Talks</h1>
 

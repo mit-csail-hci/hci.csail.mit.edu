@@ -168,14 +168,16 @@ layout: default
 		<strong>Coordinator:</strong> {{ site.data.seminar.info.coordinator }}
 	</p>
 
-	<h2>Fall 2025 Talk Schedule</h2>
+    <h2>{{ site.data.seminar.schedule[0].semester }} Talk Schedule</h2>
 	<ul>
-		{% for talk in site.data.seminar.schedule.fall_2025 %}
+		{% for talk in site.data.seminar.schedule[0].talks %}
 		<li>
 			{{ talk.date }} - <strong>{{ talk.speaker }}</strong>, {{ talk.affiliation }}{% if talk.note %} ({{ talk.note }}){% endif %}
 		</li>
 		{% endfor %}
 	</ul>
+
+    <h2><a href="{{ '/hci-seminar.html' | relative_url }}">Previous semesters</a></h2>
 </section>
 
 
