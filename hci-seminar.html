@@ -31,7 +31,7 @@ title: HCI Seminar
 		{% for talk in semester.talks %}
       <li>
         <a href="#{{ talk.anchor }}">
-          {{ talk.date }} - {{ talk.speaker }}, {{ talk.affiliation }}.
+          {{ talk.date }} - {{ talk.speaker }}{% if talk.affiliation %}, {{ talk.affiliation }}{% endif %}.
         </a>
       </li>
 		{% endfor %}

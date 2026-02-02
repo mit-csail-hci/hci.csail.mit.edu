@@ -4,6 +4,35 @@ schedule:
       - date: January 13
         speaker: Siddhartha Prasad
         affiliation: Brown
+      - date: February 3
+        speaker: Alberto Cairo
+        affiliation: University of Miami
+      - date: February 10
+        speaker: Maitraye Das
+        affiliation: Northeastern University
+      - date: February 25
+        speaker: Diana Freed
+        affiliation: Brown University
+      - date: March 3
+        speaker: Andy Matuschak
+      - date: March 10
+        speaker: Ruofei Du
+        affiliation: Google
+      - date: March 17
+        speaker: Karrie Karahalios
+        affiliation: MIT
+      - date: March 18 (Wednesday)
+        speaker: Karen Hao
+        affiliation: 
+      - date: April 7
+        speaker: Valentina Shin
+        affiliation: Adobe
+      - date: May 5 
+        speaker: Upol Ehsan
+        affiliation: Northeastern University
+      - date: May 12
+        speaker: Zana Buçinca
+        affiliation: Microsoft
   - semester: Fall 2025
     talks:
       - date: September 16

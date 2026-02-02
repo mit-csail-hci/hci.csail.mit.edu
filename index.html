@@ -172,7 +172,7 @@ layout: default
 	<ul>
 		{% for talk in site.data.seminar.schedule[0].talks %}
 		<li>
-			{{ talk.date }} - <strong>{{ talk.speaker }}</strong>, {{ talk.affiliation }}{% if talk.note %} ({{ talk.note }}){% endif %}
+            {{ talk.date }} - <strong>{{ talk.speaker }}</strong>{% if talk.affiliation %}, {{ talk.affiliation }}{% endif %}{% if talk.note %} ({{ talk.note }}){% endif %}
 		</li>
 		{% endfor %}
 	</ul>
