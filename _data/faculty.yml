@@ -32,3 +32,12 @@
   url: https://mgordon.me/
   image: mitchell-gordon.jpg
   group_id: interaction_alignment
+
+- name: Zana Buçinca
+  url: https://zbucinca.github.io/
+  image: zana-bucinca.png
+
+- name: Jas Brooks
+  url: https://jasbrooks.net/
+  image: jas-brooks.png
+  group_id: perceptual_engineering

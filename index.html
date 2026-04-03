@@ -99,6 +99,28 @@ layout: default
 			{% endif %}
 			{% endfor %}
 		</section>
+
+		<section id="friends" class="people">
+			<h1>Friends of MIT HCI</h1>
+			{% for person in site.data.friends %}
+			<article data-group="{{ person.group_id }}">
+				<a href="{{ person.url }}">
+					{% if person.image and person.image != "" %}
+					<img src="{{ '/assets/images/profile-pictures/faculty/' | relative_url }}{{ person.image }}" />
+					{% else %}
+					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
+					{% endif %}
+					<h1>{{ person.name }}</h1>
+				</a>
+				{% if person.group_id %}
+				{% assign group = site.data.groups[person.group_id] %}
+				<a href="{{ group.url }}" class="group">{{ group.name }}</a>
+				{% elsif person.group_text %}
+				<span class="group">{{ person.group_text }}</span>
+				{% endif %}
+			</article>
+			{% endfor %}
+		</section>
 	</div>
 </div>
 
