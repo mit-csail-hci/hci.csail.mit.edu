@@ -10,8 +10,8 @@
   group_id: visualization
   academic_level: phd
 
-- name: Abutalib Namazov
-  url: ""
+- name: Abutalib (Barish) Namazov
+  url: https://barish.me/
   image: barish-namazov.jpeg
   group_id: software_design
   academic_level: phd
