@@ -38,25 +38,36 @@
     multitouch, augmented reality, haptics, wearables, brain computer interfaces, tangibles, fabrication, and more.
 
 
-- number: "6.851"
+- number: "6.8510"
   title: Intelligent Multimodal User Interfaces
   image: multimodal.png
-  url: https://stellar.mit.edu/S/course/6/sp17/6.835/
-  semester: Spring 2019
+  url: https://student.mit.edu/catalog/search.cgi?search=6.8510
+  semester: Spring 2026
   instructors: Randall Davis
   description: >
     Topics include basic technologies for handling speech, vision, pen-based interaction, and other modalities, as well
     as various techniques for combining modalities. Substantial readings and a term project, where students build an interface.
 
+- number: "6.4550"
+  title: Interactive Music Systems
+  image: dataviz.png
+  url: https://student.mit.edu/catalog/search.cgi?search=6.4550
+  semester: Spring 2026
+  instructors: Eran Egozy
+  description: >
+    Explores audio synthesis, musical structure, human-computer interaction, and visual presentation for creating
+    interactive musical experiences. Topics include audio synthesis, mixing and looping, MIDI sequencing, generative
+    composition, motion sensors, music games, and graphics for UI design and visualization. Weekly programming
+    assignments in Python, culminating in a final original interactive music system.
+
 - number: "6.C35 / 6.C85"
-  title: Interactive Data Visualization
+  title: Interactive Data Visualization and Society
   image: dataviz.png
   url: http://vis.csail.mit.edu/classes/6.894/
-  semester: Spring 2021
+  semester: Spring 2026
   instructors: Arvind Satyanarayan
   description: >
-    Interactive visualization provides a means of making sense of a world awash in data. This course covers the techniques
-    and algorithms for creating effective visualizations, using principles from graphic design, perceptual psychology, and
-    cognitive science. Short assignments will build familiarity with the data analysis and visualization design process,
-    and a final project will provide experience designing, implementing, and deploying an explanatory narrative visualization
-    or visual analysis tool to address a concrete challenge.
+    Design, ethical, and technical skills for creating effective visualizations. Short assignments build competency with
+    the data analysis and visualization design process, weekly labs cover coding and technical skills, and a capstone
+    project asks students to analyze real-world data from external partners to communicate insights about societal issues.
+    Cross-listed as 11.C35[J], CMS.C35[J], and IDS.C35[J]. Limited enrollment.
