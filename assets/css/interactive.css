@@ -73,12 +73,10 @@
 }
 
 .filter-label {
-	font-size: 12px;
-	font-weight: 600;
-	text-transform: uppercase;
-	color: rgba(15, 23, 42, 0.55);
+	font-size: 14px;
+	font-weight: 700;
+	color: rgba(15, 23, 42, 0.85);
 	margin: 0;
-	letter-spacing: 0.08em;
 	white-space: nowrap;
 	flex-shrink: 0;
 	padding: 0 10px 0 6px;
