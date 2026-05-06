@@ -74,10 +74,13 @@ function initializeGroupFilters() {
 
 			// Update container state
 			const filterContainer = document.querySelector('.group-filters');
+			const friendsSection = document.getElementById('friends');
 			if (selectedGroup === 'all') {
 				filterContainer.classList.remove('has-active');
+				if (friendsSection) friendsSection.hidden = false;
 			} else {
 				filterContainer.classList.add('has-active');
+				if (friendsSection) friendsSection.hidden = true;
 			}
 
 			// Filter articles (both faculty and PhDs)

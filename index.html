@@ -7,7 +7,7 @@ layout: default
 <section id="join-banner">
 	<p>
 		<strong>Join us!</strong>
-		As a PhD student: apply to the <a href="http://www.eecs.mit.edu/academics-admissions/graduate-program/admissions">MIT EECS PhD program</a> by December 1st, 2025.
+		As a PhD student: apply to the <a href="http://www.eecs.mit.edu/academics-admissions/graduate-program/admissions">MIT EECS PhD program</a> by December 1st, 2026.
 		<br>
 		As a postdoc or UROP/SuperUROP/MEng: email individual faculty directly.
 	</p>
@@ -17,29 +17,29 @@ layout: default
 	<div class="filter-sidebar">
 		<p class="filter-label">discover by group</p>
 		<div class="group-filters">
-		<button class="filter-btn active" data-group="all">All</button>
+		<button class="filter-btn active" data-group="all" title="Show everyone" aria-label="Show everyone">All</button>
 		{% assign ordered_groups = "software_design,haystack,usable_programming,hci_engineering,visualization,human_ai_resonance,interaction_alignment" | split: "," %}
 		{% for group_id in ordered_groups %}
 		{% assign group = site.data.groups[group_id] %}
 		{% if group %}
 		{% if group_id == "haystack" %}
-		<button class="filter-btn" data-group="{{ group_id }}">
+		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
 			<img src="{{ '/assets/images/logos/haystack.png' | relative_url }}" alt="{{ group.short_name }}" />
 		</button>
 		{% elsif group_id == "usable_programming" %}
-		<button class="filter-btn" data-group="{{ group_id }}">
+		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
 			<img src="{{ '/assets/images/logos/usable-programming.png' | relative_url }}" alt="{{ group.short_name }}" />
 		</button>
 		{% elsif group_id == "hci_engineering" %}
-		<button class="filter-btn" data-group="{{ group_id }}">
+		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
 			<img src="{{ '/assets/images/logos/hci-engineering.jpg' | relative_url }}" alt="{{ group.short_name }}" />
 		</button>
 		{% elsif group_id == "visualization" %}
-		<button class="filter-btn" data-group="{{ group_id }}">
+		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
 			<img src="{{ '/assets/images/logos/mit-vis.png' | relative_url }}" alt="{{ group.short_name }}" />
 		</button>
 		{% else %}
-		<button class="filter-btn" data-group="{{ group_id }}">{{ group.short_name }}</button>
+		<button class="filter-btn" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">{{ group.short_name }}</button>
 		{% endif %}
 		{% endif %}
 		{% endfor %}
@@ -48,7 +48,7 @@ layout: default
 
 	<div class="people-sections">
 		<section id="faculty" class="people">
-			<h1>Faculty &amp; PIs</h1>
+			<h1>Faculty</h1>
 			{% for person in site.data.faculty %}
 			<article data-group="{{ person.group_id }}">
 				<a href="{{ person.url }}">
@@ -128,6 +128,15 @@ layout: default
 	<h1>Research</h1>
 	<p class="research-note">Please look at lab websites for more information on research projects.</p>
 
+	<div class="research-buckets">
+		{% for bucket in site.data.research %}
+		<p class="research-bucket"><strong class="bucket-title">{{ bucket.bucket }}</strong> · {% for link in bucket.links %}<a href="{{ link.url }}">{{ link.name }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+		{% endfor %}
+	</div>
+
+	{% comment %}
+	Previous carousel layout — kept for reference in case we want to revive it.
+
 	<div class="research-carousel">
 		<button class="carousel-btn prev-btn" aria-label="Previous project">‹</button>
 		<div class="carousel-container">
@@ -149,6 +158,7 @@ layout: default
 		</div>
 		<button class="carousel-btn next-btn" aria-label="Next project">›</button>
 	</div>
+	{% endcomment %}
 
 </section>
 

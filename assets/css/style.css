@@ -4,6 +4,20 @@
    Base Styles
    =================================== */
 
+html {
+	scroll-behavior: smooth;
+}
+
+section[id] {
+	scroll-margin-top: 80px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
 * {
 	margin: 0;
 }
@@ -60,7 +74,7 @@ a:focus {
 body > header {
 	padding: 3.5em 1.5em 2.5em 1.5em;
 	background-color: hsl(20, 100%, 45%);
-	background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)),
+	background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.65)),
 	                  url("../images/social/group-meeting.jpg");
 	background-position: center center !important;
 	background-size: cover !important;
@@ -166,7 +180,7 @@ body > header .header-logo {
 	padding: 0.5em 1em;
 	align-items: center;
 	background-color: hsl(20, 100%, 45%);
-	background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)),
+	background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.65)),
 	                  url("../images/social/group-meeting.jpg");
 	background-position: center center;
 	background-size: cover;
@@ -262,7 +276,8 @@ body > header .header-logo {
 }
 
 body > header .header-logo img {
-	max-width: 25%;
+	width: 40%;
+	max-width: 500px;
 	height: auto;
 }
 
