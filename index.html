@@ -24,19 +24,23 @@ layout: default
 		{% if group %}
 		{% if group_id == "haystack" %}
 		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
-			<img src="{{ '/assets/images/logos/haystack.png' | relative_url }}" alt="{{ group.short_name }}" />
+			<img src="{{ '/assets/images/logos/haystack.png' | relative_url }}" alt="" />
+			<span>{{ group.short_name }}</span>
 		</button>
 		{% elsif group_id == "usable_programming" %}
 		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
-			<img src="{{ '/assets/images/logos/usable-programming.png' | relative_url }}" alt="{{ group.short_name }}" />
+			<img src="{{ '/assets/images/logos/usable-programming.png' | relative_url }}" alt="" />
+			<span>{{ group.short_name }}</span>
 		</button>
 		{% elsif group_id == "hci_engineering" %}
 		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
-			<img src="{{ '/assets/images/logos/hci-engineering.jpg' | relative_url }}" alt="{{ group.short_name }}" />
+			<img src="{{ '/assets/images/logos/hci-engineering.jpg' | relative_url }}" alt="" />
+			<span>{{ group.short_name }}</span>
 		</button>
 		{% elsif group_id == "visualization" %}
 		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
-			<img src="{{ '/assets/images/logos/mit-vis.png' | relative_url }}" alt="{{ group.short_name }}" />
+			<img src="{{ '/assets/images/logos/mit-vis.png' | relative_url }}" alt="" />
+			<span>{{ group.short_name }}</span>
 		</button>
 		{% else %}
 		<button class="filter-btn" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">{{ group.short_name }}</button>
