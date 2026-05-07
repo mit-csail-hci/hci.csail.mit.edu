@@ -1,11 +1,11 @@
 - number: "6.4500"
-  title: Design for the Web
+  title: Design for the Web — Languages and User Interfaces
   image: designftw.jpg
   url: https://designftw.mit.edu/
   semester: Spring 2026
   instructors: David Karger
   description: >
-    This course will teach the principles and technologies for designing usable user interfaces for the Web. You will learn the key principles and methods of user interface design, including learnability, efficiency, safety, prototyping, and user testing. You will learn the core web languages of HTML, CSS, and Javascript, their different roles, and the rationales for the widely varying designs. You will also learn about reactivity through the frontend web framework Vue.js. We will use these languages to create usable web interfaces. We will also touch on the fundamentals of graphic design theory, as design and usability go hand in hand.
+    Instruction in the principles and technologies for designing usable user interfaces for Web applications. Focuses on the key principles and methods of user interface design, including learnability, efficiency, safety, prototyping, and user testing. Provides instruction in the core web languages of HTML, CSS, and Javascript, their different roles, and the rationales for the widely varying designs. These languages are used to create usable web interfaces and applications. Covers fundamentals of graphic design theory, as design and usability go hand in hand.
 
 - number: "6.104"
   title: Software Studio
@@ -36,8 +36,10 @@
   semester: Spring 2026
   instructors: Randall Davis
   description: >
-    Topics include basic technologies for handling speech, vision, pen-based interaction, and other modalities, as well
-    as various techniques for combining modalities. Substantial readings and a term project, where students build an interface.
+    Implementation and evaluation of intelligent multi-modal user interfaces, taught from a combination of hands-on
+    exercises and papers from the original literature. Covers basic technologies for handling speech, vision,
+    pen-based interaction, and other modalities, as well as various techniques for combining modalities. Substantial
+    readings and a term project, where students build software demonstrating course concepts.
 
 - number: "6.4550"
   title: Interactive Music Systems
@@ -46,22 +48,23 @@
   semester: Spring 2026
   instructors: Eran Egozy
   description: >
-    Explores audio synthesis, musical structure, human-computer interaction, and visual presentation for creating
-    interactive musical experiences. Topics include audio synthesis, mixing and looping, MIDI sequencing, generative
-    composition, motion sensors, music games, and graphics for UI design and visualization. Weekly programming
-    assignments in Python, culminating in a final original interactive music system.
+    Explores audio synthesis, musical structure, human computer interaction (HCI), and visual presentation for the
+    creation of interactive musical experiences. Topics include audio synthesis; mixing and looping; MIDI sequencing;
+    generative composition; motion sensors; music games; and graphics for UI, visualization, and aesthetics. Includes
+    weekly programming assignments in python. Teams build an original, dynamic, and engaging interactive music system
+    for their final project. Students taking graduate version complete different assignments. Limited to 36.
 
 - number: "6.C35 / 6.C85"
   title: Interactive Data Visualization and Society
   image: dataviz.png
-  url: http://vis.csail.mit.edu/classes/6.894/
+  url: https://vis-society.github.io/
   semester: Spring 2026
   instructors: Arvind Satyanarayan
   description: >
-    Design, ethical, and technical skills for creating effective visualizations. Short assignments build competency with
-    the data analysis and visualization design process, weekly labs cover coding and technical skills, and a capstone
-    project asks students to analyze real-world data from external partners to communicate insights about societal issues.
-    Cross-listed as 11.C35[J], CMS.C35[J], and IDS.C35[J]. Limited enrollment.
+    Covers the design, ethical, and technical skills for creating effective visualizations. Short assignments build
+    familiarity with the data analysis and visualization design process. Weekly lab sessions present coding and technical
+    skills. A final project provides experience working with real-world big data, provided by external partners, in order
+    to expose and communicate insights about societal issues.
 
 - number: "6.1040"
   title: Software Design
@@ -70,4 +73,4 @@
   semester: Fall 2025
   instructors: Daniel Jackson, Mitchell Gordon
   description: >
-    Provides design-focused instruction on how to build complex software applications. Design topics include classic human-computer interaction (HCI) design tactics (need finding, heuristic evaluation, prototyping, user testing), conceptual design (inventing, modeling and evaluating constituent concepts), social and ethical implications, abstract data modeling, and visual design. Implementation topics include reactive front-ends, web services, and databases. Students work both on individual projects and a larger team project in which they design and build full-stack web applications.
+    Provides design-focused instruction on how to build complex software applications. Presents key skills in product design and human-computer interaction (identifying authentic demand, prototyping, visual design, and user testing), software concept design (achieving clarity, modularity, and focus in structuring functionality), and analyzing social and ethical implications. Implementation topics include client/server web apps, reactive front-ends, and databases. Students work on both individual projects and a larger team project, and are taught to make effective and intentional use of LLMs in design and coding.
