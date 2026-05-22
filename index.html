@@ -15,13 +15,17 @@ layout: default
 
 <div class="people-container">
 	<div class="filter-sidebar">
-		<p class="filter-label">Groups</p>
 		<div class="group-filters">
+		<div class="filter-row">
 		<button class="filter-btn active" data-group="all" title="Show everyone" aria-label="Show everyone">All</button>
 		{% assign ordered_groups = "software_design,haystack,usable_programming,hci_engineering,visualization,human_ai_resonance,interaction_alignment" | split: "," %}
 		{% for group_id in ordered_groups %}
 		{% assign group = site.data.groups[group_id] %}
 		{% if group %}
+		{% if group_id == "visualization" %}
+		</div>
+		<div class="filter-row">
+		{% endif %}
 		{% if group_id == "haystack" %}
 		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
 			<img src="{{ '/assets/images/logos/haystack.png' | relative_url }}" alt="" />
@@ -47,6 +51,7 @@ layout: default
 		{% endif %}
 		{% endif %}
 		{% endfor %}
+		</div>
 		</div>
 	</div>
 
@@ -103,30 +108,34 @@ layout: default
 			{% endif %}
 			{% endfor %}
 		</section>
-
-		<section id="friends" class="people">
-			<h1>Friends of MIT HCI</h1>
-			{% for person in site.data.friends %}
-			<article data-group="{{ person.group_id }}">
-				<a href="{{ person.url }}">
-					{% if person.image and person.image != "" %}
-					<img src="{{ '/assets/images/profile-pictures/faculty/' | relative_url }}{{ person.image }}" />
-					{% else %}
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
-					{% endif %}
-					<h1>{{ person.name }}</h1>
-				</a>
-				{% if person.group_id %}
-				{% assign group = site.data.groups[person.group_id] %}
-				<a href="{{ group.url }}" class="group">{{ group.name }}</a>
-				{% elsif person.group_text %}
-				<span class="group">{{ person.group_text }}</span>
-				{% endif %}
-			</article>
-			{% endfor %}
-		</section>
 	</div>
 </div>
+
+<section id="friends-media">
+	<video src="{{ '/assets/images/media/silly-dance.web.mp4' | relative_url }}" autoplay loop muted playsinline disablepictureinpicture></video>
+</section>
+
+<section id="friends" class="people">
+	<h1>Friends of MIT HCI</h1>
+	{% for person in site.data.friends %}
+	<article data-group="{{ person.group_id }}">
+		<a href="{{ person.url }}">
+			{% if person.image and person.image != "" %}
+			<img src="{{ '/assets/images/profile-pictures/faculty/' | relative_url }}{{ person.image }}" />
+			{% else %}
+			<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
+			{% endif %}
+			<h1>{{ person.name }}</h1>
+		</a>
+		{% if person.group_id %}
+		{% assign group = site.data.groups[person.group_id] %}
+		<a href="{{ group.url }}" class="group">{{ group.name }}</a>
+		{% elsif person.group_text %}
+		<span class="group">{{ person.group_text }}</span>
+		{% endif %}
+	</article>
+	{% endfor %}
+</section>
 
 <section id="research">
 	<h1>Research</h1>
@@ -164,6 +173,10 @@ layout: default
 	</div>
 	{% endcomment %}
 
+</section>
+
+<section id="research-media">
+	<img src="{{ '/assets/images/media/human-hci.jpg' | relative_url }}" alt="" />
 </section>
 
 <section id="classes">
@@ -213,7 +226,7 @@ layout: default
 		{% endfor %}
 	</ul>
 
-    <h2><a href="{{ '/hci-seminar.html' | relative_url }}">Previous semesters</a></h2>
+    <p style="margin-top: 20px;"><a href="{{ '/hci-seminar.html' | relative_url }}">Previous semesters</a></p>
 </section>
 
 

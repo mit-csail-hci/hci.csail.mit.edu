@@ -27,7 +27,27 @@ document.addEventListener('DOMContentLoaded', function() {
 	initializeEasterEggs();
 	initializeStudentOfTheHour();
 	initializeResearchCarousel();
+	initializeFriendsVideo();
 });
+
+/**
+ * Flash the friends video briefly each time it loops back to the start
+ */
+function initializeFriendsVideo() {
+	const video = document.querySelector('#friends-media video');
+	if (!video) return;
+
+	let lastTime = 0;
+	video.addEventListener('timeupdate', function() {
+		// currentTime jumping backwards means the clip just looped
+		if (video.currentTime < lastTime - 0.1) {
+			video.classList.remove('video-flash');
+			void video.offsetWidth; // force reflow so the animation restarts
+			video.classList.add('video-flash');
+		}
+		lastTime = video.currentTime;
+	});
+}
 
 /**
  * Randomize PhD student order
@@ -74,13 +94,10 @@ function initializeGroupFilters() {
 
 			// Update container state
 			const filterContainer = document.querySelector('.group-filters');
-			const friendsSection = document.getElementById('friends');
 			if (selectedGroup === 'all') {
 				filterContainer.classList.remove('has-active');
-				if (friendsSection) friendsSection.hidden = false;
 			} else {
 				filterContainer.classList.add('has-active');
-				if (friendsSection) friendsSection.hidden = true;
 			}
 
 			// Filter articles (both faculty and PhDs)

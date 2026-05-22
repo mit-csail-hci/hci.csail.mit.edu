@@ -430,6 +430,45 @@ body > footer {
 	padding: 0 1em;
 }
 
+#research-media {
+	display: flex;
+	justify-content: center;
+	margin-top: 2.5em;
+	margin-bottom: 1em;
+}
+
+#research-media img {
+	max-width: 100%;
+	width: 42em;
+	height: auto;
+	border-radius: 12px;
+}
+
+#friends-media {
+	display: flex;
+	justify-content: center;
+	margin-top: 3.5em;
+	margin-bottom: 2em;
+}
+
+#friends-media video {
+	max-width: 100%;
+	width: 42em;
+	height: auto;
+	border-radius: 12px;
+	pointer-events: none;
+}
+
+@keyframes video-flash {
+	0% { filter: brightness(1); }
+	35% { filter: brightness(2.1); }
+	100% { filter: brightness(1); }
+}
+
+#friends-media video.video-flash {
+	animation: video-flash 0.35s ease-out;
+}
+
 body > section > h1 {
 	position: relative;
 	z-index: 1;
@@ -723,6 +762,7 @@ section[id="classes"] > h1 {
 }
 
 section[id="classes"] article {
+	position: relative;
 	width: 100%;
 	max-width: 800px;
 	background: #fff;
@@ -741,6 +781,7 @@ section[id="classes"] article:hover {
 section[id="classes"] article h1 {
 	margin: 0 0 15px 0;
 	font-size: 1.4em;
+	padding-right: 120px;
 }
 
 section[id="classes"] article p {
@@ -754,6 +795,9 @@ section[id="classes"] article .description {
 }
 
 section[id="classes"] article .semester {
+	position: absolute;
+	top: 30px;
+	right: 30px;
 	display: inline-block;
 	padding: 6px 12px;
 	border-radius: 6px;
@@ -761,7 +805,7 @@ section[id="classes"] article .semester {
 	color: hsl(20, 100%, 35%);
 	font-weight: 600;
 	font-size: 85%;
-	margin-bottom: 12px;
+	white-space: nowrap;
 }
 
 @media (max-width: 768px) {
@@ -772,6 +816,12 @@ section[id="classes"] article .semester {
 
 	section[id="classes"] article h1 {
 		font-size: 1.3em;
+		padding-right: 0;
+	}
+
+	section[id="classes"] article .semester {
+		position: static;
+		margin-bottom: 12px;
 	}
 }
 
