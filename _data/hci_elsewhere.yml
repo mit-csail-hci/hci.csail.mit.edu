@@ -67,6 +67,10 @@ research_groups:
     url: http://newmed.media.mit.edu/
     faculty:
     location: MIT Media Lab
+  - name: Crystal Lee's Research Group
+    url: https://crystaljjlee.com/
+    faculty: Crystal Lee
+    location: MIT Comparative Media Studies/Writing
 
 seminars_meetings:
   - name: Upcoming Media Lab Talks

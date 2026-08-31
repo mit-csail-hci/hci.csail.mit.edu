@@ -183,3 +183,45 @@
   image: amber-horvath.jpeg
   group_id: visualization
   academic_level: phd
+
+- name: MacKenzie Harnett
+  url: https://mcharnett.github.io/about
+  image: mackenzie-harnett.jpg
+  group_id: perceptual_engineering
+  academic_level: postdoc
+
+- name: Tai Le
+  url: https://tai-le.com/
+  image: tai-le.jpeg
+  group_id: perceptual_engineering
+  academic_level: postdoc
+
+- name: Alejandro López-Rodríguez
+  url: https://alex2000lopez.github.io
+  image: alejandro-lopez-rodriguez.jpg
+  group_id: perceptual_engineering
+  academic_level: phd
+
+- name: Riley Lawson
+  url: ""
+  image: riley-lawson.jpg
+  group_id: perceptual_engineering
+  academic_level: phd
+
+- name: Yuting Tang
+  url: https://tangyuting.com
+  image: yuting-tang.jpg
+  group_id: perceptual_engineering
+  academic_level: phd
+
+- name: Sol Choi
+  url: https://sol-choi.com
+  image: sol-choi.jpg
+  group_id: perceptual_engineering
+  academic_level: phd
+
+- name: Gene S-H Kim
+  url: https://geneshkim.com/
+  image: gene-kim.jpg
+  group_id: perceptual_engineering
+  academic_level: phd

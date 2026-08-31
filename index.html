@@ -18,7 +18,7 @@ layout: default
 		<div class="group-filters">
 		<div class="filter-row">
 		<button class="filter-btn active" data-group="all" title="Show everyone" aria-label="Show everyone">All</button>
-		{% assign ordered_groups = "software_design,haystack,usable_programming,hci_engineering,visualization,human_ai_resonance,interaction_alignment" | split: "," %}
+		{% assign ordered_groups = "software_design,haystack,usable_programming,hci_engineering,visualization,human_ai_resonance,interaction_alignment,perceptual_engineering" | split: "," %}
 		{% for group_id in ordered_groups %}
 		{% assign group = site.data.groups[group_id] %}
 		{% if group %}
