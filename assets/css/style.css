@@ -920,8 +920,110 @@ section[id="alumni"] > section > h1 a:hover {
 	text-decoration: none;
 }
 
-section[id="previous"] > article {
-	padding-bottom: 10px;
+/* Alumni page: photo-card grid grouped by year */
+section#previous.alumni {
+	display: block;
+}
+
+.alumni-year {
+	margin-bottom: 2.5em;
+}
+
+.alumni-year .seminaryear {
+	margin-bottom: 0.75em;
+	text-align: center;
+}
+
+.alumni-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5em;
+	row-gap: 2em;
+}
+
+.alumni-grid article {
+	margin: 0;
+	width: 9em;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.alumni-grid article a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	width: 100%;
+}
+
+.alumni-grid article img,
+.alumni-grid article .avatar-placeholder {
+	width: 7.5em;
+	height: 7.5em;
+	aspect-ratio: 1;
+	object-fit: cover;
+	object-position: center;
+	border-radius: 50%;
+	background: #1a1a1a;
+	border: 2px solid hsl(20, 100%, 60%);
+	box-sizing: border-box;
+}
+
+.alumni-grid article .avatar-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: hsl(20, 100%, 70%);
+	font-weight: 700;
+	font-size: 1.6em;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.alumni-grid article img {
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.alumni-grid article a:hover img {
+	transform: scale(1.04);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.alumni-grid article h3 {
+	margin: 0.6em 0 0.15em 0;
+	font-size: 1em;
+	line-height: 1.25;
+}
+
+.alumni-grid article a:hover h3 {
+	color: hsl(20, 100%, 45%);
+}
+
+.alumni-grid article .position {
+	display: block;
+	font-size: 80%;
+	line-height: 1.3;
+	color: rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 600px) {
+	.alumni-grid {
+		justify-content: center;
+	}
+
+	.alumni-grid article {
+		width: 7.5em;
+	}
+
+	.alumni-grid article img,
+	.alumni-grid article .avatar-placeholder {
+		width: 6em;
+		height: 6em;
+	}
 }
 
 /* ===================================

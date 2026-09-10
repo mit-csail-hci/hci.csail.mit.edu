@@ -10,12 +10,6 @@
   group_id: hci_engineering
   academic_level: phd
 
-- name: Angie Boggust
-  url: http://angieboggust.com/
-  image: angie-boggust.png
-  group_id: visualization
-  academic_level: phd
-
 - name: Abutalib (Barish) Namazov
   url: https://barish.me/
   image: barish-namazov.jpeg
@@ -50,12 +44,6 @@
   url: https://prernaravi.com/#/
   image: prerna-ravi.jpeg
   group_id: haystack
-  academic_level: phd
-
-- name: Josh Pollock
-  url: https://joshmpollock.com/
-  image: jmp.jpg
-  group_id: visualization
   academic_level: phd
 
 - name: Ticha Sethapakdi
@@ -182,6 +170,30 @@
   url: https://www.amberhorvath.com/
   image: amber-horvath.jpeg
   group_id: visualization
+  academic_level: phd
+
+- name: Elinor Poole-Dayan
+  url: https://elinorp-d.github.io/
+  image: elinor-poole-dayan.jpg
+  group_id: interaction_alignment
+  academic_level: phd
+
+- name: Grace C. Kim
+  url: https://gracekimcy.github.io/
+  image: grace-kim.jpg
+  group_id: interaction_alignment
+  academic_level: phd
+
+- name: Yi-Hao Peng
+  url: https://www.yihaopeng.tw/
+  image: yi-hao-peng.jpg
+  group_id: interaction_alignment
+  academic_level: postdoc
+
+- name: Aayush Kumar
+  url: https://aeyush10.github.io/
+  image: aayush-kumar.jpg
+  group_id: interaction_alignment
   academic_level: phd
 
 - name: MacKenzie Harnett

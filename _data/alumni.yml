@@ -1,197 +1,341 @@
+2026:
+  - name: Angie Boggust
+    position: PhD, Visualization Group
+    url: http://angieboggust.com/
+    image: angie-boggust.png
+  - name: Josh Pollock
+    position: PhD, Visualization Group
+    url: https://joshmpollock.com/
+    image: jmp.jpg
+
 2024:
   - name: Jonathan Zong
     position: Assistant Professor at UC Boulder, Visualization Group
+    url: https://jonathanzong.com/
+    image: jzong.JPG
   - name: Martin Nisser
     position: Assistant Professor at University of Washington, HCI Engineering Group
+    url: http://martinnisser.org/
+    image: martin-nisser.jpg
   - name: Junyi Zhu
     position: Assistant Professor at University of Michigan, HCI Engineering Group
+    url: https://www.junyizhu.com/
+    image: junyi-zhu.jpg
   - name: M. Doga Dogan
     position: Research Scientist at Adobe Research, HCI Engineering Group
+    url: https://www.dogadogan.com/
+    image: m-doga-dogan.jpg
   - name: Dishita Turakhia
     position: Assistant Professor at NYU Tandon School of Engineering, HCI Engineering Group
+    url: https://dishitaturakhia.com/
+    image: dishita-turakhia.jpg
   - name: Jumana Almahmoud
     position: PhD, Haystack Group
+    image: jumana-almahmoud.jpeg
   - name: Lea Verou
     position: Product Lead at Font Awesome, Haystack Group
+    url: https://lea.verou.me/
+    image: lea-verou.jpg
 
 2023:
   - name: Harini Suresh
     position: Assistant Professor at Brown University, Visualization Group
+    url: https://harinisuresh.com/
+    image: harini-suresh.jpg
   - name: Farnaz Jahanbakhsh
     position: Assistant Professor at University of Michigan, Haystack Group
+    url: https://web.eecs.umich.edu/~farnaz/
+    image: farnaz-jahanbakhsh.jpg
   - name: Soya Park
     position: Postdoc at Emory University, Haystack Group
+    url: https://soyapark.netlify.app/
+    image: soya-park.jpg
   - name: Geoffrey Litt
     position: Employee at Notion, Software Design Group
+    url: https://www.geoffreylitt.com/
+    image: geoffrey-litt.jpg
 
 2022:
   - name: Crystal Lee
     position: Assistant Professor at MIT in Computational Media and Design, Visualization Group
+    url: https://crystaljjlee.com/
+    image: crystal-lee.jpg
   - name: Tarfah Alrashed
     position: Research Scientist at Google, Haystack Group
+    url: https://people.csail.mit.edu/tarfah/
+    image: tarfah.jpg
 
 2019:
   - name: Amy X. Zhang
     position: Associate Professor at University of Washington, Haystack Group
+    url: https://homes.cs.washington.edu/~axz/
+    image: amy-zhang.jpg
 
 2017:
   - name: Santiago Perez De Rosso
     position: Co-Founder & CTO at Aleph, Software Design Group
+    url: https://spderosso.github.io/
+    image: santiago-perez-de-rosso.jpg
   - name: Carrie J. Cai
     position: Research Scientist at Google, Usable Programming Group
+    url: https://sites.google.com/view/carriecai/home
+    image: carrie-cai.jpg
   - name: Antonio Gomes
     position: HCI Hardware Researcher at THALMIC
+    image: antonio-gomes.jpg
   - name: Paul Worgan
     position: Teaching Fellow at University College London
+    url: https://people.uwe.ac.uk/Person/PaulWorgan
+    image: paul-worgan.jpg
 
 2016:
   - name: Elena L. Glassman
     position: Assistant Professor at Harvard University, Usable Programming Group
+    url: https://glassmanlab.seas.harvard.edu/glassman.html
+    image: elena-glassman.jpg
   - name: Abe Davis
     position: Assistant Professor at Cornell University, Computer Graphics Group
+    url: https://www.cs.cornell.edu/people/abe-davis
+    image: abe-davis.png
 
 2015:
   - name: Aleksandar Milicevic
     position: Founding Engineer at Cubist, Software Design Group
+    url: https://aleksandarmilicevic.github.io/
+    image: aleksandar-milicevic.jpg
   - name: Eunsuk Kang
     position: Associate Professor at Carnegie Mellon University, Software Design Group
+    url: https://eskang.github.io/
+    image: eunsuk-kang.png
   - name: Juho Kim
     position: Associate Professor at KAIST, Usable Programming Group
+    url: https://juhokim.com/
+    image: juho-kim.webp
   - name: YiChang Shih
     position: Senior Staff Software Engineer at Google, Computer Graphics Group
+    url: https://www.yichangshih.com/
+    image: yichang-shih.jpeg
 
 2014:
   - name: Rishabh Singh
     position: Research Scientist at Google Brain, Software Design Group
+    url: https://rishabhmit.bitbucket.io/
+    image: rishabh-singh.jpg
   - name: Philip Guo
     position: Associate Professor at UC San Diego, Usable Programming Group
+    url: https://pg.ucsd.edu/
+    image: philip-guo.jpg
   - name: Dennis Quan
     position: PhD, Haystack Group
   - name: Jonathan Ragan-Kelley
     position: Associate Professor at MIT, Computer Graphics Group
+    url: https://people.csail.mit.edu/jrk/
+    image: jonathan-ragan-kelley.jpg
 
 2013:
   - name: Haoqi Zhang
     position: Associate Professor at Northwestern University, Usable Programming Group
+    url: https://design.northwestern.edu/people/profiles/zhang-haoqi.html
+    image: haoqi-zhang.jpg
   - name: Jon Feldman
     position: PhD, Haystack Group
+    url: https://research.google/people/jonfeld/
+    image: jon-feldman.png
   - name: Alec Rivers
     position: Co-founder at Shaper, Computer Graphics Group
+    url: http://www.alecrivers.com/
+    image: alec-rivers.jpg
 
 2012:
   - name: Max Goldman
     position: Principal Lecturer at MIT EECS, Usable Programming Group
+    image: max-goldman.jpg
   - name: Michael Bernstein
     position: Professor at Stanford University, Usable Programming Group
+    url: https://hci.stanford.edu/msb/
+    image: michael-bernstein.jpg
   - name: Chen-Hsiang (Jones) Yu
     position: Teaching Professor at Northeastern University, Usable Programming Group
+    url: https://coe.northeastern.edu/people/yu-jones/
+    image: chen-hsiang-yu.jpg
   - name: Tsung-Hsiang (Sean) Chang
     position: Staff Software Engineer at Dropbox, Usable Programming Group
+    url: https://people.csail.mit.edu/vgod/
+    image: tsung-hsiang-chang.jpg
   - name: Adam Marcus
     position: Co-founder & CTO at B12, Usable Programming Group
+    url: http://marcua.net/
+    image: adam-marcus.jpg
 
 2011:
   - name: Greg Little
     position: PhD, Usable Programming Group
+    url: http://glittle.org/
+    image: greg-little.jpg
   - name: Maria Minkoff
     position: PhD, Haystack Group
   - name: Max Van Kleek
     position: Associate Professor at University of Oxford, Usable Programming Group
+    url: https://www.cs.ox.ac.uk/people/max.vankleek/
+    image: max-van-kleek.png
   - name: Emily Whiting
     position: Associate Professor at Boston University, Computer Graphics Group
+    url: https://www.bu.edu/cs/profiles/whiting/
+    image: emily-whiting.jpg
   - name: Tilke Judd
     position: Product Manager at Cradle, Computer Graphics Group
+    url: https://people.csail.mit.edu/tjudd/aboutme.html
+    image: tilke-judd.jpg
   - name: Sangmok Han
     position: Senior Staff Software Engineer at Viv Labs, Usable Programming Group
+    url: https://sites.google.com/site/sangmokhan/
+    image: sangmok-han.png
   - name: Jiawen "Kevin" Chen
     position: Senior Software Engineer at Google, Computer Graphics Group
+    url: https://people.csail.mit.edu/jiawen/
+    image: jiawen-chen.jpg
 
 2010:
   - name: Matthias Ruhl
     position: PhD, Haystack Group
+    url: https://people.csail.mit.edu/ruhl/
   - name: Daniel Vlasic
     position: Senior Software Engineer at Google, Computer Graphics Group
+    url: https://people.csail.mit.edu/drdaniel/
   - name: Robert Y. Wang
     position: Research Scientist at Oculus, Computer Graphics Group
+    url: https://people.csail.mit.edu/rywang/
+    image: robert-wang.png
   - name: Marco J da Silva
     position: Robotics Engineer at Boston Dynamics, Computer Graphics Group
+    url: https://people.csail.mit.edu/dasilva/
+    image: marco-da-silva.jpg
 
 2009:
   - name: Emina Torlak
     position: Senior Principal Scientist at Amazon Web Services, Software Design Group
+    url: https://emina.github.io/
+    image: emina-torlak.jpg
   - name: Jeff Bigham
     position: Professor at Carnegie Mellon University, Usable Programming Group
+    url: https://hcii.cmu.edu/people/jeffrey-bigham
+    image: jeff-bigham.jpg
   - name: Kai Shih
     position: PhD, Haystack Group
   - name: Sonya Cates
     position: Assistant Professor at Roger Williams University, Design Rationale Group
+    url: https://www.rwu.edu/academics/schools-and-colleges/seccm/faculty/sonya-cates-phd
+    image: sonya-cates.jpg
   - name: Sara Su
     position: Product Manager at Facebook, Computer Graphics Group
+    url: https://people.csail.mit.edu/sarasu/
+    image: sara-su.png
   - name: Aaron Adler
     position: Scientist at Raytheon BBN Technologies, Design Rationale Group
+    url: https://people.csail.mit.edu/cadlerun/
+    image: aaron-adler.jpg
   - name: Soonmin Bae
     position: SW Development Team Leader at Hanwha Techwin, Computer Graphics Group
+    url: https://people.csail.mit.edu/soonmin/
+    image: soonmin-bae.jpg
 
 2008:
   - name: Jacob Eisenstein
     position: Assistant Professor at Georgia Tech, Design Rationale Group
+    url: https://jacobeisenstein.github.io/
+    image: jacob-eisenstein.jpg
   - name: Vineet Sinha
     position: Head Of Strategic Innovation at Salesforce, Usable Programming Group
+    url: https://engineering.salesforce.com/author/vineetsinha/
+    image: vineet-sinha.jpg
   - name: Will Arora
     position: Senior Manager at Amazon, Design Rationale Group
   - name: Eugene Hsu
     position: Senior Director at Cimpress, Computer Graphics Group
+    url: http://squicky.org
 
 2007:
   - name: Jaime Teevan
     position: Chief Scientist at Microsoft, Haystack Group
+    url: https://www.microsoft.com/en-us/research/people/teevan/
+    image: jaime-teevan.jpg
   - name: Tracy Anne Hammond
     position: Professor at Texas A&M University, Design Rationale Group
+    url: https://engineering.tamu.edu/cse/profiles/tahammond.html
+    image: tracy-hammond.jpg
   - name: David Huynh
     position: Senior Software Engineer at Google, Usable Programming Group
+    url: http://davidhuynh.net
   - name: Mike Oltmans
     position: Software Engineer at Google, Design Rationale Group
+    url: https://people.csail.mit.edu/moltmans/
+    image: mike-oltmans.jpg
 
 2006:
   - name: Mihir Kedia
     position: PhD, Haystack Group
   - name: T. Metin Sezgin
     position: Associate Professor at Koç University, Design Rationale Group
+    url: https://people.csail.mit.edu/mtsezgin/
+    image: metin-sezgin.jpg
   - name: Min Wu
     position: Front-End Developer & UI Designer at Cloud Lending Solutions, Usable Programming Group
   - name: Addy Ngan
     position: Staff Software Engineer at Google, Computer Graphics Group
+    url: https://people.csail.mit.edu/addy/
+    image: addy-ngan.jpg
 
 2005:
   - name: Harr Chen
     position: PhD, Haystack Group
+    url: https://people.csail.mit.edu/harr/
   - name: Simson Garfinkel
     position: Chief of the Center for Disclosure Avoidance Research at the U.S. Census Bureau, Usable Programming Group
+    url: https://simson.net/
+    image: simson-garfinkel.jpg
   - name: Robert W. Sumner
     position: Associate Director at Disney Research Zurich, Computer Graphics Group
+    url: https://studios.disneyresearch.com/people/bob-sumner/
+    image: robert-sumner.jpg
 
 2004:
   - name: Evdokia Nikolova
     position: Professor at University of Texas at Austin, Haystack Group
+    url: https://users.ece.utexas.edu/~nikolova/
+    image: evdokia-nikolova.jpg
   - name: Christine Alvarado
     position: Associate Professor at UC San Diego, Design Rationale Group
+    url: https://sites.google.com/ucsd.edu/alvarado/home
+    image: christine-alvarado.jpg
 
 2003:
   - name: Debmalya Panigrahi
     position: Professor at Duke University, Haystack Group
+    url: https://www.debmalyapanigrahi.org/
+    image: debmalya-panigrahi.jpg
   - name: Mark Foltz
     position: Senior Staff Software Engineer at Google, Design Rationale Group
 
 2002:
   - name: Bernhard Haeupler
     position: Professor at Carnegie Mellon University, Haystack Group
+    url: https://insait.ai/prof-bernhard-haeupler/
+    image: bernhard-haeupler.jpg
   - name: Sacha Zyto
     position: PhD, Haystack Group
+    url: https://people.csail.mit.edu/sacha/home/
+    image: sasha-zyto.jpg
   - name: Edward Benson
     position: PhD, Haystack Group
+    url: https://edwardbenson.com/
+    image: edward-benson.jpg
   - name: Eirik Bakke
     position: PhD, Haystack Group
+    url: https://people.csail.mit.edu/ebakke/
+    image: eirik-bakke.jpg
 
 1999:
   - name: Kavita Bala
     position: Professor at Cornell University, Computer Graphics Group
+    url: https://bowers.cornell.edu/about-college/dean-kavita-bala
+    image: kavita-bala.jpg
