@@ -160,12 +160,6 @@
   group_id: human_ai_resonance
   academic_level: phd
 
-- name: Amber Horvath
-  url: https://www.amberhorvath.com/
-  image: amber-horvath.jpeg
-  group_id: visualization
-  academic_level: phd
-
 - name: Elinor Poole-Dayan
   url: https://elinorp-d.github.io/
   image: elinor-poole-dayan.jpg
@@ -253,5 +247,5 @@
 - name: Allison Chen
   url: https://allisonchen.us/
   image: allison-chen.jpg
-  group_text: Visiting Student · Princeton
+  group_id: interaction_alignment
   academic_level: visiting
