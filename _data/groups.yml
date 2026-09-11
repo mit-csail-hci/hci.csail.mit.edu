@@ -23,6 +23,11 @@ haystack:
   url: http://haystack.csail.mit.edu/index.html
   short_name: Haystack
 
+multimodal_understanding:
+  name: Multimodal Understanding Group
+  url: https://www.csail.mit.edu/research/multimodal-understanding-group
+  short_name: Multimodal Understanding
+
 hci_engineering:
   name: HCI Engineering Group
   url: http://hcie.csail.mit.edu
@@ -47,6 +52,11 @@ interaction_alignment:
   name: Interaction & Alignment Group
   url: #
   short_name: Interaction & Alignment
+
+bucinca:
+  name: Buçinca Group
+  url: https://zbucinca.github.io/
+  short_name: Buçinca Group
 
 human_ai_resonance:
   name: Human-AI Resonance Lab

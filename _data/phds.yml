@@ -193,7 +193,19 @@
 - name: Aayush Kumar
   url: https://aeyush10.github.io/
   image: aayush-kumar.jpg
-  group_id: interaction_alignment
+  group_id: bucinca
+  academic_level: phd
+
+- name: Alexander Htet Kyaw
+  url: https://alexanderhtetkyaw.com/
+  image: alexander-htet-kyaw.jpg
+  group_id: multimodal_understanding
+  academic_level: phd
+
+- name: Helena Vasconcelos
+  url: https://www.helenavasc.com/
+  image: helena-vasconcelos.jpg
+  group_id: visualization
   academic_level: phd
 
 - name: MacKenzie Harnett

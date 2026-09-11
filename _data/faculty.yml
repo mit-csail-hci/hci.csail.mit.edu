@@ -8,6 +8,11 @@
   image: david-karger.jpg
   group_id: haystack
 
+- name: Randall Davis
+  url: http://people.csail.mit.edu/davis/
+  image: randall-davis.jpg
+  group_id: multimodal_understanding
+
 - name: Rob Miller
   url: http://people.csail.mit.edu/rcm/
   image: rob-miller.jpg
@@ -36,6 +41,7 @@
 - name: Zana Buçinca
   url: https://zbucinca.github.io/
   image: zana-bucinca.png
+  group_id: bucinca
 
 - name: Jas Brooks
   url: https://mit-pel.com/team
