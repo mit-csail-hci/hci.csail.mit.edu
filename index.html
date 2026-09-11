@@ -79,10 +79,10 @@ layout: default
 		</section>
 
 		<section id="phds" class="people">
-			<h1>PhDs &amp; Postdocs</h1>
+			<h1>PhDs, Postdocs &amp; Visiting Students</h1>
 			{% for person in site.data.phds %}
-			{% if person.academic_level == "phd" or person.academic_level == "postdoc" %}
-			<article data-group="{{ person.group_id }}">
+			{% if person.academic_level == "phd" or person.academic_level == "postdoc" or person.academic_level == "visiting" %}
+			<article data-group="{{ person.group_id }}" data-level="{{ person.academic_level }}">
 				{% if person.url and person.url != "" %}
 				<a href="{{ person.url }}">
 					{% if person.image and person.image != "" %}
@@ -102,8 +102,12 @@ layout: default
 					<h1>{{ person.name }}</h1>
 				</a>
 				{% endif %}
+				{% if person.group_id %}
 				{% assign group = site.data.groups[person.group_id] %}
 				<a href="{{ group.url }}" target="_blank" class="group">{{ group.short_name }}</a>
+				{% elsif person.group_text %}
+				<span class="group">{{ person.group_text }}</span>
+				{% endif %}
 			</article>
 			{% endif %}
 			{% endfor %}

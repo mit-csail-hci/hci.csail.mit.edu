@@ -238,6 +238,9 @@ function initializeStudentOfTheHour() {
 	const phdArticles = document.querySelectorAll('#phds article');
 
 	phdArticles.forEach(article => {
+		// Visiting students are listed on the page but not eligible for Student of the Hour
+		if (article.dataset.level === 'visiting') return;
+
 		const nameElement = article.querySelector('h1');
 		const imgElement = article.querySelector('img');
 		const groupElement = article.querySelector('.group');

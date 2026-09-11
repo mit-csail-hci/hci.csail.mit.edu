@@ -202,6 +202,12 @@
   group_id: visualization
   academic_level: phd
 
+- name: Racquel Fygenson
+  url: https://www.racquelfygenson.com/
+  image: racquel-fygenson.jpg
+  group_id: visualization
+  academic_level: postdoc
+
 - name: MacKenzie Harnett
   url: https://mcharnett.github.io/about
   image: mackenzie-harnett.jpg
@@ -243,3 +249,9 @@
   image: gene-kim.jpg
   group_id: perceptual_engineering
   academic_level: phd
+
+- name: Allison Chen
+  url: https://allisonchen.us/
+  image: allison-chen.jpg
+  group_text: Visiting Student · Princeton
+  academic_level: visiting
