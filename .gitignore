@@ -11,3 +11,6 @@ _site/
 *_files/
 node_modules/
 vendor/
+
+# Large source video; only the .web.mp4 is served
+assets/images/media/silly-dance.mp4

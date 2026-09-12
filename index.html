@@ -1,299 +1,259 @@
 ---
 layout: default
+hero: true
 ---
 
 {% include header.html %}
 
-<section id="join-banner">
-	<p>
-		<strong>Join us!</strong>
-		As a PhD student: apply to the <a href="http://www.eecs.mit.edu/academics-admissions/graduate-program/admissions">MIT EECS PhD program</a> by December 1st, 2026.
-		<br>
-		As a postdoc or UROP/SuperUROP/MEng: email individual faculty directly.
-	</p>
-</section>
+<main id="main">
 
-<div class="people-container">
-	<div class="filter-sidebar">
-		<div class="group-filters">
-		<div class="filter-row">
-		<button class="filter-btn active" data-group="all" title="Show everyone" aria-label="Show everyone">All</button>
-		{% assign ordered_groups = "software_design,haystack,multimodal_understanding,usable_programming,hci_engineering,visualization,human_ai_resonance,interaction_alignment,bucinca,perceptual_engineering" | split: "," %}
-		{% for group_id in ordered_groups %}
-		{% assign group = site.data.groups[group_id] %}
-		{% if group %}
-		{% if group_id == "visualization" %}
-		</div>
-		<div class="filter-row">
-		{% endif %}
-		{% if group_id == "haystack" %}
-		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
-			<img src="{{ '/assets/images/logos/haystack.png' | relative_url }}" alt="" />
-			<span>{{ group.short_name }}</span>
-		</button>
-		{% elsif group_id == "usable_programming" %}
-		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
-			<img src="{{ '/assets/images/logos/usable-programming.png' | relative_url }}" alt="" />
-			<span>{{ group.short_name }}</span>
-		</button>
-		{% elsif group_id == "hci_engineering" %}
-		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
-			<img src="{{ '/assets/images/logos/hci-engineering.jpg' | relative_url }}" alt="" />
-			<span>{{ group.short_name }}</span>
-		</button>
-		{% elsif group_id == "visualization" %}
-		<button class="filter-btn filter-btn-icon" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">
-			<img src="{{ '/assets/images/logos/mit-vis.png' | relative_url }}" alt="" />
-			<span>{{ group.short_name }}</span>
-		</button>
-		{% else %}
-		<button class="filter-btn" data-group="{{ group_id }}" title="{{ group.name }}" aria-label="{{ group.name }}">{{ group.short_name }}</button>
-		{% endif %}
-		{% endif %}
-		{% endfor %}
-		</div>
-		</div>
-	</div>
+	<section id="people" class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<h2>People</h2>
+			</div>
 
-	<div class="people-sections">
-		<section id="faculty" class="people">
-			<h1>Faculty</h1>
-			{% for person in site.data.faculty %}
-			<article data-group="{{ person.group_id }}">
-				<a href="{{ person.url }}">
-					{% if person.image and person.image != "" %}
-					<img src="{{ '/assets/images/profile-pictures/faculty/' | relative_url }}{{ person.image }}" />
-					{% else %}
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
-					{% endif %}
-					<h1>{{ person.name }}</h1>
-				</a>
-				{% if person.group_id %}
-				{% assign group = site.data.groups[person.group_id] %}
-				<a href="{{ group.url }}" class="group">{{ group.name }}</a>
-				{% elsif person.group_text %}
-				<span class="group">{{ person.group_text }}</span>
+			{% assign ordered_groups = "software_design,haystack,multimodal_understanding,usable_programming,hci_engineering,visualization,human_ai_resonance,interaction_alignment,bucinca,perceptual_engineering" | split: "," %}
+			<div class="filters" role="group" aria-label="Filter people by research group">
+				<button type="button" class="filter-btn active" data-group="all" aria-pressed="true">All</button>
+				{% for group_id in ordered_groups %}
+				{% assign group = site.data.groups[group_id] %}
+				{% if group %}
+				<button type="button" class="filter-btn" data-group="{{ group_id }}" aria-pressed="false" title="{{ group.name }}">{{ group.short_name }}</button>
 				{% endif %}
-			</article>
-			{% endfor %}
-		</section>
-
-		<section id="phds" class="people">
-			<h1>PhDs &amp; Postdocs</h1>
-			{% for person in site.data.phds %}
-			{% if person.academic_level == "phd" or person.academic_level == "postdoc" or person.academic_level == "visiting" %}
-			<article data-group="{{ person.group_id }}" data-level="{{ person.academic_level }}">
-				{% if person.url and person.url != "" %}
-				<a href="{{ person.url }}">
-					{% if person.image and person.image != "" %}
-					<img src="{{ '/assets/images/profile-pictures/students/' | relative_url }}{{ person.image }}" />
-					{% else %}
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
-					{% endif %}
-					<h1>{{ person.name }}</h1>
-				</a>
-				{% else %}
-				<a href="">
-					{% if person.image and person.image != "" %}
-					<img src="{{ '/assets/images/profile-pictures/students/' | relative_url }}{{ person.image }}" />
-					{% else %}
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
-					{% endif %}
-					<h1>{{ person.name }}</h1>
-				</a>
-				{% endif %}
-				{% assign group = site.data.groups[person.group_id] %}
-				<a href="{{ group.url }}" target="_blank" class="group">{{ group.short_name }}</a>
-			</article>
-			{% endif %}
-			{% endfor %}
-		</section>
-	</div>
-</div>
-
-<section id="friends-media">
-	<video src="{{ '/assets/images/media/silly-dance.web.mp4' | relative_url }}" autoplay loop muted playsinline disablepictureinpicture></video>
-</section>
-
-<section id="friends" class="people">
-	<h1>Friends of MIT HCI</h1>
-	{% for person in site.data.friends %}
-	<article data-group="{{ person.group_id }}">
-		<a href="{{ person.url }}">
-			{% if person.image and person.image != "" %}
-			<img src="{{ '/assets/images/profile-pictures/faculty/' | relative_url }}{{ person.image }}" />
-			{% else %}
-			<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
-			{% endif %}
-			<h1>{{ person.name }}</h1>
-		</a>
-		{% if person.group_id %}
-		{% assign group = site.data.groups[person.group_id] %}
-		<a href="{{ group.url }}" class="group">{{ group.name }}</a>
-		{% elsif person.group_text %}
-		<span class="group">{{ person.group_text }}</span>
-		{% endif %}
-	</article>
-	{% endfor %}
-</section>
-
-<section id="research">
-	<h1>Research</h1>
-	<p class="research-note">Please look at lab websites for more information on research projects.</p>
-
-	<div class="research-buckets">
-		{% for bucket in site.data.research %}
-		<p class="research-bucket"><strong class="bucket-title">{{ bucket.bucket }}</strong> · {% for link in bucket.links %}<a href="{{ link.url }}">{{ link.name }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
-		{% endfor %}
-	</div>
-
-	{% comment %}
-	Previous carousel layout — kept for reference in case we want to revive it.
-
-	<div class="research-carousel">
-		<button class="carousel-btn prev-btn" aria-label="Previous project">‹</button>
-		<div class="carousel-container">
-			<div class="carousel-track">
-				{% for project in site.data.research %}
-				<article class="carousel-slide">
-					<h1>{{ project.title }}</h1>
-					<div class="project-group"><a href="{{ project.group_url }}" class="group">{{ project.group }}</a></div>
-					<p>{{ project.description }}</p>
-					<footer>
-						Example Projects:
-						{% for example in project.projects %}
-						<a href="{{ example.url }}">{{ example.name }}</a>{% unless forloop.last %},{% endunless %}
-						{% endfor %}
-					</footer>
-				</article>
 				{% endfor %}
 			</div>
-		</div>
-		<button class="carousel-btn next-btn" aria-label="Next project">›</button>
-	</div>
-	{% endcomment %}
 
-</section>
-
-<section id="research-media">
-	<img src="{{ '/assets/images/media/human-hci.jpg' | relative_url }}" alt="" />
-</section>
-
-<section id="classes">
-	<h1>Classes</h1>
-
-	{% for class in site.data.classes %}
-	{% assign semester_year = class.semester | split: " " | last %}
-	{% assign year_num = semester_year | plus: 0 %}
-	{% if year_num >= 2024 %}
-	<article>
-		<h1><a href="{{ class.url }}">{{ class.number }} {{ class.title }}</a></h1>
-		<strong class="semester">{{ class.semester }}</strong>
-		<p><strong>Instructor{% if class.instructors contains ',' %}s{% endif %}:</strong> {{ class.instructors }}</p>
-		<p class="description">{{ class.description }}</p>
-	</article>
-	{% endif %}
-	{% endfor %}
-</section>
-
-
-<section id="seminar">
-	<h1><a href="{{ '/hci-seminar.html' | relative_url }}">HCI Seminar</a></h1>
-
-	<p class="info">
-		<strong title="When">📅 &nbsp;{{ site.data.seminar.info.time }}</strong>
-		📍 {{ site.data.seminar.info.location }}
-		<span>🔓 {{ site.data.seminar.info.access }}</span>
-		<a href="{{ site.data.seminar.info.subscribe_url }}">📫 Subscribe</a>
-		<a href="mailto:{{ site.data.seminar.info.contact_email }}">✉️ Contact</a>
-	</p>
-
-	<p class="lunch-info">
-		<strong>Lunch with speakers:</strong> {{ site.data.seminar.info.lunch_time }} in {{ site.data.seminar.info.lunch_location }}
-	</p>
-
-	<p class="organizers">
-		<strong>Organizers:</strong> {{ site.data.seminar.info.organizers }}<br>
-		<strong>Coordinator:</strong> {{ site.data.seminar.info.coordinator }}
-	</p>
-
-    <h2>{{ site.data.seminar.schedule[0].semester }} Talk Schedule</h2>
-	<ul>
-		{% for talk in site.data.seminar.schedule[0].talks %}
-		<li>
-            {{ talk.date }} - <strong>{{ talk.speaker }}</strong>{% if talk.affiliation %}, {{ talk.affiliation }}{% endif %}{% if talk.note %} ({{ talk.note }}){% endif %}
-		</li>
-		{% endfor %}
-	</ul>
-
-    <p style="margin-top: 20px;"><a href="{{ '/hci-seminar.html' | relative_url }}">Previous semesters</a></p>
-</section>
-
-
-<section id="alumni">
-	<h1>Alumni</h1>
-
-	{% assign years_shown = 0 %}
-	{% for year_pair in site.data.alumni %}
-		{% if years_shown < 3 %}
-			{% assign year = year_pair[0] %}
-			{% assign year_data = year_pair[1] %}
-			{% if year_data and year_data.size > 0 %}
-				<h2>{{ year }}</h2>
-				<ul>
-					{% for person in year_data %}
-					<li>
-						{{ person.name }}, {{ person.position }}
+			<div class="people-block" data-people-block>
+				<h3 class="subhead">Faculty</h3>
+				<ul id="faculty" class="people-grid">
+					{% for person in site.data.faculty %}
+					{% assign group = site.data.groups[person.group_id] %}
+					<li class="person" data-group="{{ person.group_id }}">
+						<a href="{{ person.url }}">
+							{% if person.image and person.image != "" %}
+							<img class="avatar" src="{{ '/assets/images/profile-pictures/faculty/' | append: person.image | relative_url }}" alt="" width="240" height="240" loading="lazy">
+							{% else %}
+							<span class="avatar avatar-placeholder" aria-hidden="true">{{ person.name | slice: 0 }}</span>
+							{% endif %}
+							<span class="name">{{ person.name }}</span>
+						</a>
+						{% if group %}
+						<a class="group" href="{{ group.url }}">{{ group.short_name }}</a>
+						{% elsif person.group_text %}
+						<span class="group">{{ person.group_text }}</span>
+						{% endif %}
 					</li>
 					{% endfor %}
 				</ul>
-				{% assign years_shown = years_shown | plus: 1 %}
-			{% endif %}
-		{% endif %}
-	{% endfor %}
+			</div>
 
-	<p style="margin-top: 20px;">
-		<a href="{{ '/alumni.html' | relative_url }}">See all alumni</a>
-	</p>
+			<div class="people-block" data-people-block>
+				<h3 class="subhead">PhDs &amp; Postdocs</h3>
+				<ul id="phds" class="people-grid">
+					{% for person in site.data.phds %}
+					{% if person.academic_level == "phd" or person.academic_level == "postdoc" or person.academic_level == "visiting" %}
+					{% assign group = site.data.groups[person.group_id] %}
+					<li class="person" data-group="{{ person.group_id }}" data-level="{{ person.academic_level }}">
+						{% if person.url and person.url != "" %}<a href="{{ person.url }}">{% else %}<span class="nolink">{% endif %}
+							{% if person.image and person.image != "" %}
+							<img class="avatar" src="{{ '/assets/images/profile-pictures/students/' | append: person.image | relative_url }}" alt="" width="240" height="240" loading="lazy">
+							{% else %}
+							<span class="avatar avatar-placeholder" aria-hidden="true">{{ person.name | slice: 0 }}</span>
+							{% endif %}
+							<span class="name">{{ person.name }}</span>
+						{% if person.url and person.url != "" %}</a>{% else %}</span>{% endif %}
+						{% if group %}
+						<a class="group" href="{{ group.url }}">{{ group.short_name }}</a>
+						{% endif %}
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
 
-</section>
-
-
-<section id="elsewhere">
-	<h1>HCI Elsewhere at MIT</h1>
-
-	<h2>Research Groups</h2>
-	<ul>
-		{% for group in site.data.hci_elsewhere.research_groups %}
-		<li>
-			<a href="{{ group.url }}" target="_blank">{{ group.name }}</a>
-			{% if group.faculty %}({{ group.faculty }}, {{ group.location }}){% else %}({{ group.location }}){% endif %}
-		</li>
-		{% endfor %}
-	</ul>
-
-	<h2>Seminars and Meetings</h2>
-	<ul>
-		{% for event in site.data.hci_elsewhere.seminars_meetings %}
-		<li><a href="{{ event.url }}" target="_blank">{{ event.name }}</a></li>
-		{% endfor %}
-	</ul>
-</section>
-
-<section id="student-of-the-hour">
-	<h1 id="studentHourTitle">Student of the Hour</h1>
-	<p class="student-hour-description">Every hour, we honor one of our amazing PhD students and postdocs as Student of the Hour!</p>
-	<div class="student-of-the-hour-container">
-		<div class="student-spotlight" id="studentSpotlight">
-			<!-- Student will be dynamically inserted here -->
-		</div>
-	</div>
-	<div class="ticker-ribbon-wrapper">
-		<h3 class="ticker-ribbon-title">Past 24 Students of the Hour</h3>
-		<div class="student-ticker-ribbon">
-			<div class="ticker-track" id="studentTickerTrack">
-				<!-- Past students will scroll here -->
+			<div class="people-block" data-people-block>
+				<h3 class="subhead">Friends of MIT HCI</h3>
+				<ul id="friends" class="people-grid">
+					{% for person in site.data.friends %}
+					<li class="person">
+						<a href="{{ person.url }}">
+							{% if person.image and person.image != "" %}
+							<img class="avatar" src="{{ '/assets/images/profile-pictures/faculty/' | append: person.image | relative_url }}" alt="" width="240" height="240" loading="lazy">
+							{% else %}
+							<span class="avatar avatar-placeholder" aria-hidden="true">{{ person.name | slice: 0 }}</span>
+							{% endif %}
+							<span class="name">{{ person.name }}</span>
+						</a>
+						{% if person.group_id %}
+						{% assign group = site.data.groups[person.group_id] %}
+						<a class="group" href="{{ group.url }}">{{ group.short_name }}</a>
+						{% elsif person.group_text %}
+						<span class="group">{{ person.group_text }}</span>
+						{% endif %}
+					</li>
+					{% endfor %}
+				</ul>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+
+	<figure class="media" id="friends-media">
+		<div class="wrap">
+			<video src="{{ '/assets/images/media/silly-dance.web.mp4' | relative_url }}" poster="{{ '/assets/images/media/silly-dance-poster.jpg' | relative_url }}" width="1280" height="720" autoplay loop muted playsinline disablepictureinpicture></video>
+		</div>
+	</figure>
+
+	<section id="research" class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<h2>Research</h2>
+				<p class="lede">Please look at lab websites for more information on research projects.</p>
+			</div>
+			<div class="areas">
+				{% for bucket in site.data.research %}
+				<details class="collapsible" data-collapsible>
+					<summary><span>{{ bucket.bucket }}</span><span class="count">{{ bucket.links | size }} projects</span></summary>
+					<ul class="links body">
+						{% for link in bucket.links %}
+						<li><a href="{{ link.url }}">{{ link.name }}</a></li>
+						{% endfor %}
+					</ul>
+				</details>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<figure class="media desktop-only" id="research-media">
+		<div class="wrap">
+			<img src="{{ '/assets/images/media/human-hci.jpg' | relative_url }}" alt="" width="1600" height="900" loading="lazy">
+		</div>
+	</figure>
+
+	<section id="classes" class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<h2>Classes</h2>
+			</div>
+			<ol class="classes">
+				{% for class in site.data.classes %}
+				{% assign semester_year = class.semester | split: " " | last %}
+				{% assign year_num = semester_year | plus: 0 %}
+				{% if year_num >= 2024 %}
+				<li class="course">
+					<details data-collapsible>
+						<summary>
+							<span class="course-num">{{ class.number }}</span>
+							<span class="course-sem">{{ class.semester }}</span>
+							<span class="course-title"><a href="{{ class.url }}">{{ class.title }}</a></span>
+							<span class="course-inst">{{ class.instructors }}</span>
+						</summary>
+						<p class="course-desc">{{ class.description }}</p>
+					</details>
+				</li>
+				{% endif %}
+				{% endfor %}
+			</ol>
+		</div>
+	</section>
+
+	<section id="seminar" class="section">
+		<div class="wrap">
+			{% assign info = site.data.seminar.info %}
+			<div class="section-head">
+				<h2><a href="{{ '/hci-seminar.html' | relative_url }}">HCI Seminar</a></h2>
+			</div>
+			<dl class="facts">
+				<div><dt>When</dt><dd>{{ info.time }}</dd></div>
+				<div><dt>Where</dt><dd>{{ info.location }}</dd></div>
+				<div><dt>Lunch with speakers</dt><dd>{{ info.lunch_time }}, {{ info.lunch_location }}</dd></div>
+				<div><dt>Access</dt><dd>{{ info.access }}. <a href="{{ info.subscribe_url }}">Subscribe</a> · <a href="mailto:{{ info.contact_email }}">Contact</a></dd></div>
+			</dl>
+			<p class="small organizers"><strong>Organizers:</strong> {{ info.organizers }}<br><strong>Coordinator:</strong> {{ info.coordinator }}</p>
+
+			{% assign current = site.data.seminar.schedule[0] %}
+			<h3 class="subhead">{{ current.semester }}</h3>
+			<table class="schedule">
+				<tbody>
+					{% for talk in current.talks %}
+					<tr>
+						<td>{{ talk.date }}</td>
+						<td><span class="speaker">{{ talk.speaker }}</span>{% if talk.affiliation and talk.affiliation != "" %}<span class="affil">{{ talk.affiliation }}</span>{% endif %}{% if talk.note %} <span class="note">({{ talk.note }})</span>{% endif %}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<p class="more"><a href="{{ '/hci-seminar.html' | relative_url }}">Previous semesters</a></p>
+		</div>
+	</section>
+
+	<section id="alumni" class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<h2>Alumni</h2>
+			</div>
+			{% for year_pair in site.data.alumni %}
+			{% if forloop.first %}
+			<h3 class="subhead">{{ year_pair[0] }}</h3>
+			<ul class="people-grid people-grid--small">
+				{% for person in year_pair[1] %}
+				{% assign name_parts = person.name | split: " " %}
+				<li class="person">
+					{% if person.url and person.url != "" %}<a href="{{ person.url }}">{% else %}<span class="nolink">{% endif %}
+						{% if person.image and person.image != "" %}
+						<img class="avatar" src="{{ '/assets/images/profile-pictures/students/' | append: person.image | relative_url }}" alt="" width="160" height="160" loading="lazy">
+						{% else %}
+						<span class="avatar avatar-placeholder" aria-hidden="true">{{ name_parts | first | slice: 0 }}{{ name_parts | last | slice: 0 }}</span>
+						{% endif %}
+						<span class="name">{{ person.name }}</span>
+					{% if person.url and person.url != "" %}</a>{% else %}</span>{% endif %}
+					{% if person.position and person.position != "" %}<span class="position">{{ person.position }}</span>{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			{% endfor %}
+			<p class="more"><a href="{{ '/alumni.html' | relative_url }}">All alumni</a></p>
+		</div>
+	</section>
+
+	<section id="elsewhere" class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<h2>HCI elsewhere at MIT</h2>
+			</div>
+			<details class="collapsible" data-collapsible>
+				<summary><span>Research groups</span><span class="count">{{ site.data.hci_elsewhere.research_groups | size }}</span></summary>
+				<ul class="list list--cols body">
+					{% for group in site.data.hci_elsewhere.research_groups %}
+					<li><a href="{{ group.url }}">{{ group.name }}</a> <span class="meta">{% if group.faculty %}{{ group.faculty }}, {% endif %}{{ group.location }}</span></li>
+					{% endfor %}
+				</ul>
+			</details>
+			<details class="collapsible" data-collapsible>
+				<summary><span>Seminars and meetings</span></summary>
+				<ul class="list body">
+					{% for event in site.data.hci_elsewhere.seminars_meetings %}
+					<li><a href="{{ event.url }}">{{ event.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</details>
+		</div>
+	</section>
+
+	<section id="student-of-the-hour" class="section">
+		<div class="wrap">
+			<div class="section-head">
+				<h2 id="studentHourTitle">Student of the hour</h2>
+				<p class="lede">Every hour, we honor one of our PhD students and postdocs as Student of the Hour.</p>
+			</div>
+			<div class="soth-card" id="studentSpotlight"></div>
+			<div class="soth-past">
+				<h3>Past 24 hours</h3>
+				<ul class="soth-row" id="studentTickerTrack"></ul>
+			</div>
+		</div>
+	</section>
+
+</main>

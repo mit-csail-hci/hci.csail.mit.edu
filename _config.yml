@@ -9,12 +9,12 @@ markdown: kramdown
 plugins:
   - jekyll-seo-tag
 
-# Collections
-collections:
-  people:
-    output: false
-  research:
-    output: false
+# Social preview image for jekyll-seo-tag
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/social/group-meeting.jpg
 
 # Exclude files from build
 exclude:

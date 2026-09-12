@@ -5,50 +5,43 @@ title: HCI Seminar
 
 {% include header.html %}
 
-<section id="schedule">
-	<h1>HCI Seminar at MIT CSAIL</h1>
+<main id="main">
+	<section class="section">
+		<div class="wrap">
+			{% assign info = site.data.seminar.info %}
+			<dl class="facts">
+				<div><dt>When</dt><dd>{{ info.time }}</dd></div>
+				<div><dt>Where</dt><dd>{{ info.location }}</dd></div>
+				<div><dt>Lunch with speakers</dt><dd>{{ info.lunch_time }}, {{ info.lunch_location }}</dd></div>
+				<div><dt>Access</dt><dd>{{ info.access }}. <a href="{{ info.subscribe_url }}">Subscribe</a> · <a href="mailto:{{ info.contact_email }}">Contact</a>{% if info.calendar_url %} · <a href="{{ info.calendar_url }}">Calendar</a>{% endif %}</dd></div>
+			</dl>
+			<p class="small organizers"><strong>Organizers:</strong> {{ info.organizers }}<br><strong>Coordinator:</strong> {{ info.coordinator }}</p>
 
-	<br>
-	<br>
-	<p>The HCI seminar meets every other week on the first and third Tuesday of each month.
-	</p>
-	<br>
+			{% for semester in site.data.seminar.schedule %}
+			<h2 class="year">{{ semester.semester }}</h2>
+			<table class="schedule">
+				<tbody>
+					{% for talk in semester.talks %}
+					<tr>
+						<td>{{ talk.date }}</td>
+						<td><span class="speaker">{{ talk.speaker }}</span>{% if talk.affiliation and talk.affiliation != "" %}<span class="affil">{{ talk.affiliation }}</span>{% endif %}{% if talk.note %} <span class="note">({{ talk.note }})</span>{% endif %}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			{% endfor %}
 
- 	<p class="info"  style="padding-bottom:20px">
-		<strong title="When">📅 {{ site.data.seminar.info.time }}</strong><br>
-		📍 {{ site.data.seminar.info.location }}
-		<br>
-		<br>
-		<a href="{{ site.data.seminar.info.subscribe_url }}">📫 Subscribe</a>
-		<a href="mailto:{{ site.data.seminar.info.contact_email }}">✉️ Contact</a>
-		<a href="{{ site.data.seminar.info.calendar_url }}">📅 Calendar</a>
-	</p>
-
-  {% for semester in site.data.seminar.schedule %}
-  <h1>{{ semester.semester }} Talk Schedule</h1>
-  <p>
-    <ul>
-		{% for talk in semester.talks %}
-      <li>
-        <a href="#{{ talk.anchor }}">
-          {{ talk.date }} - {{ talk.speaker }}{% if talk.affiliation %}, {{ talk.affiliation }}{% endif %}.
-        </a>
-      </li>
-		{% endfor %}
-    </ul>
-  </p>
-  {% endfor %}
-
-	<h1>Latest Recorded Talks</h1>
-
-	{% for talk in site.data.seminar.recorded_talks %}
-	<article>
-		<iframe width="470" height="322" src="https://www.youtube.com/embed/{{ talk.youtube_id }}" frameborder="0" allowfullscreen></iframe>
-		<h1>
-			<strong>{{ talk.speaker }} ({{ talk.affiliation }})</strong>
-			"{{ talk.title }}"
-		</h1>
-	</article>
-	{% endfor %}
-
-</section>
+			{% if site.data.seminar.recorded_talks %}
+			<h2 class="year">Recorded talks</h2>
+			<ul class="recordings">
+				{% for talk in site.data.seminar.recorded_talks %}
+				<li>
+					<iframe width="470" height="322" src="https://www.youtube.com/embed/{{ talk.youtube_id }}" title="{{ talk.speaker }}: {{ talk.title }}" frameborder="0" allowfullscreen loading="lazy"></iframe>
+					<p><strong>{{ talk.speaker }}</strong> ({{ talk.affiliation }}), "{{ talk.title }}"</p>
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+	</section>
+</main>

@@ -1,39 +1,34 @@
-<nav class="sticky-nav">
-	<div class="nav-logos">
-		<a href="https://www.csail.mit.edu/" target="_blank" class="nav-logo-link">
-			<img src="{{ '/assets/images/logos/csail.svg' | relative_url }}" alt="MIT CSAIL" class="nav-logo-csail" />
-		</a>
-		<a href="{{ '/' | relative_url }}" class="nav-logo-link">
-			<img src="{{ '/assets/images/logos/mithci.svg' | relative_url }}" alt="MIT HCI" class="nav-logo-hci" />
-		</a>
+{% assign home = '' %}{% if page.url != '/' %}{% assign home = '/' | relative_url %}{% endif %}
+<nav class="topbar" aria-label="Site">
+	<div class="topbar-inner">
+		<a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/images/logos/mithci.svg' | relative_url }}" alt="MIT HCI" width="500" height="250"></a>
+		<ul class="topbar-links">
+			<li><a href="{{ home }}#people">People</a></li>
+			<li><a href="{{ home }}#research">Research</a></li>
+			<li><a href="{{ home }}#classes">Classes</a></li>
+			<li><a href="{{ home }}#seminar">Seminar</a></li>
+			<li><a href="{{ home }}#alumni">Alumni</a></li>
+		</ul>
 	</div>
-	<ul class="nav-menu">
-		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#faculty">People</a></li>
-		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#research">Research</a></li>
-		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#classes">Classes</a></li>
-		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#seminar">Seminar</a></li>
-		<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#alumni">Alumni</a></li>
-	</ul>
 </nav>
 
-<header>
-	<nav class="header-nav">
-		<div class="nav-logos">
-			<a href="https://www.csail.mit.edu/" target="_blank" class="nav-logo-link">
-				<img src="{{ '/assets/images/logos/csail.svg' | relative_url }}" alt="MIT CSAIL" class="nav-logo-csail" />
-			</a>
-		</div>
-		<ul class="nav-menu">
-			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#faculty">People</a></li>
-			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#research">Research</a></li>
-			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#classes">Classes</a></li>
-			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#seminar">Seminar</a></li>
-			<li><a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% endif %}#alumni">Alumni</a></li>
-			</ul>
-	</nav>
-
-	<div class="header-logo">
-		<img src="{{ '/assets/images/logos/mithci-dark.svg' | relative_url }}" alt="MIT HCI" />
-		<p class="header-subtitle"><span class="subtitle-main">human-computer interaction</span> <span class="subtitle-location">@ mit csail</span></p>
+{% if page.hero %}
+<header class="hero">
+	<div class="hero-inner">
+		<img class="hero-mark" src="{{ '/assets/images/logos/mithci-dark.svg' | relative_url }}" alt="" width="500" height="250">
+		<h1 class="hero-title">human-computer interaction <span>@ mit csail</span></h1>
+		<p class="hero-join">
+			<strong>Join us.</strong>
+			PhD applicants: apply to the <a href="http://www.eecs.mit.edu/academics-admissions/graduate-program/admissions">MIT EECS PhD program</a> by December 1, 2026.
+			Postdocs, UROPs, SuperUROPs and MEngs: email individual faculty directly.
+		</p>
 	</div>
 </header>
+{% else %}
+<header class="page-head">
+	<div class="wrap">
+		<h1>{{ page.title }}</h1>
+		{% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
+	</div>
+</header>
+{% endif %}

@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-	<link rel="icon" type="image/svg+xml" href="{{ '/assets/images/logos/mithci-dark.svg' | relative_url }}" />
-	<link rel="alternate icon" type="image/png" href="{{ '/assets/images/logos/mithci-dark.png' | relative_url }}" />
-	<link rel="apple-touch-icon" href="{{ '/assets/images/logos/mithci-dark.png' | relative_url }}" />
-	<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-	<link rel="stylesheet" href="{{ '/assets/css/interactive.css' | relative_url }}" />
-	{% seo %}
+	<meta charset="UTF-8">
+	<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="icon" type="image/svg+xml" href="{{ '/assets/images/logos/mithci-dark.svg' | relative_url }}">
+	<link rel="alternate icon" type="image/png" href="{{ '/assets/images/logos/mithci-dark.png' | relative_url }}">
+	<link rel="apple-touch-icon" href="{{ '/assets/images/logos/mithci-dark.png' | relative_url }}">
+	<link rel="preload" href="{{ '/assets/fonts/ibm-plex-sans-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="{{ '/assets/fonts/ibm-plex-mono-400-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+	{% seo title=false %}
 </head>
 <body>
 {{ content }}
 
-<footer>
-	<p>
-		This website template is open source (MIT licensed). Thanks <a href="https://github.com/LeaVerou/">LeaVerou</a>.
-		<br/><br/>
-		If you have any questions about the website or wish to make changes,<br/>
-		please contact <a href="mailto:andreye@mit.edu">Andre Ye</a> or <a href="mailto:schare@mit.edu">Carmel Schare</a>.
-		<br/>
-		Thank you to our previous webmasters Josh Pollock and Faraz Faruqi.
-		<br/><br/>
-		<a href="https://accessibility.mit.edu/">Accessibility</a>
-		<br/><br/>
-	</p>
-	<a href="http://mit.edu" class="logo"><img src="{{ '/assets/images/logos/mit.svg' | relative_url }}" alt="MIT" /></a>
-	<a href="http://csail.mit.edu" class="logo"><img src="{{ '/assets/images/logos/csail.svg' | relative_url }}" alt="CSAIL" /></a>
+<footer class="site-footer">
+	<div class="wrap">
+		<div class="col">
+			<p>Questions about the website, or changes to make? Contact <a href="mailto:andreye@mit.edu">Andre Ye</a> or <a href="mailto:schare@mit.edu">Carmel Schare</a>.</p>
+			<p>Thank you to our previous webmasters, Josh Pollock and Faraz Faruqi.</p>
+		</div>
+		<div class="col">
+			<p>The site template is open source and MIT licensed, thanks to <a href="https://github.com/LeaVerou/">Lea Verou</a>.</p>
+			<p><a href="https://accessibility.mit.edu/">Accessibility</a></p>
+		</div>
+		<p class="logos">
+			<a href="http://mit.edu" aria-label="MIT"><img src="{{ '/assets/images/logos/mit.svg' | relative_url }}" alt="" width="60" height="32"></a>
+			<a href="http://csail.mit.edu" aria-label="CSAIL"><img src="{{ '/assets/images/logos/csail.svg' | relative_url }}" alt="" width="40" height="32"></a>
+		</p>
+	</div>
 </footer>
 
-<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 </body>
 </html>
