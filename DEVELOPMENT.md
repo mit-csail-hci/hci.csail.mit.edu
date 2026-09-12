@@ -29,8 +29,8 @@ hci.csail.mit.edu/
 │   └── default.html         # Main layout
 ├── assets/
 │   ├── css/
-│   │   ├── style.css        # Main styles
-│   │   └── interactive.css  # Interactive components
+│   │   └── style.css        # The only stylesheet (tokens, layout, components)
+│   ├── fonts/               # Self-hosted IBM Plex Sans (variable) and Plex Mono
 │   ├── js/
 │   │   └── main.js          # JavaScript functionality
 │   └── images/              # Images and logos
@@ -107,50 +107,44 @@ Edit `_data/research.yml`:
 The stylesheets are organized for maintainability:
 
 ### `style.css`
-Main stylesheet with clearly commented sections:
-- Base styles (typography, colors, layout)
-- Header/banner
-- People section (faculty, PhD students)
-- Research section
-- Classes section
-- Seminar section
-- Alumni section
-- Footer
-- Responsive breakpoints
+The single stylesheet, mobile-first, with design tokens at the top (`--orange`,
+`--orange-text`, `--ink`, `--hairline`, `--radius`, `--measure`, `--topbar-h`,
+avatar sizes, font stacks). Sections in order:
+- Fonts and tokens
+- Base and `.wrap` container
+- Top bar and hero (home) / page head (secondary pages)
+- Sections, subheads, year headings
+- People: filter strip, grids, avatars
+- Media figures
+- Collapsibles (`<details data-collapsible>`), research links, plain lists
+- Classes, seminar, Student of the Hour, footer
+- Easter-egg and confetti animations, reduced-motion overrides
 
-### `interactive.css`
-Dynamic and interactive components:
-- Group filtering UI
-- Filtering states and animations
-- Research project cards
-- Easter egg animations
-- Hint popups
+Rules of thumb: one orange (`--orange-text` for text so it passes AA), no box
+shadows, one radius, hairlines for separation, Plex Mono only for numbers,
+dates and counts.
 
 ## JavaScript Functionality
 
-All JavaScript is in `assets/js/main.js` with clear function documentation:
+All JavaScript is in `assets/js/main.js`, wrapped in one IIFE:
 
-- **Scroll effects**: Header overlay on scroll
-- **Section anchors**: Automatic anchor link generation
-- **PhD randomization**: Random ordering of PhD student profiles
-- **External links**: Auto-open in new tabs
-- **Group filtering**: Filter PhD students by research group
-- **Easter eggs**: Fun keyboard interactions (t, h, c keys)
+- **Group filtering**: hides non-matching people and any block left empty
+- **Collapsibles**: `<details data-collapsible>` open on desktop, closed on phones
+- **PhD randomization**: random ordering of student cards on each load
+- **External links**: open in a new tab
+- **Friends video**: brief flash each loop; paused under reduced motion
+- **Student of the Hour**: seeded hourly pick, compact card, past-24 avatar row
+- **Easter eggs**: t (roll), h (rotate), c (reset), i (rain photos)
 
 ## Mobile Responsiveness
 
-The site uses a mobile-first approach with breakpoints at:
+Mobile-first with two breakpoints:
 
-- **768px**: Tablet/small desktop
-- **600px**: Mobile devices
-- **400px**: Small mobile devices
+- **< 640px**: phones (3-up people grid, horizontal filter strip, collapsed
+  research/classes/elsewhere, stacked seminar rows, edge-to-edge media)
+- **< 900px**: tablets (recordings grid falls to one column)
 
-Key mobile optimizations:
-- Full-height banner on mobile
-- Horizontal faculty layout (compact)
-- Vertical PhD student layout (larger pictures)
-- Hidden group filters (show all students)
-- Touch-friendly buttons (44px minimum)
+Check phone layouts at 390px wide; the top bar links must fit without a menu.
 
 ## Profile Pictures
 
