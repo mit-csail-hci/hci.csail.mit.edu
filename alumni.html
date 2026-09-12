@@ -1,35 +1,37 @@
 ---
 layout: default
 title: Alumni
-subtitle: Graduates and former postdocs of the MIT HCI groups, by year.
 ---
 
 {% include header.html %}
 
-<main id="main">
-	<section class="section alumni-page">
-		<div class="wrap">
-			{% for year in site.data.alumni %}
-			{% if year[1] and year[1].size > 0 %}
-			<h2 class="year" id="{{ year[0] }}">{{ year[0] }}</h2>
-			<ul class="people-grid people-grid--small">
-				{% for person in year[1] %}
-				{% assign name_parts = person.name | split: " " %}
-				<li class="person">
-					{% if person.url and person.url != "" %}<a href="{{ person.url }}">{% else %}<span class="nolink">{% endif %}
-						{% if person.image and person.image != "" %}
-						<img class="avatar" src="{{ '/assets/images/profile-pictures/students/' | append: person.image | relative_url }}" alt="" width="160" height="160" loading="lazy">
-						{% else %}
-						<span class="avatar avatar-placeholder" aria-hidden="true">{{ name_parts | first | slice: 0 }}{{ name_parts | last | slice: 0 }}</span>
-						{% endif %}
-						<span class="name">{{ person.name }}</span>
-					{% if person.url and person.url != "" %}</a>{% else %}</span>{% endif %}
-					{% if person.position and person.position != "" %}<span class="position">{{ person.position }}</span>{% endif %}
-				</li>
-				{% endfor %}
-			</ul>
-			{% endif %}
+<section id="previous" class="people alumni">
+	<h1>Alumni</h1>
+
+	{% for year in site.data.alumni %}
+	<div class="alumni-year">
+		<h2 class="seminaryear" id="{{ year[0] }}">{{ year[0] }}</h2>
+		<div class="alumni-grid">
+			{% for person in year[1] %}
+			{% assign name_parts = person.name | split: " " %}
+			{% assign first_initial = name_parts | first | slice: 0 %}
+			{% assign last_initial = name_parts | last | slice: 0 %}
+			<article>
+				{% if person.url and person.url != "" %}<a href="{{ person.url }}" target="_blank">{% endif %}
+				{% if person.image and person.image != "" %}
+				<img src="{{ '/assets/images/profile-pictures/students/' | relative_url }}{{ person.image }}" alt="{{ person.name }}" loading="lazy" />
+				{% else %}
+				<span class="avatar-placeholder" aria-hidden="true">{{ first_initial }}{{ last_initial }}</span>
+				{% endif %}
+				<h3>{{ person.name }}</h3>
+				{% if person.url and person.url != "" %}</a>{% endif %}
+				{% if person.position and person.position != "" %}
+				<span class="position">{{ person.position }}</span>
+				{% endif %}
+			</article>
 			{% endfor %}
 		</div>
-	</section>
-</main>
+	</div>
+	{% endfor %}
+
+</section>
