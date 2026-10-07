@@ -1,4 +1,30 @@
 schedule:
+  - semester: Fall 2026
+    talks:
+      - date: September 15
+        speaker: Ellen Kuhl
+        affiliation: Stanford University
+      - date: September 22
+        speaker: Jodi Forlizzi
+        affiliation: Carnegie Mellon University
+      - date: September 29
+        speaker: Brian A. Smith
+        affiliation: Columbia University
+      - date: October 6
+        speaker: J.D. Zamfirescu-Pereira
+        affiliation: UCLA
+      - date: October 20
+        speaker: Natasha Singer
+        affiliation: The New York Times
+      - date: October 27
+        speaker: Kaitlyn Zhou
+        affiliation: Cornell University
+      - date: November 17
+        speaker: Max Kreminski
+        affiliation: Cornell University
+      - date: December 8
+        speaker: Alex Kale
+        affiliation: University of Chicago
   - semester: Spring 2026
     talks:
       - date: January 13
